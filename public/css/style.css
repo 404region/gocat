@@ -1,0 +1,80 @@
+package css
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+}
+
+.site-wrapper {
+display: flex;
+flex-direction: column;
+min-height: 100vh;
+}
+
+.site-header {
+    text-align: center;
+    background-color: #171723;
+    padding: 0;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.header-image {
+max-width: 100%;
+height: auto;
+max-height: 300px;
+}
+
+.site-title {
+margin: 10px 0 0 0;
+}
+
+.main-nav {
+background-color: #333;
+}
+
+.main-nav ul {
+list-style: none;
+display: flex;
+justify-content: center;
+margin: 0;
+padding: 0;
+}
+
+.main-nav li {
+margin: 0;
+}
+
+.main-nav a {
+color: white;
+text-decoration: none;
+padding: 15px 20px;
+display: block;
+}
+
+.main-nav a:hover {
+background-color: #555;
+}
+
+.main-container {
+display: flex;
+flex: 1;
+}
+
+.sidebar {
+width: 25%;
+padding: 20px;
+background-color: #f0f0f0;
+}
+
+.content {
+width: 75%;
+padding: 20px;
+}
+
+.footer {
+text-align: center;
+padding: 20px;
+background-color: #333;
+color: white;
+}

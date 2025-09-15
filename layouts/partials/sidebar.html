@@ -1,0 +1,12 @@
+<!-- layouts/partials/sidebar.html (или другой файл) -->
+<div class="widget categories">
+  <h3>Категории</h3>
+  <ul>
+    {{ range .Site.Taxonomies.categories }}
+    <li>
+      <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+      <span> ({{ .Count }})</span>
+    </li>
+    {{ end }}
+  </ul>
+</div>

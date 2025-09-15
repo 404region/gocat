@@ -1,0 +1,18 @@
+<!-- layouts/_default/taxonomy.html -->
+{{ define "main" }}
+<h1>Категория: "{{ .Title }}"</h1>
+<div>
+    {{ .Content }}
+</div>
+<div>
+    <ul>
+        <!-- Перебираем все посты в этой категории -->
+        {{ range .Pages }}
+        <li>
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+            <span> - {{ .Date.Format "02.01.2006" }}</span>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
