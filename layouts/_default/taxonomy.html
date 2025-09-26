@@ -1,12 +1,14 @@
 <!-- layouts/_default/taxonomy.html -->
 {{ define "main" }}
-<h1>Категория: "{{ .Title }}"</h1>
+<h1>{{ .Title }}</h1>
 <div>
     {{ .Content }}
 </div>
+<!--
 <div>
-    <ul>
+    <ul>//-->
         <!-- Перебираем все посты в этой категории -->
+<!--
         {{ range .Pages }}
         <li>
             <a href="{{ .Permalink }}">{{ .Title }}</a>
@@ -15,4 +17,5 @@
         {{ end }}
     </ul>
 </div>
+//-->
 {{ end }}

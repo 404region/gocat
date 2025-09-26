@@ -1,0 +1,41 @@
+/* Style for code blocks */
+.chroma {
+    background-color: #f6f8fa;
+    border-radius: 6px;
+    padding: 1rem;
+    margin: 1rem 0;
+    overflow-x: auto;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Line numbers */
+.chroma .lnt {
+    color: #6a737d;
+    padding-right: 1rem;
+    user-select: none;
+}
+
+/* Go-specific syntax highlighting */
+.chroma .kn { color: #d73a49; } /* keyword */
+.chroma .kt { color: #d73a49; } /* keyword type */
+.chroma .kd { color: #d73a49; } /* keyword declaration */
+
+.chroma .nx { color: #6f42c1; } /* name other */
+.chroma .nf { color: #6f42c1; } /* name function */
+
+.chroma .s { color: #032f62; } /* string */
+.chroma .dl { color: #032f62; } /* string delimiter */
+
+.chroma .o { color: #d73a49; } /* operator */
+
+.chroma .c { color: #6a737d; } /* comment */
+.chroma .c1 { color: #6a737d; } /* comment single */
+
+.chroma .m { color: #005cc5; } /* number */
+.chroma .mi { color: #005cc5; } /* number integer */
+
+.chroma .p { color: #24292e; } /* punctuation */
+
+.chroma .bu { color: #e36209; } /* builtin */

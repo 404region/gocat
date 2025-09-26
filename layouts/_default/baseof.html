@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ .Title }} | Go-Котяра</title>
+  <title>{{ .Title }} </title>
   <link rel="stylesheet" href="/css/reset.css">
   <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/playground.css">
+  <link rel="stylesheet" href="/css/links.css">
 </head>
 <body>
 <div class="site-wrapper">
@@ -27,5 +30,8 @@
     <p>© {{ now.Year }} Go-Котяра</p>
   </footer>
 </div>
+<!-- JavaScript песочницы -->
+{{ $playgroundJS := resources.Get "js/go-playground.js" | minify | fingerprint }}
+<script src="{{ $playgroundJS.Permalink }}"></script>
 </body>
 </html>

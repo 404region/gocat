@@ -1,8 +1,19 @@
 baseURL = 'https://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Go-Котяра | Go Cat'
 theme = 'hugo-book'
 [[menu.main]]
   name = "Категории"
   pageRef = "/categories"
   weight = 20
+[markup] # Подсветка синтаксиса
+  [markup.highlight]
+    codeFences = true
+    hl_Lines = ''
+    lineNoStart = 1
+    lineNos = true
+    lineNumbersInTable = true
+    noClasses = false
+    style = 'github' #, vs, dracula 'github' # или monokai
+[params]
+  showHeadingAnchors = false
