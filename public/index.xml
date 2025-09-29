@@ -9,11 +9,25 @@
     <lastBuildDate>Thu, 18 Sep 2025 20:55:17 +0300</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Index.ru</title>
+      <title>Оффлайн режим</title>
       <link>http://localhost:1313/tour/1/index.ru/</link>
       <pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate>
       <guid>http://localhost:1313/tour/1/index.ru/</guid>
-      <description>&lt;p&gt;Ля-ля-ля&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;раздел-1-работа-в-автономном-режиме-при-желании&#34;&gt;&#xA;Раздел 1. Работа в автономном режиме (при желании)&#xA;&lt;/h1&gt;&lt;p&gt;Официальный Tour of Go также доступен в виде самостоятельной программы, которую можно использовать без доступа к Интернету. Он компилирует и запускает примеры кода на вашем локальном компьютере.&lt;/p&gt;&#xA;&lt;p&gt;Чтобы запустить тур локально, вам сначала потребуется установить Go, а затем выполнить команду в терминале вашей операционной системы (либо в терминале IDE):&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;&#xA;&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1&#xA;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&#xA;&lt;td class=&#34;lntd&#34;&gt;&#xA;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-go&#34; data-lang=&#34;go&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;k&#34;&gt;go&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;install&lt;/span&gt;&lt;span class=&#34;w&#34;&gt; &lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;golang&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;org&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;x&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;website&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;/&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;tour&lt;/span&gt;&lt;span class=&#34;err&#34;&gt;@&lt;/span&gt;&lt;span class=&#34;nx&#34;&gt;latest&lt;/span&gt;&lt;span class=&#34;w&#34;&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;&lt;p&gt;Это поместит бинарный файл tour в каталог bin вашего GOPATH. Когда вы запустите программу тура, она откроет веб-браузер с локальной версией тура.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>О песочнице</title>
+      <link>http://localhost:1313/tour/2/index.ru/</link>
+      <pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate>
+      <guid>http://localhost:1313/tour/2/index.ru/</guid>
+      <description>&lt;p&gt;Тур является интерактивным. Нажмите кнопку Run (Выполнить) сейчас (или нажмите Shift + Enter), чтобы скомпилировать и запустить программу на удаленном сервере. Результат отображается ниже кода.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Урок 1</title>
+      <link>http://localhost:1313/tour/3/index.ru/</link>
+      <pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate>
+      <guid>http://localhost:1313/tour/3/index.ru/</guid>
+      <description>&lt;p&gt;Тур является интерактивным. Нажмите кнопку Run (Выполнить) сейчас (или нажмите Shift + Enter), чтобы скомпилировать и запустить программу на удаленном сервере. Результат отображается ниже кода.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Struct 1</title>
@@ -35,6 +49,13 @@
       <pubDate>Sun, 14 Sep 2025 05:34:05 +0300</pubDate>
       <guid>http://localhost:1313/posts/moya-pervaya-statya/</guid>
       <description>&lt;p&gt;Test&lt;/p&gt;&#xA;&lt;p&gt;test&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tour of Go</title>
+      <link>http://localhost:1313/categories/tour-of-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/categories/tour-of-go/</guid>
+      <description></description>
     </item>
   </channel>
 </rss>

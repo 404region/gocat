@@ -1,0 +1,15 @@
+<nav class="breadcrumb" aria-label="Хлебные крошки">
+    {{ if .IsHome }}
+    <span class="breadcrumb-item">Главная</span>
+    {{ else }}
+    <a href="{{ "/" | relURL }}" class="breadcrumb-item">Главная</a>
+    {{ if .Parent }}
+    {{ if not .Parent.IsHome }}
+    <span class="breadcrumb-separator">→</span>
+    <a href="{{ .Parent.RelPermalink }}" class="breadcrumb-item">{{ .Parent.Title }}</a>
+    {{ end }}
+    {{ end }}
+    <span class="breadcrumb-separator">→</span>
+    <span class="breadcrumb-item current">{{ .Title }}</span>
+    {{ end }}
+</nav>

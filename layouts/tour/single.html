@@ -1,0 +1,24 @@
+{{ define "main" }}
+<article class="lesson">
+    <header class="lesson-header">
+
+        <h1>{{ .Title }}</h1>
+        <div class="lesson-meta">
+            <time>{{ .Date.Format "02.01.2006" }}</time>
+            {{ with .Params.categories }}
+            <div class="categories">
+                {{ range . }}
+                <a href="{{ "/categories/" | relURL }}{{ . | urlize }}/" class="category-tag">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </header>
+
+    <div class="lesson-content">
+        {{ .Content }}
+    </div>
+
+    {{ partial "lesson-nav.html" . }}
+</article>
+{{ end }}

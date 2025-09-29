@@ -1,6 +1,6 @@
 /* Стили для ссылок в основном контенте */
 .content a {
-    color: #0c5fba; /* Спокойный синий */
+    color: #022b60; /* Более темный синий при наведении */
     text-decoration: none;
     border-bottom: 1px solid rgba(26, 107, 196, 0.2);
     transition: all 0.2s ease-in-out;
@@ -8,9 +8,9 @@
 }
 
 .content a:hover {
-    color: #022b60; /* Более темный синий при наведении */
+    color: #0c5fba; /* Спокойный синий */
     border-bottom-color: rgba(13, 77, 156, 0.4);
-    text-decoration: un;
+    text-decoration: underline;
 }
 
 .content a:active {
@@ -24,14 +24,27 @@
 }
 
 /* Ссылки в заголовках */
+.content h1.title-link a,
+.content h2.title-link a,
+.content h3.title-link a,
+.content h4.title-link a,
+.content h5.title-linka,
+.content h6.title-link a {
+    border-bottom: none;
+    color: inherit;
+}
+
 .content h1 a,
 .content h2 a,
 .content h3 a,
 .content h4 a,
 .content h5 a,
 .content h6 a {
-    border-bottom: none;
-    color: inherit;
+    color: #022b60;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26, 107, 196, 0.2);
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
 }
 
 .content h1 a:hover,
@@ -40,7 +53,7 @@
 .content h4 a:hover,
 .content h5 a:hover,
 .content h6 a:hover {
-    color: #023063;
+    color: #0c5fba; /* Спокойный синий */
     border-bottom: 1px solid rgba(26, 107, 196, 0.3);
 }
 

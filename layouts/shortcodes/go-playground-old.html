@@ -1,0 +1,35 @@
+
+<div class="go-playground" id="playground-{{ .Get "id" | default "default" }}">
+<div class="playground-header">
+<h4>Go Playground</h4>
+<div class="playground-actions">
+<button class="playground-btn" onclick="runGoCode('{{ .Get "id" | default "default" }}')">
+▶ Запустить
+</button>
+<button class="playground-btn" onclick="formatGoCode('{{ .Get "id" | default "default" }}')">
+🛠 Форматировать
+</button>
+<button class="playground-btn" onclick="resetGoCode('{{ .Get "id" | default "default" }}')">
+⟳ Сбросить
+</button>
+</div>
+</div>
+
+<div class="code-editor">
+<textarea
+id="go-code-{{ .Get "id" | default "default" }}"
+class="go-code-textarea"
+placeholder="Введите ваш Go код здесь..."
+spellcheck="false">{{ .Inner | htmlUnescape }}</textarea>
+</div>
+
+<div class="playground-output">
+<div class="output-header">
+<span>Вывод:</span>
+<button class="clear-btn" onclick="clearOutput('{{ .Get "id" | default "default" }}')">
+Очистить
+</button>
+</div>
+<pre id="output-{{ .Get "id" | default "default" }}" class="output-content"></pre>
+</div>
+</div>

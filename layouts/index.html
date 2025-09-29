@@ -6,5 +6,23 @@
         <p>Ваш путеводитель по миру Golang на русском языке.</p>
         <!-- Сюда потом можно будет вывести список последних статей -->
     </section>
+    <section class="tour-preview">
+        <h2 class="title-link"><a href="{{ "/tour/" | relURL }}" class="btn-secondary">🎓 A Tour of Go</a></h2>
+        <p>Начните изучение Go с нашего пошагового тура <a href="{{ "/tour/" | relURL }}" class="btn-secondary">Tour Of Go</a></p>
+
+        <!--<div class="tour-lessons">
+            {{ $tourPages := where .Site.RegularPages "Section" "tour" }}
+            {{ $firstLesson := index (sort $tourPages "Weight") 0 }}
+
+            {{ if $firstLesson }}
+            <div class="featured-lesson">
+                <h3><a href="{{ $firstLesson.RelPermalink }}">{{ $firstLesson.Title }}</a></h3>
+                <p>{{ $firstLesson.Description }}</p>
+               <a href="{{ $firstLesson.RelPermalink }}" class="btn-primary">Первый урок</a>
+                <a href="{{ "/tour/" | relURL }}" class="btn-secondary">Начать обучение →</a>
+            </div>
+            {{ end }}
+        </div>-->
+    </section>
 </div>
 {{ end }}

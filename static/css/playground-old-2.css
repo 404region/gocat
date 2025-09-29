@@ -28,7 +28,7 @@
 
 .playground-header h4 {
     margin: 0;
-    color: #e2e8f0;
+    color: #2d3748;
     font-size: 1.1rem;
     font-weight: 600;
     display: flex;
@@ -305,7 +305,7 @@
 
 /* Подсветка синтаксиса в реальном времени (опционально) */
 .go-code-textarea:focus {
-    background: linear-gradient(90deg, #1C2C4CFF 0%, #1c2537 100%);
+    background: linear-gradient(90deg, #fafafa 0%, #334 100%);
 }
 
 /* Анимация появления */

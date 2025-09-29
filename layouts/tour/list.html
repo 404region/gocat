@@ -1,0 +1,26 @@
+{{ define "main" }}
+<div class="tour-page">
+    <header class="tour-header">
+        <h1>{{ .Title }}</h1>
+        <p class="description">{{ .Description }}</p>
+    </header>
+
+    <div class="tour-content">
+        {{ .Content }}
+    </div>
+
+    <div class="lessons-list">
+        <h2>Переводы</h2>
+        <div class="lessons-grid">
+            {{ range .Pages.ByWeight }}
+            <article class="lesson-card">
+                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+                <!--<p>{{ .Description }}</p>
+                <a href="{{ .RelPermalink }}" class="btn">Читать →</a>
+                //-->
+            </article>
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ end }}

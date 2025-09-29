@@ -2,13 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-18T20:55:17+03:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/tour/1/index.ru/</loc>
     <lastmod>2025-09-18T20:55:17+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tour/</loc>
+    <lastmod>2023-10-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/2/index.ru/</loc>
+    <lastmod>2025-09-18T20:55:17+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/3/index.ru/</loc>
+    <lastmod>2025-09-18T20:55:17+03:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
     <lastmod>2025-09-18T20:55:17+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
@@ -33,5 +39,7 @@
     <lastmod>2025-09-14T05:34:05+03:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/categories/tour-of-go/</loc>
   </url>
 </urlset>

@@ -1,0 +1,10 @@
+<ul class="tour-lessons-list">
+    {{ range where .Site.Pages "Section" "tour" }}
+    {{ if ne .Kind "section" }}
+    <li>
+        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        {{ with .Description }}<span class="lesson-desc"> - {{ . }}</span>{{ end }}
+    </li>
+    {{ end }}
+    {{ end }}
+</ul>
