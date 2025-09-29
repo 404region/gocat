@@ -1,0 +1,183 @@
+<div class="go-playground" id="playground-{{ .Get "id" | default "default" }}">
+<div class="playground-header">
+    <h4>Go Playground</h4>
+    <div class="playground-actions">
+        <button class="playground-btn" onclick="runGoCode('{{ .Get "id" | default "default" }}')">
+        ▶ Запустить
+        </button>
+        <button class="playground-btn" onclick="formatGoCode('{{ .Get "id" | default "default" }}')">
+        🛠 Форматировать
+        </button>
+        <button class="playground-btn" onclick="resetGoCode('{{ .Get "id" | default "default" }}')">
+        ⟳ Сбросить
+        </button>
+    </div>
+</div>
+
+<!-- Двойной редактор: textarea для ввода + pre для подсветки -->
+<div class="editor-container">
+    <textarea
+            id="go-code-{{ .Get "id" | default "default" }}"
+    class="go-code-textarea"
+    placeholder="Введите ваш Go код здесь..."
+    spellcheck="false"
+    oninput="updateHighlight('{{ .Get "id" | default "default" }}')"
+    onscroll="syncScroll('{{ .Get "id" | default "default" }}')"
+    >{{ .Inner | htmlUnescape }}</textarea>
+    <pre class="go-code-highlight" id="highlight-{{ .Get "id" | default "default" }}"><code class="language-go">{{ .Inner | htmlUnescape }}</code></pre>
+</div>
+
+<div class="playground-output">
+    <div class="output-header">
+        <span>Вывод:</span>
+        <button class="clear-btn" onclick="clearOutput('{{ .Get "id" | default "default" }}')">
+        Очистить
+        </button>
+    </div>
+    <pre id="output-{{ .Get "id" | default "default" }}" class="output-content"></pre>
+</div>
+</div>
+
+<!-- Подключаем библиотеку для подсветки -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-go.min.js"></script>
+
+<script>
+    function runGoCode(id) {
+        const textarea = document.getElementById(`go-code-${id}`);
+        const outputElement = document.getElementById(`output-${id}`);
+        const code = textarea.value;
+
+        outputElement.textContent = 'Выполнение...';
+
+        // Используем Go Playground API
+        fetch('https://play.golang.org/compile', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `body=${encodeURIComponent(code)}`
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.Errors) {
+                    outputElement.textContent = 'Ошибка: ' + data.Errors;
+                } else {
+                    let output = '';
+                    if (data.Events) {
+                        data.Events.forEach(event => {
+                            if (event.Message) {
+                                output += event.Message;
+                            }
+                        });
+                    }
+                    outputElement.textContent = output || 'Программа выполнена (нет вывода)';
+                }
+            })
+            .catch(error => {
+                outputElement.textContent = 'Ошибка: ' + error.message;
+            });
+    }
+
+    function updateHighlight(id) {
+        const textarea = document.getElementById(`go-code-${id}`);
+        const highlight = document.getElementById(`highlight-${id}`);
+        const code = textarea.value;
+
+        // Обновляем подсвеченный код
+        highlight.innerHTML = code ? Prism.highlight(code, Prism.languages.go, 'go') : '';
+
+        // Синхронизируем высоту
+        highlight.style.height = textarea.scrollHeight + 'px';
+    }
+
+    function syncScroll(id) {
+        const textarea = document.getElementById(`go-code-${id}`);
+        const highlight = document.getElementById(`highlight-${id}`);
+        highlight.scrollTop = textarea.scrollTop;
+        highlight.scrollLeft = textarea.scrollLeft;
+    }
+
+    function formatGoCode(id) {
+        const textarea = document.getElementById(`go-code-${id}`);
+        const code = textarea.value;
+
+        // Здесь можно добавить вызов gofmt через API
+        // Пока просто переподсвечиваем код
+        updateHighlight(id);
+    }
+
+    function resetGoCode(id) {
+        const textarea = document.getElementById(`go-code-${id}`);
+        textarea.value = 'package main\n\nimport "fmt"\n\nfunc main() {\n    fmt.Println("Hello, World!")\n}';
+        updateHighlight(id);
+    }
+
+    function clearOutput(id) {
+        const outputElement = document.getElementById(`output-${id}`);
+        outputElement.textContent = '';
+    }
+
+    // Инициализация при загрузке
+    document.addEventListener('DOMContentLoaded', function() {
+        // Находим все playground-ы и инициализируем подсветку
+        const playgrounds = document.querySelectorAll('.go-playground');
+        playgrounds.forEach(playground => {
+            const id = playground.id.replace('playground-', '');
+            updateHighlight(id);
+        });
+    });
+</script>
+
+<style>
+    .editor-container {
+        position: relative;
+        background: #f5f5f5;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .go-code-textarea {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        padding: 1rem;
+        border: none;
+        background: transparent;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        color: transparent;
+        caret-color: black; /* Цвет курсора */
+        resize: none;
+        z-index: 2;
+        overflow: auto;
+        white-space: pre;
+    }
+
+    .go-code-highlight {
+        margin: 0;
+        padding: 1rem;
+        background: transparent;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 14px;
+        line-height: 1.5;
+        overflow: auto;
+        min-height: 200px;
+    }
+
+    .go-code-highlight code {
+        background: transparent !important;
+    }
+
+    /* Убедимся, что Prism не добавляет лишние стили */
+    .token.keyword { color: #07a; }
+    .token.string { color: #690; }
+    .token.comment { color: #999; }
+    .token.function { color: #DD4A68; }
+    .token.number { color: #905; }
+</style>

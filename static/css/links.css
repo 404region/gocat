@@ -155,7 +155,7 @@
 /* Темная тема (опционально) */
 @media (prefers-color-scheme: dark) {
     .content a {
-        color: #64b5f6; /* Более светлый синий для темной темы */
+        color: #022b60; /* Более светлый синий для темной темы */
         border-bottom-color: rgba(100, 181, 246, 0.3);
     }
 

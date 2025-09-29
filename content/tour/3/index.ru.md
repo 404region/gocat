@@ -1,9 +1,21 @@
 ---
-title: "Урок 1"
+title: "3. Заголовок"
 date: 2025-09-18T20:55:17+03:00
 categories: ["Tour of Go"]
 weight: 3
 # bookComments: false
 # bookSearchExclude: false
 ---
-Тур является интерактивным. Нажмите кнопку Run (Выполнить) сейчас (или нажмите Shift + Enter), чтобы скомпилировать и запустить программу на удаленном сервере. Результат отображается ниже кода.
+
+
+
+{{< go-playground id="example1" >}}
+package main
+
+import "fmt"
+
+func main() {
+fmt.Println("Привет от Go Котяры!")
+fmt.Println("2 + 2 =", 2+2)
+}
+{{< /go-playground >}} 

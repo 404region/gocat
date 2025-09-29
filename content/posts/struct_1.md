@@ -1,5 +1,5 @@
 ---
-title: "Struct 1"
+title: "Struct 2"
 date: 2025-09-16T20:41:59+03:00
 # bookComments: false
 # bookSearchExclude: false
