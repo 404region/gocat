@@ -1,6 +1,6 @@
 ---
 title: "2. Работа в автономном режиме"
-date: 2025-09-18T20:55:17+03:00
+date: 2025-09-19T20:55:17+03:00
 categories: ["Tour of Go"]
 weight: 2
 # bookComments: false

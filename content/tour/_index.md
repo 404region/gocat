@@ -3,7 +3,7 @@ title: "Описание раздела Tour of Go"
 categories: ["Tour of Go"]
 date: 2023-10-25
 draft: false
-weight: 2
+weight: 
 ---
 Это неофициальный литературный перевод руководства [«Tour of Go» с официального сайта Golang](https://go.dev/tour/welcome/1).
 
