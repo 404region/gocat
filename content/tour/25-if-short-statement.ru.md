@@ -1,6 +1,6 @@
 ---
 title: "25. Цикл if с краткой инструкцией"
-date: 2025-09-24
+date: 2025-09-27
 categories: ["Tour of Go"]
 weight: 25
 # bookComments: false

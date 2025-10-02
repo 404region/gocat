@@ -1,6 +1,6 @@
 ---
 title: "23. Бесконечный цикл"
-date: 2025-09-24
+date: 2025-09-27
 categories: ["Tour of Go"]
 weight: 23
 # bookComments: false

@@ -1,6 +1,6 @@
 ---
 title: "27. Упражнение: Циклы и функции"
-date: 2025-09-24
+date: 2025-09-28
 categories: ["Tour of Go"]
 weight: 27
 # bookComments: false

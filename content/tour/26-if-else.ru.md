@@ -1,6 +1,6 @@
 ---
 title: "26. Условие if с else"
-date: 2025-09-24
+date: 2025-09-28
 categories: ["Tour of Go"]
 weight: 26
 # bookComments: false
