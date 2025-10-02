@@ -1,11 +1,12 @@
 ---
-title: "19. "
-date: 2025-09-24
+title: "21. Цикл for (продолжение)"
+date: 2025-09-27
 categories: ["Tour of Go"]
-weight: 19
+weight: 21
 # bookComments: false
 # bookSearchExclude: false
 ---
+Начальная и завершающая инструкции являются необязательными.
 
 {{< go-playground id="example1" >}}
 package main

@@ -1,6 +1,6 @@
 ---
 title: "19. Числовые константы"
-date: 2025-09-24
+date: 2025-09-26
 categories: ["Tour of Go"]
 weight: 19
 # bookComments: false

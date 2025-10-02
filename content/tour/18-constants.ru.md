@@ -1,6 +1,6 @@
 ---
 title: "18. Константы"
-date: 2025-09-24
+date: 2025-09-26
 categories: ["Tour of Go"]
 weight: 18
 # bookComments: false

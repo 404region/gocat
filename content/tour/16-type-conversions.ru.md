@@ -1,6 +1,6 @@
 ---
 title: "16. Преобразования типов  "
-date: 2025-09-24
+date: 2025-09-25
 categories: ["Tour of Go"]
 weight: 16
 # bookComments: false

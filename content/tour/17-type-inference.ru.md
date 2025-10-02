@@ -1,6 +1,6 @@
 ---
 title: "17. Вывод типов"
-date: 2025-09-24
+date: 2025-09-25
 categories: ["Tour of Go"]
 weight: 17
 # bookComments: false

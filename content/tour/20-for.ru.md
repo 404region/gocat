@@ -1,8 +1,8 @@
 ---
 title: "20. Цикл for"
-date: 2025-09-24
+date: 2025-09-26
 categories: ["Tour of Go"]
-weight: 19
+weight: 20
 # bookComments: false
 # bookSearchExclude: false
 ---
