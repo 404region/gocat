@@ -28,7 +28,7 @@
 
 .playground-header h4 {
     margin: 0;
-    color: #e2e8f0;
+    color: #2d3748; /* ИСПРАВЛЕНО: было #e2e8f0 (слишком светлый) */
     font-size: 1.1rem;
     font-weight: 600;
     display: flex;
@@ -86,13 +86,32 @@
 .code-editor {
     border-bottom: 1px solid #e2e8f0;
     position: relative;
+    display: flex; /* ДОБАВЛЕНО: для правильного отображения нумерации строк */
+}
+
+.line-numbers {
+    background-color: #f6f8fa;
+    border-right: 1px solid #e1e4e8;
+    padding: 1.5rem 0.5rem; /* ИСПРАВЛЕНО: выравнивание с textarea */
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace; /* ДОБАВЛЕНО: тот же шрифт */
+    font-size: 14px;
+    line-height: 1.5;
+    color: #6a737d;
+    text-align: right;
+    user-select: none;
+    white-space: pre;
+    min-height: 200px;
+    overflow: hidden;
+    flex-shrink: 0;
+    width: 60px; /* ДОБАВЛЕНО: фиксированная ширина */
 }
 
 .go-code-textarea {
-    width: 100%;
+    flex: 1;
     min-height: 300px;
     padding: 1.5rem;
     border: none;
+    border-left: none; /* ДОБАВЛЕНО: убрать границу слева */
     resize: vertical;
     font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
     font-size: 14px;
@@ -101,6 +120,7 @@
     color: #2d3748;
     tab-size: 4;
     transition: background-color 0.3s ease;
+    margin: 0; /* ДОБАВЛЕНО: убрать отступы */
 }
 
 .go-code-textarea:focus {
@@ -182,30 +202,7 @@
     border-radius: 3px;
 }
 
-/* Номера строк в редакторе (опционально) */
-.code-editor.with-line-numbers {
-    position: relative;
-    padding-left: 3rem;
-}
-
-.code-editor.with-line-numbers::before {
-    content: attr(data-line-numbers);
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 2.5rem;
-    background: #f0f4f8;
-    border-right: 1px solid #e2e8f0;
-    padding: 1.5rem 0.5rem;
-    font-family: 'Fira Code', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #718096;
-    text-align: right;
-    white-space: pre;
-    overflow: hidden;
-}
+/* УДАЛЕНО: дублирующие стили для .code-editor.with-line-numbers */
 
 /* Индикатор загрузки */
 .loading-indicator {
@@ -265,6 +262,12 @@
         font-size: 13px;
     }
 
+    .line-numbers {
+        padding: 1rem 0.5rem; /* ИСПРАВЛЕНО: адаптивный padding */
+        font-size: 13px;
+        width: 50px; /* ИСПРАВЛЕНО: уменьшенная ширина для мобильных */
+    }
+
     .output-content {
         padding: 1rem;
         max-height: 300px;
@@ -293,6 +296,16 @@
         border-bottom-color: #4a5568;
     }
 
+    .playground-header h4 {
+        color: #e2e8f0; /* ИСПРАВЛЕНО: светлый цвет для темной темы */
+    }
+
+    .line-numbers {
+        background-color: #1a202c; /* ИСПРАВЛЕНО: темный фон */
+        border-right-color: #4a5568; /* ИСПРАВЛЕНО: темная граница */
+        color: #718096; /* ИСПРАВЛЕНО: темный цвет текста */
+    }
+
     .go-code-textarea {
         background: #1a202c;
         color: #e2e8f0;
@@ -303,10 +316,7 @@
     }
 }
 
-/* Подсветка синтаксиса в реальном времени (опционально) */
-.go-code-textarea:focus {
-    background: linear-gradient(90deg, #1C2C4CFF 0%, #1c2537 100%);
-}
+/* УДАЛЕНО: дублирующий стиль .go-code-textarea:focus */
 
 /* Анимация появления */
 .go-playground {
@@ -341,3 +351,5 @@
 .go-playground.running {
     border-color: #f6e05e;
 }
+
+/* УДАЛЕНО: дублирующие стили .code-editor и .line-numbers в конце */

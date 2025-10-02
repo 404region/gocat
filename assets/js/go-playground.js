@@ -89,6 +89,66 @@ function initCodeEditors() {
         });
     });
 }
+// Функции для нумерации строк
+function updateLineNumbers(id) {
+    const textarea = document.getElementById(`go-code-${id}`);
+    const lineNumbers = document.getElementById(`line-numbers-${id}`);
+    const lines = textarea.value.split('\n').length;
+
+    let numbers = '';
+    for (let i = 1; i <= lines; i++) {
+        numbers += i + '\n';
+    }
+    lineNumbers.innerHTML = numbers;
+}
+
+function syncScroll(id) {
+    const textarea = document.getElementById(`go-code-${id}`);
+    const lineNumbers = document.getElementById(`line-numbers-${id}`);
+    lineNumbers.scrollTop = textarea.scrollTop;
+}
+
+// Обновите функцию initCodeEditors, добавив инициализацию нумерации:
+function initCodeEditors() {
+    document.querySelectorAll('.go-code-textarea').forEach(textarea => {
+        textarea.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                e.preventDefault();
+                const start = this.selectionStart;
+                const end = this.selectionEnd;
+
+                this.value = this.value.substring(0, start) +
+                    '    ' +
+                    this.value.substring(end);
+
+                this.selectionStart = this.selectionEnd = start + 4;
+            }
+        });
+
+        // Инициализация нумерации для каждого редактора
+        const id = textarea.id.replace('go-code-', '');
+        updateLineNumbers(id);
+
+        // Обновление нумерации при вводе
+        textarea.addEventListener('input', function() {
+            updateLineNumbers(id);
+        });
+
+        // Синхронизация прокрутки
+        textarea.addEventListener('scroll', function() {
+            syncScroll(id);
+        });
+    });
+}
+
+// Также обновите функцию resetGoCode для сброса нумерации:
+function resetGoCode(playgroundId) {
+    const textarea = document.getElementById(`go-code-${playgroundId}`);
+    const output = document.getElementById(`output-${playgroundId}`);
+    textarea.value = '';
+    output.textContent = '';
+    updateLineNumbers(playgroundId); // Добавьте эту строку
+}
 
 // Инициализация после загрузки страницы
 document.addEventListener('DOMContentLoaded', initCodeEditors);

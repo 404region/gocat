@@ -1,4 +1,3 @@
-
 <div class="go-playground" id="playground-{{ .Get "id" | default "default" }}">
 <div class="playground-header">
     <h4>Go Playground</h4>
@@ -16,11 +15,14 @@
 </div>
 
 <div class="code-editor">
+    <div class="line-numbers" id="line-numbers-{{ .Get "id" | default "default" }}"></div>
 <textarea
         id="go-code-{{ .Get "id" | default "default" }}"
-    class="go-code-textarea"
-    placeholder="Введите ваш Go код здесь..."
-    spellcheck="false">{{ .Inner | htmlUnescape }}</textarea>
+class="go-code-textarea"
+placeholder="Введите ваш Go код здесь..."
+spellcheck="false"
+oninput="updateLineNumbers('{{ .Get "id" | default "default" }}')"
+onscroll="syncScroll('{{ .Get "id" | default "default" }}')">{{ .Inner | htmlUnescape }}</textarea>
 </div>
 
 <div class="playground-output">
