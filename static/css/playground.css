@@ -28,7 +28,7 @@
 
 .playground-header h4 {
     margin: 0;
-    color: #2d3748; /* ИСПРАВЛЕНО: было #e2e8f0 (слишком светлый) */
+    color: #2d3748;
     font-size: 1.1rem;
     font-weight: 600;
     display: flex;
@@ -86,24 +86,25 @@
 .code-editor {
     border-bottom: 1px solid #e2e8f0;
     position: relative;
-    display: flex; /* ДОБАВЛЕНО: для правильного отображения нумерации строк */
+    display: flex;
+    background: #fafafa;
 }
 
 .line-numbers {
     background-color: #f6f8fa;
     border-right: 1px solid #e1e4e8;
-    padding: 1.5rem 0.5rem; /* ИСПРАВЛЕНО: выравнивание с textarea */
-    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace; /* ДОБАВЛЕНО: тот же шрифт */
+    padding: 1.5rem 0.5rem;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
     font-size: 14px;
     line-height: 1.5;
     color: #6a737d;
     text-align: right;
     user-select: none;
     white-space: pre;
-    min-height: 200px;
     overflow: hidden;
     flex-shrink: 0;
-    width: 60px; /* ДОБАВЛЕНО: фиксированная ширина */
+    width: 60px;
+    box-sizing: border-box;
 }
 
 .go-code-textarea {
@@ -111,7 +112,7 @@
     min-height: 300px;
     padding: 1.5rem;
     border: none;
-    border-left: none; /* ДОБАВЛЕНО: убрать границу слева */
+    border-left: none;
     resize: vertical;
     font-family: 'Fira Code', 'Monaco', 'Consolas', 'Courier New', monospace;
     font-size: 14px;
@@ -120,7 +121,8 @@
     color: #2d3748;
     tab-size: 4;
     transition: background-color 0.3s ease;
-    margin: 0; /* ДОБАВЛЕНО: убрать отступы */
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .go-code-textarea:focus {
@@ -138,7 +140,6 @@
 .playground-output {
     background: #1a202c;
     color: #e2e8f0;
-    border-top: 1px solid #2d3748;
 }
 
 .output-header {
@@ -181,58 +182,6 @@
     background: #1a202c;
 }
 
-/* Стили для вывода программы */
-.output-content.success {
-    color: #68d391; /* Зеленый для успешного выполнения */
-}
-
-.output-content.error {
-    color: #fc8181; /* Красный для ошибок */
-}
-
-.output-content.running {
-    color: #f6e05e; /* Желтый для процесса выполнения */
-}
-
-/* Строки с ошибками */
-.output-content .error-line {
-    color: #fc8181;
-    background: rgba(252, 129, 129, 0.1);
-    padding: 2px 4px;
-    border-radius: 3px;
-}
-
-/* УДАЛЕНО: дублирующие стили для .code-editor.with-line-numbers */
-
-/* Индикатор загрузки */
-.loading-indicator {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid transparent;
-    border-top: 2px solid #00add8;
-    border-radius: 50%;
-    animation: spin 1s linear infinite;
-    margin-right: 0.5rem;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* Статус бар */
-.playground-status {
-    padding: 0.5rem 1.5rem;
-    background: #f7fafc;
-    border-top: 1px solid #e2e8f0;
-    font-size: 0.8rem;
-    color: #718096;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 /* Адаптивность */
 @media (max-width: 768px) {
     .go-playground {
@@ -263,9 +212,9 @@
     }
 
     .line-numbers {
-        padding: 1rem 0.5rem; /* ИСПРАВЛЕНО: адаптивный padding */
+        padding: 1rem 0.5rem;
         font-size: 13px;
-        width: 50px; /* ИСПРАВЛЕНО: уменьшенная ширина для мобильных */
+        width: 50px;
     }
 
     .output-content {
@@ -297,13 +246,13 @@
     }
 
     .playground-header h4 {
-        color: #e2e8f0; /* ИСПРАВЛЕНО: светлый цвет для темной темы */
+        color: #e2e8f0;
     }
 
     .line-numbers {
-        background-color: #1a202c; /* ИСПРАВЛЕНО: темный фон */
-        border-right-color: #4a5568; /* ИСПРАВЛЕНО: темная граница */
-        color: #718096; /* ИСПРАВЛЕНО: темный цвет текста */
+        background-color: #1a202c;
+        border-right-color: #4a5568;
+        color: #718096;
     }
 
     .go-code-textarea {
@@ -315,42 +264,3 @@
         background: #1a202c;
     }
 }
-
-/* УДАЛЕНО: дублирующий стиль .go-code-textarea:focus */
-
-/* Анимация появления */
-.go-playground {
-    animation: slideInUp 0.5s ease-out;
-}
-
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* Индикатор изменений */
-.go-playground.modified .playground-header {
-    background: linear-gradient(135deg, #fffaf0 0%, #feebc8 100%);
-}
-
-/* Стили для разных состояний */
-.go-playground.success {
-    border-color: #68d391;
-}
-
-.go-playground.error {
-    border-color: #fc8181;
-}
-
-.go-playground.running {
-    border-color: #f6e05e;
-}
-
-/* УДАЛЕНО: дублирующие стили .code-editor и .line-numbers в конце */
