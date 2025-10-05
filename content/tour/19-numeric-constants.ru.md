@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 19
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
   
 Числовые константы являются высокоточными значениями.

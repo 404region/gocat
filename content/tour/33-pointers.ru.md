@@ -6,6 +6,7 @@ weight: 33
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
  
 В Go есть указатели. Указатель (Pointer) содержит адрес памяти значения.

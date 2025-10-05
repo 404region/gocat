@@ -6,6 +6,7 @@ weight: 39
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Массив имеет фиксированный размер. Слайс, в свою очередь, представляет собой динамически изменяемое гибкое представление элементов массива.  

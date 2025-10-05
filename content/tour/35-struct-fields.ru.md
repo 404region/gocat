@@ -6,6 +6,7 @@ weight: 35
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Доступ к полям структуры осуществляется через точку.
 

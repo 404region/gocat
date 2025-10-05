@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 10
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Возвращаемые значения в Go могут быть именованными. В таком случае они рассматриваются как переменные, объявленные в начале функции.
 

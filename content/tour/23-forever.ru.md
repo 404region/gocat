@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 23
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Если опустить условие цикла, он будет выполняться вечно. Такая запись является весьма компактной.

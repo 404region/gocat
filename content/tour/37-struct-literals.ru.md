@@ -6,6 +6,7 @@ weight: 37
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 При инициализации структуры, можно задавать ее значения, например с помощью [литералов](https://ru.wikipedia.org/wiki/Литерал_%28информатика%29).

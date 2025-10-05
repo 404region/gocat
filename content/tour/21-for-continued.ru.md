@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 21
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Начальная и завершающая инструкции являются необязательными.
 

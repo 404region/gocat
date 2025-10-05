@@ -2,10 +2,11 @@
 title: "45. Создание слайса с помощью make"
 date: 2025-10-01
 categories: ["Tour of Go"]
-weight: 999
+weight: 45
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Слайсы можно создавать с помощью встроенной функции make; это способ создания массивов динамического размера.
 

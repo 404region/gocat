@@ -6,6 +6,7 @@ weight: 31
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Оператор defer откладывает выполнение функции до момента выхода из окружающей функции.
 

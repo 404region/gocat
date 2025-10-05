@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 11
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Оператор var объявляет список переменных; как и в списках аргументов функций, тип указывается последним.

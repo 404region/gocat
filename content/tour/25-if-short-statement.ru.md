@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 25
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Как и for, оператор if может начинаться с краткой инструкции, которая выполняется до проверки условия.

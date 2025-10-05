@@ -6,6 +6,7 @@ weight: 34
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
   
 Структура — это коллекция полей.

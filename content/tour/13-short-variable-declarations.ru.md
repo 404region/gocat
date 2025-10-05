@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 13
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Внутри функции краткая инструкция присваивания := может использоваться вместо объявления var с неявным типом.

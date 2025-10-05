@@ -4,6 +4,7 @@ date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 48
 draft: false
+originalUrl: ""
 # bookComments: false
 # bookSearchExclude: false
 ---

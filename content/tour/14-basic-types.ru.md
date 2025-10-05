@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 14
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Базовые типы Go:
 

@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 26
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Переменные, объявленные в краткой инструкции if, также доступны внутри всех блоков else.

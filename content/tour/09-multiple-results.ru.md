@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 9
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Функция может возвращать любое количество результатов.

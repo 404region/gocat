@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 15
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Переменные, объявленные без явного начального значения, получают значение по умолчанию.

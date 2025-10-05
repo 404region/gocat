@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 16
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 Выражение T(v) преобразует значение v к типу T.

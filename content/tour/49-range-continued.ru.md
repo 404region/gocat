@@ -4,6 +4,7 @@ date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 49
 draft: false
+originalUrl: ""
 ---
 
 Вы можете пропустить индекс или значение, присвоив их символу _.

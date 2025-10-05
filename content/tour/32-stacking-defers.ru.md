@@ -6,6 +6,7 @@ weight: 32
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Отложенные вызовы функций помещаются в стек. При возврате из функции ее отложенные вызовы выполняются в порядке "последним пришел — первым ушел".
 

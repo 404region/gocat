@@ -6,6 +6,7 @@ weight: 41
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 [Литерал](https://ru.wikipedia.org/wiki/Литерал_%28информатика%29) слайса похож на литерал массива, но без указания длины.

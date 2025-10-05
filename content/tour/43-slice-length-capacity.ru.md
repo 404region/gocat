@@ -4,6 +4,7 @@ date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 43
 draft: false
+originalUrl: ""
 ---
 
 У слайса есть как длина, так и вместимость.

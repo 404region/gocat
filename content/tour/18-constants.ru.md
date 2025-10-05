@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 18
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
   
 Константы объявляются как переменные, но с использованием ключевого слова const.

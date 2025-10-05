@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 28
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Оператор switch — это более короткий способ записи последовательности операторов if-else. Он выполняет первый case, значение которого совпадает с условием.
 

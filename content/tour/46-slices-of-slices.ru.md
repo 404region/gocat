@@ -4,6 +4,7 @@ date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 46
 draft: false
+originalUrl: ""
 ---
 
 Слайсы могут содержать любой тип, включая другие слайсы.

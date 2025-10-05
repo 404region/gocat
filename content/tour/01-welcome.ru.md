@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 1
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Добро пожаловать в тур по языку программирования Go.
 

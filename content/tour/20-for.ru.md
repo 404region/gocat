@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 20
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 В Go есть только одна циклическая конструкция — цикл for.

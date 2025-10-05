@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 12
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
   
 Объявление var может включать инициализаторы — по одному для каждой переменной.

@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 29
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 В операторе switch условия case проверяются сверху вниз, выполнение прекращается при первом совпадении.

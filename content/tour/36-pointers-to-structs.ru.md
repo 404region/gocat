@@ -6,6 +6,7 @@ weight: 36
 draft: false
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 Доступ к полям структуры можно получить через указатель на структуру.
 

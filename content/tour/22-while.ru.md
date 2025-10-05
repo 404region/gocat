@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 22
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 В Go цикл for заменяет while.
 

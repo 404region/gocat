@@ -5,6 +5,7 @@ categories: ["Tour of Go"]
 weight: 17
 # bookComments: false
 # bookSearchExclude: false
+originalUrl: ""
 ---
 
 При объявлении переменной без указания явного типа (с использованием синтаксиса := или var = выражение), тип переменной выводится из значения справа.
