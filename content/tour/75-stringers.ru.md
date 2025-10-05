@@ -1,5 +1,5 @@
 ---
-title: "75. Стрингер"
+title: "75. Интерфейс Stringer"
 date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 75
@@ -8,11 +8,11 @@ originalUrl: ""
 ---
 
 Одним из самых распространенных интерфейсов является Stringer, определенный в пакете fmt.
-
+```go
 type Stringer interface {
 String() string
 }
-
+```
 Стрингер - это тип, который может описать себя в виде строки. Пакет fmt (и многие другие) ищут этот интерфейс для вывода значений.
 
 {{< go-playground id="example1" >}}

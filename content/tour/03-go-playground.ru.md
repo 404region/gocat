@@ -5,7 +5,7 @@ categories: ["Tour of Go"]
 weight: 3
 # bookComments: false
 # bookSearchExclude: false
-originalUrl: ""
+originalUrl: "https://go.dev/tour/welcome/4"
 ---
 
 

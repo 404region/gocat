@@ -1,5 +1,5 @@
 ---
-title: "76. Упражнение: Стрингер"
+title: "76. Упражнение: Stringer"
 date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 76

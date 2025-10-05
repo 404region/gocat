@@ -8,8 +8,7 @@ draft: false
 # bookSearchExclude: false
 originalUrl: ""
 ---
-
-Массивы  
+ 
 Тип `[n]T` представляет собой массив из `n` значений типа `T`.
 
 Выражение

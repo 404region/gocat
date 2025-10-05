@@ -4,7 +4,7 @@ date: 2025-10-01
 categories: ["Tour of Go"]
 weight: 70
 draft: false
-originalUrl: ""
+originalUrl: "https://go.dev/tour/methods/12"
 ---
 
 
@@ -16,6 +16,42 @@ originalUrl: ""
 
 {{< go-playground id="example1" >}}
 
+package main
+
+import "fmt"
+
+type I interface {
+    M()
+}
+
+type T struct {
+    S string
+}
+
+func (t *T) M() {
+    if t == nil {
+        fmt.Println("<nil>")
+        return
+    }
+    fmt.Println(t.S)
+}
+
+func main() {
+    var i I
+
+	var t *T
+	i = t
+	describe(i)
+	i.M()
+
+	i = &T{"hello"}
+	describe(i)
+	i.M()
+}
+
+func describe(i I) {
+    fmt.Printf("(%v, %T)\n", i, i)
+}
 
 
 {{< /go-playground >}} 
