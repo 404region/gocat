@@ -1,16 +1,15 @@
 <nav class="lesson-navigation">
     <div class="nav-container">
 
-        {{ if .NextInSection }}
-        <a href="{{ .NextInSection.RelPermalink }}" class="nav-btn next">
-            {{ .NextInSection.Title }} →
+        {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.RelPermalink }}" class="nav-btn prev">
+            {{ .PrevInSection.Title }} →
         </a>
         {{ else }}
         <span class="nav-btn next disabled">Завершение →</span>
         {{ end }}
 
-
-
+    <!--
         <a href="{{ "/tour/" | relURL }}" class="nav-btn home">📚 Все уроки</a>
 
 
@@ -21,5 +20,6 @@
         {{ else }}
         <span class="nav-btn prev disabled">← Начало</span>
         {{ end }}
+        //-->
     </div>
 </nav>

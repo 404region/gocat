@@ -42,6 +42,7 @@ body {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     unicode-bidi: isolate;
+    line-height: 1.4;
 }
 
 .site-wrapper {
@@ -52,7 +53,7 @@ body {
 
 .site-header {
     text-align: center;
-    background-color: #131219 /*#181b23 /*#131c1c; /*#171723;*/
+    background-color: #181b23 /*#131219 /*#131c1c; /*#171723;*/
     /*padding: 20px;*/
 }
 
@@ -119,4 +120,5 @@ padding: 20px;
 background-color: #333;
 color: white;
 }
+
 

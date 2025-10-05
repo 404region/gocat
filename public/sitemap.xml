@@ -5,28 +5,28 @@
     <loc>http://localhost:1313/tour/01-welcome.ru/</loc>
     <lastmod>2025-09-18T20:55:17+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/2/index.ru/</loc>
+    <loc>http://localhost:1313/tour/02-.ru/</loc>
     <lastmod>2025-09-19T20:55:17+03:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/3/index.ru/</loc>
+    <loc>http://localhost:1313/tour/03-.ru/</loc>
     <lastmod>2025-09-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/4/index.ru/</loc>
+    <loc>http://localhost:1313/tour/04-.ru/</loc>
     <lastmod>2025-09-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/5/index.ru/</loc>
+    <loc>http://localhost:1313/tour/05-.ru/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/6/index.ru/</loc>
+    <loc>http://localhost:1313/tour/06-.ru/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/7/index.ru/</loc>
+    <loc>http://localhost:1313/tour/07-.ru/</loc>
     <lastmod>2025-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/8/index.ru/</loc>
+    <loc>http://localhost:1313/tour/08-.ru/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/9/09-multiple-results.ru/</loc>
+    <loc>http://localhost:1313/tour/09-multiple-results.ru/</loc>
     <lastmod>2025-09-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/tour/10-named-return-values.ru/</loc>
@@ -83,23 +83,182 @@
     <loc>http://localhost:1313/tour/27-exercise-loops-functions.ru/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/28-.ru/</loc>
+    <loc>http://localhost:1313/tour/28-switch.ru/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/tour/30-.ru/</loc>
-    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tour/31-.ru/</loc>
-    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tour/39-.ru/</loc>
-    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/tour/29-.ru/</loc>
+    <loc>http://localhost:1313/tour/29-switch-evaluation-order.ru/</loc>
     <lastmod>2025-09-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/30-switch-with-no-condition.ru/</loc>
+    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/31-defer.ru/</loc>
+    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/32-stacking-defers.ru/</loc>
+    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/33-pointers.ru/</loc>
+    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/34-structs.ru/</loc>
+    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/35-struct-fields.ru/</loc>
+    <lastmod>2025-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/36-pointers-to-structs.ru/</loc>
+    <lastmod>2025-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/37-struct-literals.ru/</loc>
+    <lastmod>2025-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/38-arrays.ru/</loc>
+    <lastmod>2025-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/39-slices.ru/</loc>
+    <lastmod>2025-09-30T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/40-slices-references-to-arrays.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/41-slice-literals.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/42-slice-defaults.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/43-slice-length-capacity.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/44-nil-slices.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/45-make-slice.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/46-slices-of-slices.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/47-appending-to-slice.ru/</loc>
+    <lastmod>2025-10-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/48-range.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/49-range-continued.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/50-exercise-slices.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/51-map.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/52-map-literals.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/53-map-literals-continued.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/54-mutating-maps.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/55-exercise-maps.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/56-function-values.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/57-function-closures.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/58-exercise-fibonacci-closure.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/59-methods.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/60-methods-are-functions.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/61-methods-continued.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/62-pointer-receivers.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/63-pointers-and-functions.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/64-methods-pointer-indirection.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/65-methods-pointer-indirection-2.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/66-choosing-value-pointer-receiver.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/67-interfaces.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/68-interfaces-are-implemented-implicitly.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/69-interface-values.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/70-interface-values-with-nil-underlying.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/71-nil-interface-values.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/72-empty-interface.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/73--type-assertions.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/74-type-switches.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/75-stringers.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/76-exercise-stringers.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/77-errors.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/78-exercise-errors.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/80-exercise-readers.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/81-exercise-rot13reader.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/82-image.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/83-exercise-images.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/84-type-parameters.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/79-readers.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/tour/89-.ru/</loc>
+    <lastmod>2025-10-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
-    <lastmod>2025-09-29T00:00:00+00:00</lastmod>
+    <lastmod>2025-10-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/posts/</loc>
     <lastmod>2025-09-16T20:41:59+03:00</lastmod>
