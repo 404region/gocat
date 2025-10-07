@@ -3,7 +3,6 @@ languageCode = "ru-ru"
 defaultContentLanguage = "ru"
 
 title = 'Go-Котяра - Русскоязычное сообщество Golang'
-theme = 'hugo-book'
 [[menu.main]]
   name = "Категории"
   pageRef = "/categories"
