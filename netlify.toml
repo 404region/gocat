@@ -1,0 +1,11 @@
+[build]
+  command = "hugo --gc --minify"
+  publish = "public"
+
+[build.environment]
+  HUGO_VERSION = "0.150.0"
+  # Для расширенной версии (extended) добавьте:
+  HUGO_EXTENDED = "true"
+
+[context.production.environment]
+  HUGO_ENV = "production"
