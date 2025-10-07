@@ -1,6 +1,9 @@
-baseURL = 'https://example.org/'
-languageCode = 'en-us'
-title = 'Go-Котяра | Go Cat'
+baseURL = "https://gocat.dev"
+title = "GoCat - Русскоязычное сообщество Golang"
+languageCode = "ru-ru"
+defaultContentLanguage = "ru"
+
+title = 'Go-Котяра - Русскоязычное сообщество Golang'
 theme = 'hugo-book'
 [[menu.main]]
   name = "Категории"
@@ -17,3 +20,7 @@ theme = 'hugo-book'
     style = 'github' #, vs, dracula 'github' # или monokai
 [params]
   showHeadingAnchors = false
+  description = "GoCat - изучение Golang на русском языке. Туториалы, документация, примеры кода и песочница для Go программирования"
+  author = "GoCat Team"
+  keywords = "golang, go, программирование, обучение, туториалы, документация, русский язык"
+
