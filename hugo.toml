@@ -1,5 +1,4 @@
 baseURL = "https://gocat.dev"
-title = "GoCat - Русскоязычное сообщество Golang"
 languageCode = "ru-ru"
 defaultContentLanguage = "ru"
 
