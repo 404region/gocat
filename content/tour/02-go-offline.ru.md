@@ -5,7 +5,7 @@ categories: ["Tour of Go"]
 weight: 2
 # bookComments: false
 # bookSearchExclude: false
-originalUrl: ""
+originalUrl: "https://go.dev/tour/welcome/3"
 ---
 
 Официальный Tour of Go также доступен в виде самостоятельной программы, которую можно использовать без доступа к Интернету. Он компилирует и запускает примеры кода на вашем локальном компьютере.
