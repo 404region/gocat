@@ -5,18 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }} </title>
   <!-- Объединяем и минифицируем все CSS файлы -->
-  {{ $reset := resources.Get "/css/reset.css" }}
-  {{ $custom := resources.Get "/css/custom.css" }}
-  {{ $syntax := resources.Get "/css/syntax.css" }}
-  {{ $playground := resources.Get "/css/playground.css" }}
-  {{ $links := resources.Get "/css/links.css" }}
-  {{ $article := resources.Get "/css/article.css" }}
+  <!-- Простая минификация каждого CSS файла отдельно -->
+  {{ with resources.Get "css/reset.css" }}
+  <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
+  {{ end }}
 
-  {{ $cssFiles := slice $reset $custom $syntax $playground $links $article }}
-  {{ $bundle := $cssFiles | resources.Concat "css/bundle.css" | minify | fingerprint }}
+  {{ with resources.Get "css/custom.css" }}
+  <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
+  {{ end }}
 
-  <link rel="stylesheet" href="{{ $bundle.Permalink }}">
+  {{ with resources.Get "css/syntax.css" }}
+  <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
+  {{ end }}
 
+  {{ with resources.Get "css/playground.css" }}
+  <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
+  {{ end }}
+
+  {{ with resources.Get "css/links.css" }}
+  <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
+  {{ end }}
+
+  {{ with resources.Get "css/article.css" }}
+  <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
+  {{ end }}
   <!--<link rel="stylesheet" href="/css/tour.css">-->
 <!--  <link rel="icon" type="image/png" href="/images/icon-32-2.png" sizes="32x32">-->
  <!-- <link rel="icon" type="image/png" href="/images/icon-32-3.png" sizes="32x32">-->
