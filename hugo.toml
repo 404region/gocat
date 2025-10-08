@@ -1,8 +1,11 @@
-baseURL = "https://gocat.dev"
+baseURL = "https://www.gocat.dev/"
 languageCode = "ru-ru"
 defaultContentLanguage = "ru"
-
 title = 'Go-Котяра - Русскоязычное сообщество Golang'
+[media]
+  [media."image"]
+    [media."image"."resize"]
+      quality = 80
 [[menu.main]]
   name = "Категории"
   pageRef = "/categories"
