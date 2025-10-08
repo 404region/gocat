@@ -1,1 +1,33 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Go-Котяра - Русскоязычное сообщество Golang</title><link>https://www.gocat.dev/categories/</link><description>Recent content in Categories on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Wed, 25 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://www.gocat.dev/categories/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs</title><link>https://www.gocat.dev/categories/docs/</link><pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate><guid>https://www.gocat.dev/categories/docs/</guid><description/></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Go-Котяра - Русскоязычное сообщество Golang</title>
+    <link>http://localhost:60911/categories/</link>
+    <description>Recent content in Categories on Go-Котяра - Русскоязычное сообщество Golang</description>
+    <generator>Hugo</generator>
+    <language>ru-ru</language>
+    <lastBuildDate>Sun, 14 Sep 2025 05:34:05 +0300</lastBuildDate>
+    <atom:link href="http://localhost:60911/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang Basics</title>
+      <link>http://localhost:60911/categories/golang-basics/</link>
+      <pubDate>Sun, 14 Sep 2025 05:34:05 +0300</pubDate>
+      <guid>http://localhost:60911/categories/golang-basics/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Установка</title>
+      <link>http://localhost:60911/categories/%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0/</link>
+      <pubDate>Sun, 14 Sep 2025 05:34:05 +0300</pubDate>
+      <guid>http://localhost:60911/categories/%D1%83%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Docs</title>
+      <link>http://localhost:60911/categories/docs/</link>
+      <pubDate>Wed, 25 Oct 2023 00:00:00 +0000</pubDate>
+      <guid>http://localhost:60911/categories/docs/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>
