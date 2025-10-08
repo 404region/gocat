@@ -6,7 +6,7 @@
   <title>{{ .Title }} </title>
   <!-- Объединяем и минифицируем все CSS файлы -->
   <!-- Простая минификация каждого CSS файла отдельно -->
-  {{ with resources.Get "css/reset.css" }}
+  <!--{{ with resources.Get "css/reset.css" }}
   <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
   {{ end }}
 
@@ -29,6 +29,15 @@
   {{ with resources.Get "css/article.css" }}
   <link rel="stylesheet" href="{{ (. | minify | fingerprint).Permalink }}">
   {{ end }}
+  //-->
+  <!-- ВРЕМЕННО: обычное подключение CSS -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/custom.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/playground.css">
+  <link rel="stylesheet" href="/css/links.css">
+  <link rel="stylesheet" href="/css/article.css">
+
   <!--<link rel="stylesheet" href="/css/tour.css">-->
 <!--  <link rel="icon" type="image/png" href="/images/icon-32-2.png" sizes="32x32">-->
  <!-- <link rel="icon" type="image/png" href="/images/icon-32-3.png" sizes="32x32">-->
