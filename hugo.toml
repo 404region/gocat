@@ -1,17 +1,21 @@
+# hugo.toml - ТОЛЬКО настройки Hugo
 baseURL = "https://www.gocat.dev/"
 enableRobotsTXT = true
 languageCode = "ru-ru"
 defaultContentLanguage = "ru"
 title = 'Go-Котяра - Русскоязычное сообщество Golang'
+
 [media]
   [media."image"]
     [media."image"."resize"]
       quality = 80
+
 [[menu.main]]
   name = "Категории"
   pageRef = "/categories"
   weight = 20
-[markup] # Подсветка синтаксиса
+
+[markup]
   [markup.highlight]
     codeFences = true
     hl_Lines = ''
@@ -19,26 +23,10 @@ title = 'Go-Котяра - Русскоязычное сообщество Golan
     lineNos = true
     lineNumbersInTable = true
     noClasses = false
-    style = 'github' #, vs, dracula 'github' # или monokai
+    style = 'github'
+
 [params]
   showHeadingAnchors = false
   description = "GoCat - изучение Golang на русском языке. Туториалы, документация, примеры кода и песочница для Go программирования"
   author = "GoCat Team"
   keywords = "golang, go, программирование, обучение, туториалы, документация, русский язык"
-[[headers]]
-  for = "/*"
-  [headers.values]
-    Cache-Control = "public, max-age=3600"
-    Netlify-CDN-Cache-Control = "public, max-age=31536000"
-[[headers]]
-  for = "/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-    Content-Type = "text/css"
-[[headers]]
-  for = "/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000"
-[build]
-  command = "rm -rf public && hugo --gc --minify"
-  publish = "public"

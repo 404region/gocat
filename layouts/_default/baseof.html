@@ -47,7 +47,9 @@
   </footer>
 </div>
 <!-- JavaScript песочницы -->
-{{ $playgroundJS := resources.Get "js/go-playground.js" | minify | fingerprint }}
-<script src="{{ $playgroundJS.Permalink }}"></script>
+{{ with resources.Get "js/go-playground.js" }}
+{{ $js := . | minify | fingerprint }}
+<script src="{{ $js.Permalink }}" defer></script>
+{{ end }}
 </body>
 </html>

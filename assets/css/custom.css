@@ -64,7 +64,7 @@ max-height: 300px;
 }
 .hero {
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url('/static/images/merged-tin-header-image.jpg') center/cover no-repeat;
+    url('/assets/images/merged-tin-header-image.jpg') center/cover no-repeat;
 }
 
 .site-title {

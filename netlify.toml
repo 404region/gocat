@@ -1,5 +1,6 @@
+# netlify.toml - ПРАВИЛЬНАЯ ВЕРСИЯ
 [build]
-  command = "git submodule update --init --recursive && hugo --gc --minify"
+  command = "rm -rf public && hugo --gc --minify"
   publish = "public"
 
 [build.environment]
@@ -8,3 +9,24 @@
 
 [context.production.environment]
   HUGO_ENV = "production"
+
+# Перенесем headers сюда из hugo.toml
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
