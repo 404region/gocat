@@ -30,15 +30,16 @@ title = 'Go-Котяра - Русскоязычное сообщество Golan
   [headers.values]
     Cache-Control = "public, max-age=31536000"
     Content-Type = "text/css"
-
 [[headers]]
   for = "/*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
     Content-Type = "application/javascript"
-
 [[headers]]
   for = "/*.png"
   [headers.values]
     Cache-Control = "public, max-age=31536000"
     Content-Type = "image/png"
+[build]
+  command = "rm -rf public && hugo --gc --minify"
+  publish = "public"
