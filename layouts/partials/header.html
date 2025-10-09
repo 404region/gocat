@@ -4,7 +4,10 @@
  <img src="/images/merged-tin-header-image.jpg" alt="Go-Котяра" class="header-image">--><!---->
  <!--
  <img src="/images/header-image.png" alt="Go-Котяра" class="header-image">//-->
- <img src="{{ (resources.Get "images/header-image.png").Permalink }}" alt="">
+ {{ with resources.Get "images/header-image.png" }}
+ {{ $optimized := . | resources.Fingerprint }}
+ <img src="{{ $optimized.Permalink }}" alt="изображение для шапки сайта">
+ {{ end }}
  <!--
  <img src="/images/header-image-arease-layers-4.png" alt="Go-Котяра" class="header-image">-->
 
