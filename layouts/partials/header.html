@@ -1,9 +1,9 @@
 <header class="site-header">
-  {{ with resources.Get "images/header-image.png" }}
+  <!--{{ with resources.Get "images/header-image.png" }}
   {{ $optimized := . | resources.Fingerprint }}
    <img src="{{ $optimized.Permalink }}" alt="изображение для шапки сайта">
   {{ else }}
-  <!-- Fallback на случай если файл не найден -->
+
    <img src="/images/header-image.png" alt="изображение для шапки сайта">
-  {{ end }}
+  {{ end }}//-->
 </header>
