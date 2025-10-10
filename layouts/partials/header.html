@@ -1,9 +1,6 @@
 <header class="site-header">
-  <!--{{ with resources.Get "images/header-image.png" }}
-  {{ $optimized := . | resources.Fingerprint }}
-   <img src="{{ $optimized.Permalink }}" alt="изображение для шапки сайта">
-  {{ else }}
-
-   <img src="/images/header-image.png" alt="изображение для шапки сайта">
-  {{ end }}//-->
+  <div class="header-content">
+    <h1 class="site-title">Go-Котяра</h1>
+    <p class="site-description">Русскоязычное сообщество Golang</p>
+  </div>
 </header>
