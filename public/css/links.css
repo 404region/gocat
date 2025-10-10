@@ -1,0 +1,166 @@
+/* Стили для ссылок в основном контенте */
+.content a {
+    color: #022b60; /* Более темный синий при наведении */
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26, 107, 196, 0.2);
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.content a:hover {
+    color: #0c5fba; /* Спокойный синий */
+    border-bottom-color: rgba(13, 77, 156, 0.4);
+    text-decoration: underline;
+}
+
+.content a:active {
+    color: #083872; /* Еще темнее при клике */
+    transform: translateY(2px);
+}
+
+.content a:visited {
+    color: #6106c9; /* Еще темнее при клике */
+    transform: translateY(1px);
+}
+
+/* Ссылки в заголовках */
+.content h1.title-link a,
+.content h2.title-link a,
+.content h3.title-link a,
+.content h4.title-link a,
+.content h5.title-linka,
+.content h6.title-link a {
+    border-bottom: none;
+    color: inherit;
+}
+
+.content h1 a,
+.content h2 a,
+.content h3 a,
+.content h4 a,
+.content h5 a,
+.content h6 a {
+    color: #022b60;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26, 107, 196, 0.2);
+    transition: all 0.2s ease-in-out;
+    font-weight: 500;
+}
+
+.content h1 a:hover,
+.content h2 a:hover,
+.content h3 a:hover,
+.content h4 a:hover,
+.content h5 a:hover,
+.content h6 a:hover {
+    color: #0c5fba; /* Спокойный синий */
+    border-bottom: 1px solid rgba(26, 107, 196, 0.3);
+}
+
+/* Ссылки в навигации (хлебные крошки, пагинация) */
+.content .breadcrumb a,
+.content .pagination a {
+    color: #5d6d7e; /* Серо-синий */
+    border-bottom: 1px solid rgba(93, 109, 126, 0.2);
+}
+
+.content .breadcrumb a:hover,
+.content .pagination a:hover {
+    color: #1a6bc4;
+    border-bottom-color: rgba(26, 107, 196, 0.4);
+}
+
+/* Ссылки в блоке кода или pre */
+.content pre a,
+.content code a {
+    color: #e83e8c; /* Для контраста в моноширинном тексте */
+    border-bottom: none;
+}
+
+.content pre a:hover,
+.content code a:hover {
+    color: #d91a72;
+    text-decoration: underline;
+}
+
+/* Ссылки в боковой панели */
+.sidebar .content a {
+    color: #5d6d7e;
+    border-bottom: 1px solid rgba(93, 109, 126, 0.2);
+    font-weight: normal;
+}
+
+.sidebar .content a:hover {
+    color: #1a6bc4;
+    border-bottom-color: rgba(26, 107, 196, 0.4);
+}
+
+/* Ссылки в футере */
+.footer .content a {
+    color: #8a9ba8;
+    border-bottom: 1px solid rgba(138, 155, 168, 0.2);
+}
+
+.footer .content a:hover {
+    color: #1a6bc4;
+    border-bottom-color: rgba(26, 107, 196, 0.4);
+}
+
+/* Отключение подчеркивания для иконок и кнопок */
+.content .btn,
+.content .button,
+.content .icon-link {
+    border-bottom: none !important;
+}
+
+/* Специфичные стили для разных типов контента */
+
+/* Ссылки в списках */
+.content ul a,
+.content ol a {
+    padding: 2px 0;
+}
+
+/* Ссылки в таблицах */
+.content table a {
+    border-bottom: none;
+    font-weight: normal;
+}
+
+.content table a:hover {
+    text-decoration: underline;
+}
+
+/* Ссылки в блоке цитат */
+.content blockquote a {
+    color: #4a6782;
+    border-bottom-color: rgba(74, 103, 130, 0.3);
+}
+
+.content blockquote a:hover {
+    color: #1a6bc4;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .content a {
+        padding: 1px 0; /* Увеличиваем область клика */
+    }
+
+    .content a:hover {
+        background-color: rgba(26, 107, 196, 0.05); /* Легкий фон на мобильных */
+    }
+}
+
+/* Темная тема (опционально) */
+@media (prefers-color-scheme: dark) {
+    .content a {
+        color: #022b60; /* Более светлый синий для темной темы */
+        border-bottom-color: rgba(100, 181, 246, 0.3);
+    }
+
+    .content a:hover {
+        color: #074980;
+        border-bottom-color: rgba(144, 202, 249, 0.5);
+    }
+}

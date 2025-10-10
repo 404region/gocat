@@ -1,0 +1,65 @@
+<!doctype html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>77. Ошибки</title><link rel=stylesheet href=../../css/bundle.min.3d815093265c79000ccf980faa8bc1da4068931af5fb900fdb588d92312d8bd3.css><link rel=icon type=image/png href=../../images/icon-cat-bant.png sizes=32x32><style>.site-header{background-image:url(/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../tour/ class=breadcrumb-item>Описание раздела Tour of Go</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">77. Ошибки</span></nav><article class=lesson><header class=lesson-header><h1>77. Ошибки</h1></header><div class=lesson-content><p>Программы на Go выражают состояние ошибки с помощью значений error.</p><p>Тип error - это встроенный интерфейс, похожий на fmt.Stringer:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span><span class=w> </span><span class=kt>error</span><span class=w> </span><span class=kd>interface</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nf>Error</span><span class=p>()</span><span class=w> </span><span class=kt>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>(Как и с fmt.Stringer, пакет fmt ищет интерфейс error при выводе значений.)</p><p>Функции часто возвращают значение error, и вызывающий код должен обрабатывать ошибки, проверяя, равна ли ошибка nil.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>strconv</span><span class=p>.</span><span class=nf>Atoi</span><span class=p>(</span><span class=s>&#34;42&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>if</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=kc>nil</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;couldn&#39;t convert number: %v\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>return</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Converted integer:&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>i</span><span class=p>)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Nil ошибка означает успех; ненулевая ошибка означает неудачу.</p><div class=go-playground id=playground-example1><div class=playground-header><h4>Go Playground</h4><div class=playground-actions><button class=playground-btn onclick='runGoCode("example1")'>
+▶ Запустить
+</button>
+<button class=playground-btn onclick='formatGoCode("example1")'>
+🛠 Форматировать
+</button>
+<button class=playground-btn onclick='resetGoCode("example1")'>
+⟳ Сбросить</button></div></div><div class=code-editor><div class=line-numbers id=line-numbers-example1></div><textarea id=go-code-example1 class=go-code-textarea placeholder="Введите ваш Go код здесь..." spellcheck=false oninput='updateLineNumbers("example1")' onscroll='syncScroll("example1")'>
+
+package main
+
+import (
+    &#34;fmt&#34;
+    &#34;time&#34;
+)
+
+type MyError struct {
+    When time.Time
+    What string
+}
+
+func (e *MyError) Error() string {
+    return fmt.Sprintf(&#34;at %v, %s&#34;,
+    e.When, e.What)
+}
+
+func run() error {
+    return &amp;MyError{
+    time.Now(),
+    &#34;it didn&#39;t work&#34;,
+    }
+}
+
+func main() {
+    if err := run(); err != nil {
+        fmt.Println(err)
+    }
+}
+
+
+</textarea></div><div class=playground-output><div class=output-header><span>Вывод:</span>
+<button class=clear-btn onclick='clearOutput("example1")'>
+Очистить</button></div><pre id=output-example1 class=output-content></pre></div></div></div><div class=lesson-meta><p class=article-date><time>01.10.2025</time></p></div><nav class=lesson-navigation><div class=nav-container><a href=../../tour/78-exercise-errors/ class="nav-btn prev">78. Задание: Ошибки →</a></div></nav></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=../../js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

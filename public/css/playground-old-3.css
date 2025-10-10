@@ -1,0 +1,332 @@
+/* Dracula Theme для Go Playground */
+.go-playground-dracula {
+    /* Основные цвета темы Dracula */
+    --dracula-bg: #282a36;
+    --dracula-current-line: #44475a;
+    --dracula-selection: #44475a;
+    --dracula-foreground: #f8f8f2;
+    --dracula-comment: #6272a4;
+    --dracula-cyan: #8be9fd;
+    --dracula-green: #50fa7b;
+    --dracula-orange: #ffb86c;
+    --dracula-pink: #ff79c6;
+    --dracula-purple: #bd93f9;
+    --dracula-red: #ff5555;
+    --dracula-yellow: #f1fa8c;
+}
+
+/* Контейнер песочницы */
+.go-playground-dracula .playground-container {
+    background-color: var(--dracula-bg);
+    border: 1px solid var(--dracula-current-line);
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+}
+
+/* Заголовок песочницы */
+.go-playground-dracula .playground-header {
+    background: linear-gradient(135deg, var(--dracula-current-line), #343746);
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--dracula-selection);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.go-playground-dracula .playground-title {
+    color: var(--dracula-foreground);
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.go-playground-dracula .playground-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Кнопки */
+.go-playground-dracula .playground-button {
+    background: var(--dracula-purple);
+    color: var(--dracula-bg);
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.go-playground-dracula .playground-button:hover {
+    background: var(--dracula-pink);
+    transform: translateY(-1px);
+}
+
+.go-playground-dracula .playground-button:active {
+    transform: translateY(0);
+}
+
+.go-playground-dracula .playground-button.run {
+    background: var(--dracula-green);
+    color: var(--dracula-bg);
+}
+
+.go-playground-dracula .playground-button.run:hover {
+    background: #45e069;
+}
+
+.go-playground-dracula .playground-button.reset {
+    background: var(--dracula-comment);
+    color: var(--dracula-foreground);
+}
+
+.go-playground-dracula .playground-button.reset:hover {
+    background: #7689c4;
+}
+
+/* Область редактора кода */
+.go-playground-dracula .editor-container {
+    position: relative;
+    border-bottom: 1px solid var(--dracula-current-line);
+}
+
+.go-playground-dracula .code-editor {
+    background-color: var(--dracula-bg);
+    color: var(--dracula-foreground);
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    padding: 16px;
+    border: none;
+    outline: none;
+    resize: vertical;
+    min-height: 200px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Подсветка синтаксиса для Go */
+.go-playground-dracula .code-editor .keyword {
+    color: var(--dracula-pink);
+    font-weight: bold;
+}
+
+.go-playground-dracula .code-editor .type {
+    color: var(--dracula-cyan);
+}
+
+.go-playground-dracula .code-editor .function {
+    color: var(--dracula-green);
+}
+
+.go-playground-dracula .code-editor .string {
+    color: var(--dracula-yellow);
+}
+
+.go-playground-dracula .code-editor .number {
+    color: var(--dracula-purple);
+}
+
+.go-playground-dracula .code-editor .comment {
+    color: var(--dracula-comment);
+    font-style: italic;
+}
+
+.go-playground-dracula .code-editor .operator {
+    color: var(--dracula-pink);
+}
+
+.go-playground-dracula .code-editor .builtin {
+    color: var(--dracula-cyan);
+}
+
+/* Область вывода */
+.go-playground-dracula .output-container {
+    background-color: var(--dracula-bg);
+}
+
+.go-playground-dracula .output-header {
+    background: var(--dracula-current-line);
+    padding: 8px 16px;
+    border-bottom: 1px solid var(--dracula-selection);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.go-playground-dracula .output-title {
+    color: var(--dracula-foreground);
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.go-playground-dracula .output-clear {
+    background: transparent;
+    border: 1px solid var(--dracula-comment);
+    color: var(--dracula-comment);
+    padding: 2px 8px;
+    border-radius: 3px;
+    font-size: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.go-playground-dracula .output-clear:hover {
+    border-color: var(--dracula-red);
+    color: var(--dracula-red);
+}
+
+.go-playground-dracula .output-content {
+    padding: 16px;
+    color: var(--dracula-foreground);
+    font-family: 'Fira Code', 'Monaco', 'Consolas', monospace;
+    font-size: 13px;
+    line-height: 1.5;
+    min-height: 80px;
+    max-height: 300px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+/* Стили для вывода программы */
+.go-playground-dracula .output-content .stdout {
+    color: var(--dracula-foreground);
+}
+
+.go-playground-dracula .output-content .stderr {
+    color: var(--dracula-red);
+}
+
+.go-playground-dracula .output-content .compile-error {
+    color: var(--dracula-red);
+    background-color: rgba(255, 85, 85, 0.1);
+    padding: 8px;
+    border-radius: 4px;
+    border-left: 3px solid var(--dracula-red);
+}
+
+.go-playground-dracula .output-content .success {
+    color: var(--dracula-green);
+}
+
+/* Индикатор выполнения */
+.go-playground-dracula .execution-indicator {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.go-playground-dracula .execution-indicator.running {
+    background-color: var(--dracula-yellow);
+    animation: pulse 1.5s infinite;
+}
+
+.go-playground-dracula .execution-indicator.success {
+    background-color: var(--dracula-green);
+}
+
+.go-playground-dracula .execution-indicator.error {
+    background-color: var(--dracula-red);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Статус бар */
+.go-playground-dracula .status-bar {
+    background: var(--dracula-current-line);
+    padding: 6px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--dracula-comment);
+}
+
+.go-playground-dracula .status-info {
+    display: flex;
+    gap: 16px;
+}
+
+.go-playground-dracula .status-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Скроллбар */
+.go-playground-dracula ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.go-playground-dracula ::-webkit-scrollbar-track {
+    background: var(--dracula-current-line);
+}
+
+.go-playground-dracula ::-webkit-scrollbar-thumb {
+    background: var(--dracula-comment);
+    border-radius: 4px;
+}
+
+.go-playground-dracula ::-webkit-scrollbar-thumb:hover {
+    background: var(--dracula-foreground);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .go-playground-dracula .playground-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .go-playground-dracula .playground-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+
+    .go-playground-dracula .status-bar {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+}
+
+/* Анимации */
+.go-playground-dracula .fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.go-playground-dracula .slide-down {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

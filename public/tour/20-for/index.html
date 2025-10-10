@@ -1,0 +1,31 @@
+<!doctype html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>20. Цикл for</title><link rel=stylesheet href=../../css/bundle.min.3d815093265c79000ccf980faa8bc1da4068931af5fb900fdb588d92312d8bd3.css><link rel=icon type=image/png href=../../images/icon-cat-bant.png sizes=32x32><style>.site-header{background-image:url(/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../tour/ class=breadcrumb-item>Описание раздела Tour of Go</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">20. Цикл for</span></nav><article class=lesson><header class=lesson-header><h1>20. Цикл for</h1></header><div class=lesson-content><p>В Go есть только одна циклическая конструкция — цикл for.</p><p>Базовый цикл for состоит из трёх компонентов, разделённых точкой с запятой:</p><p>начальная инструкция: выполняется перед первой итерацией
+условное выражение: вычисляется перед каждой итерацией
+завершающая инструкция: выполняется в конце каждой итерации
+Начальная инструкция часто представляет собой краткое объявление переменной, а объявленные в ней переменные видны только в области видимости цикла for.</p><p>Цикл прекратит выполнение, когда логическое условие станет false.</p><p>Примечание: В отличие от других языков, таких как C, Java или JavaScript, в Go нет круглых скобок вокруг трёх компонентов оператора for, а фигурные скобки { } всегда обязательны.</p><div class=go-playground id=playground-example1><div class=playground-header><h4>Go Playground</h4><div class=playground-actions><button class=playground-btn onclick='runGoCode("example1")'>
+▶ Запустить
+</button>
+<button class=playground-btn onclick='formatGoCode("example1")'>
+🛠 Форматировать
+</button>
+<button class=playground-btn onclick='resetGoCode("example1")'>
+⟳ Сбросить</button></div></div><div class=code-editor><div class=line-numbers id=line-numbers-example1></div><textarea id=go-code-example1 class=go-code-textarea placeholder="Введите ваш Go код здесь..." spellcheck=false oninput='updateLineNumbers("example1")' onscroll='syncScroll("example1")'>
+package main
+
+import &#34;fmt&#34;
+
+func main() {
+    sum := 0
+    for i := 0; i &lt; 10; i&#43;&#43; {
+    sum &#43;= i
+    }
+    fmt.Println(sum)
+}
+
+
+</textarea></div><div class=playground-output><div class=output-header><span>Вывод:</span>
+<button class=clear-btn onclick='clearOutput("example1")'>
+Очистить</button></div><pre id=output-example1 class=output-content></pre></div></div></div><div class=lesson-meta><p class=article-date><time>26.09.2025</time></p></div><nav class=lesson-navigation><div class=nav-container><a href=../../tour/21-for-continued/ class="nav-btn prev">21. Цикл for (продолжение) →</a></div></nav></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=../../js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

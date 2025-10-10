@@ -1,0 +1,42 @@
+<!doctype html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>43. Длина и вместимость слайса</title><link rel=stylesheet href=../../css/bundle.min.3d815093265c79000ccf980faa8bc1da4068931af5fb900fdb588d92312d8bd3.css><link rel=icon type=image/png href=../../images/icon-cat-bant.png sizes=32x32><style>.site-header{background-image:url(/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../tour/ class=breadcrumb-item>Описание раздела Tour of Go</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">43. Длина и вместимость слайса</span></nav><article class=lesson><header class=lesson-header><h1>43. Длина и вместимость слайса</h1></header><div class=lesson-content><p>У слайса есть как длина, так и вместимость.</p><p>Длина слайса - это количество элементов, которые он содержит.</p><p>Вместимость слайса - это количество элементов в базовом массиве, начиная с первого элемента в слайсе.</p><p>Длину и вместимость слайса s можно получить с помощью выражений len(s) и cap(s).</p><p>Вы можете увеличить длину слайса, повторно его слайся, при условии, что у него есть достаточная вместимость. Попробуйте изменить одну из операций со слайсом в примере программы, чтобы выйти за пределы его вместимости, и посмотрите, что произойдет.</p><div class=go-playground id=playground-example1><div class=playground-header><h4>Go Playground</h4><div class=playground-actions><button class=playground-btn onclick='runGoCode("example1")'>
+▶ Запустить
+</button>
+<button class=playground-btn onclick='formatGoCode("example1")'>
+🛠 Форматировать
+</button>
+<button class=playground-btn onclick='resetGoCode("example1")'>
+⟳ Сбросить</button></div></div><div class=code-editor><div class=line-numbers id=line-numbers-example1></div><textarea id=go-code-example1 class=go-code-textarea placeholder="Введите ваш Go код здесь..." spellcheck=false oninput='updateLineNumbers("example1")' onscroll='syncScroll("example1")'>
+package main
+
+import &#34;fmt&#34;
+
+func main() {
+    s := []int{2, 3, 5, 7, 11, 13}
+    printSlice(s)
+
+	// Slice the slice to give it zero length.
+	s = s[:0]
+	printSlice(s)
+
+	// Extend its length.
+	s = s[:4]
+	printSlice(s)
+
+	// Drop its first two values.
+	s = s[2:]
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+    fmt.Printf(&#34;len=%d cap=%d %v\n&#34;, len(s), cap(s), s)
+}
+
+
+
+</textarea></div><div class=playground-output><div class=output-header><span>Вывод:</span>
+<button class=clear-btn onclick='clearOutput("example1")'>
+Очистить</button></div><pre id=output-example1 class=output-content></pre></div></div></div><div class=lesson-meta><p class=article-date><time>01.10.2025</time></p></div><nav class=lesson-navigation><div class=nav-container><a href=../../tour/44-nil-slices/ class="nav-btn prev">44. Нулевые слайсы →</a></div></nav></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=../../js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

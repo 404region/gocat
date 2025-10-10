@@ -1,0 +1,42 @@
+<!doctype html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>47. Добавление элементов в слайс</title><link rel=stylesheet href=../../css/bundle.min.3d815093265c79000ccf980faa8bc1da4068931af5fb900fdb588d92312d8bd3.css><link rel=icon type=image/png href=../../images/icon-cat-bant.png sizes=32x32><style>.site-header{background-image:url(/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../tour/ class=breadcrumb-item>Описание раздела Tour of Go</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">47. Добавление элементов в слайс</span></nav><article class=lesson><header class=lesson-header><h1>47. Добавление элементов в слайс</h1></header><div class=lesson-content><p>Часто возникает необходимость добавлять новые элементы в слайс, и Go предоставляет для этого встроенную функцию append. Документация встроенного пакета описывает append.</p><p>func append(s []T, vs &mldr;T) []T
+Первый параметр s функции append - это слайс типа T, а остальные - значения T для добавления в слайс.</p><p>Результатом функции append является слайс, содержащий все элементы исходного слайса плюс предоставленные значения.</p><p>Если базовый массив s слишком мал для размещения всех заданных значений, будет выделен новый массив большего размера. Возвращаемый слайс будет указывать на вновь выделенный массив.</p><p>(Чтобы узнать больше о слайсах, прочитайте статью &ldquo;Слайсы: использование и внутреннее устройство&rdquo;.)</p><div class=go-playground id=playground-example1><div class=playground-header><h4>Go Playground</h4><div class=playground-actions><button class=playground-btn onclick='runGoCode("example1")'>
+▶ Запустить
+</button>
+<button class=playground-btn onclick='formatGoCode("example1")'>
+🛠 Форматировать
+</button>
+<button class=playground-btn onclick='resetGoCode("example1")'>
+⟳ Сбросить</button></div></div><div class=code-editor><div class=line-numbers id=line-numbers-example1></div><textarea id=go-code-example1 class=go-code-textarea placeholder="Введите ваш Go код здесь..." spellcheck=false oninput='updateLineNumbers("example1")' onscroll='syncScroll("example1")'>
+package main
+
+import &#34;fmt&#34;
+
+func main() {
+    var s []int
+    printSlice(s)
+
+	// append works on nil slices.
+	s = append(s, 0)
+	printSlice(s)
+
+	// The slice grows as needed.
+	s = append(s, 1)
+	printSlice(s)
+
+	// We can add more than one element at a time.
+	s = append(s, 2, 3, 4)
+	printSlice(s)
+}
+
+func printSlice(s []int) {
+    fmt.Printf(&#34;len=%d cap=%d %v\n&#34;, len(s), cap(s), s)
+}
+
+
+</textarea></div><div class=playground-output><div class=output-header><span>Вывод:</span>
+<button class=clear-btn onclick='clearOutput("example1")'>
+Очистить</button></div><pre id=output-example1 class=output-content></pre></div></div></div><div class=lesson-meta><p class=article-date><time>02.10.2025</time></p></div><nav class=lesson-navigation><div class=nav-container><a href=../../tour/48-range/ class="nav-btn prev">48. Итерация Range →</a></div></nav></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=../../js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

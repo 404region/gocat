@@ -1,0 +1,51 @@
+/* Хлебные крошки */
+.breadcrumb {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    padding: 0.5rem 0;
+    color: #718096;
+}
+
+.breadcrumb-item {
+    text-decoration: none;
+    color: #718096;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-item:hover {
+    color: #00add8;
+}
+
+.breadcrumb-item.current {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: #cbd5e0;
+}
+
+.breadcrumb a.breadcrumb-item {
+    color: #00add8;
+}
+
+.breadcrumb a.breadcrumb-item:hover {
+    text-decoration: underline;
+}
+
+/* Адаптивность для хлебных крошек */
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 0.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb-separator {
+        margin: 0 0.3rem;
+    }
+}
+
+.lesson-navigation {
+    margin-top: 24px;
+}
