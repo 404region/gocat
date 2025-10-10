@@ -22,7 +22,7 @@
   <link rel="icon" type="image/png" href="/images/icon-cat-bant.png" sizes="32x32">
 <!--  <link rel="icon" type="image/png" href="/images/eyes.png" sizes="32x32">-->
 
-  <style>
+  <!--<style>
     /* Динамически задаем фон через Hugo Pipes */
     {{ with resources.Get "images/header-image.png" }}
     {{ $optimized := . | resources.Fingerprint }}
@@ -31,7 +31,7 @@
               url('{{ $optimized.Permalink }}');
     }
     {{ end }}
-  </style>
+  </style>//-->
 </head>
 <body>
 <div class="site-wrapper">
