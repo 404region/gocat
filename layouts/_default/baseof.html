@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ .Title }} </title>
   {{ $styles := slice }}
-  {{ $styles = $styles | append (resources.Get "css/reset.css") }}
   {{ $styles = $styles | append (resources.Get "css/custom.css") }}
   {{ $styles = $styles | append (resources.Get "css/syntax.css") }}
   {{ $styles = $styles | append (resources.Get "css/playground.css") }}
@@ -18,20 +17,20 @@
   <!--<link rel="stylesheet" href="/css/tour.css">-->
 <!--  <link rel="icon" type="image/png" href="/images/icon-32-2.png" sizes="32x32">-->
  <!-- <link rel="icon" type="image/png" href="/images/icon-32-3.png" sizes="32x32">-->
-  <link rel="icon" type="image/png" href="/images/icon-cat.png" sizes="32x32">
-  <link rel="icon" type="image/png" href="/images/icon-cat-bant.png" sizes="32x32">
+
+  <link rel="icon" type="image/png" href="{{ (resources.Get "/images/icon-cat-bant.png").Permalink }}" sizes="32x32">
 <!--  <link rel="icon" type="image/png" href="/images/eyes.png" sizes="32x32">-->
 
-  <!--<style>
+  <style>
     /* Динамически задаем фон через Hugo Pipes */
-    {{ with resources.Get "images/header-image.png" }}
+    {{ with resources.Get "images/header-image.webp" }}
     {{ $optimized := . | resources.Fingerprint }}
     .site-header {
       background-image:
               url('{{ $optimized.Permalink }}');
     }
     {{ end }}
-  </style>//-->
+  </style>
 </head>
 <body>
 <div class="site-wrapper">
