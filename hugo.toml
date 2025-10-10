@@ -1,5 +1,5 @@
 # hugo.toml - ТОЛЬКО настройки Hugo
-baseURL = "https://www.gocat.dev/"
+baseURL = "baseURL = "https://gocat.vercel.app/"
 enableRobotsTXT = true
 languageCode = "ru-ru"
 defaultContentLanguage = "ru"
