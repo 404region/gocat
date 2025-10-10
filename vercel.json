@@ -1,4 +1,4 @@
 {
-  "outputDirectory": "public",
-  "buildCommand": "echo 'Using pre-built files'"
+  "outputDirectory": ".",
+  "buildCommand": "echo 'Serving from root directory'"
 }
