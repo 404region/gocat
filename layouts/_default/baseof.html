@@ -12,6 +12,11 @@
   {{ $styles = $styles | append (resources.Get "css/article.css") }}
 
   {{ $bundle := $styles | resources.Concat "css/bundle.css" | minify | fingerprint }}
+
+  <!-- Preload -->
+  <link rel="preload" href="{{ $bundle.Permalink }}" as="style">
+
+  <!-- Основная загрузка -->
   <link rel="stylesheet" href="{{ $bundle.Permalink }}">
 
   <!--<link rel="stylesheet" href="/css/tour.css">-->

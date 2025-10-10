@@ -31,3 +31,10 @@ title = 'Go-Котяра - Русскоязычное сообщество Golan
   description = "GoCat - изучение Golang на русском языке. Туториалы, документация, примеры кода и песочница для Go программирования"
   author = "GoCat Team"
   keywords = "golang, go, программирование, обучение, туториалы, документация, русский язык"
+
+ [services]
+    [services.googleAnalytics]
+      disable = true
+
+ [build]
+    writeStats = true
