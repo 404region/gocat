@@ -18,7 +18,6 @@
       "head",
       "header",
       "html",
-      "img",
       "li",
       "link",
       "main",
@@ -89,6 +88,8 @@
       "site-header",
       "site-title",
       "site-wrapper",
+      "telegram-widget",
+      "tg-btn",
       "title-link",
       "tour-content",
       "tour-header",
@@ -102,9 +103,7 @@
       "output-example1",
       "playground-example1",
       "погнали",
-      "подзаголовок-h2",
-      "структуры-в-go---часть-первая",
-      "это-заголовок-первого-уровня-h1"
+      "структуры-в-go---часть-первая"
     ]
   }
 }

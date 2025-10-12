@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go Синтаксис on Go-Котяра - Русскоязычное сообщество Golang</title><link>/tags/go-%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81/</link><description>Recent content in Go Синтаксис on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/go-%D1%81%D0%B8%D0%BD%D1%82%D0%B0%D0%BA%D1%81%D0%B8%D1%81/index.xml" rel="self" type="application/rss+xml"/><item><title>89. Range и Close</title><link>/tour/89-range-and-close/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/89-range-and-close/</guid><description>&lt;p&gt;Отправитель (sender) может закрыть канал, чтобы указать, что больше значений отправляться не будет. Получатели могут проверить, был ли канал закрыт, назначив второй параметр выражению приёма:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;-&lt;/span&gt;&lt;span class="nx"&gt;ch&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ok будет иметь значение false, если больше нет значений для получения и канал закрыт.&lt;/p&gt;
+&lt;p&gt;Цикл for i := range c постоянно получает значения из канала, пока он не будет закрыт.&lt;/p&gt;
+&lt;p&gt;Примечание: Закрывать канал должен только отправитель, но никогда получатель. Отправка в закрытый канал вызовет панику (panic).&lt;/p&gt;</description></item><item><title>90. Оператор Select</title><link>/tour/90-select/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/90-select/</guid><description>&lt;p&gt;Оператор select позволяет горутине ожидать выполнения нескольких операций связи.&lt;/p&gt;
+&lt;p&gt;Select блокируется, пока одна из его ветвей не сможет выполниться, после чего выполняет эту ветвь.&lt;/p&gt;
+&lt;p&gt;Если несколько ветвей готовы, он выбирает одну из них случайным образом.&lt;/p&gt;
+&lt;p&gt;В данном примере оператор select используется на строке 8.&lt;/p&gt;
+&lt;div class="go-playground" id="playground-example1"&gt;
+&lt;div class="playground-header"&gt;
+ &lt;h4&gt;Go Playground&lt;/h4&gt;
+ &lt;div class="playground-actions"&gt;
+ &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
+ ▶ Запустить
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
+ 🛠 Форматировать
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
+ ⟳ Сбросить
+ &lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="code-editor"&gt;
+ &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
+&lt;textarea
+ id="go-code-example1"
+class="go-code-textarea"
+placeholder="Введите ваш Go код здесь..."
+spellcheck="false"
+oninput="updateLineNumbers('example1')"
+onscroll="syncScroll('example1')"&gt;
+package main
+
+import &amp;#34;fmt&amp;#34;
+
+func fibonacci(c, quit chan int) {
+ x, y := 0, 1
+ for {
+ select {
+ case c &amp;lt;- x:
+ x, y = y, x&amp;#43;y
+ case &amp;lt;-quit:
+ fmt.Println(&amp;#34;quit&amp;#34;)
+ return
+ }
+ }
+}
+
+func main() {
+ c := make(chan int)
+ quit := make(chan int)
+ go func() {
+ for i := 0; i &amp;lt; 10; i&amp;#43;&amp;#43; {
+ fmt.Println(&amp;lt;-c)
+ }
+ quit &amp;lt;- 0
+ }()
+ fibonacci(c, quit)
+}
+
+&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="playground-output"&gt;
+ &lt;div class="output-header"&gt;
+ &lt;span&gt;Вывод:&lt;/span&gt;
+ &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
+ Очистить
+ &lt;/button&gt;
+ &lt;/div&gt;
+ &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>
