@@ -9,12 +9,6 @@
     <div class="lesson-content">
         {{ .Content }}
     </div>
-    {{ if .Params.originalUrl }}
-    <div class="original-doc-link">
-        📖 <a href="{{ .Params.originalUrl }}" target="_blank" rel="noopener">Оригинал статьи на сайте go.dev</a>
-    </div>
-    {{ end }}
-
     <div class="lesson-meta">
         <p class="article-date"><time>{{ .Date.Format "02.01.2006" }}</time></p>
         <!--{{ with .Params.categories }}
@@ -26,6 +20,14 @@
         {{ end }}-->
     </div>
     {{ partial "lesson-nav.html" . }}
+
+    {{ if .Params.originalUrl }}
+    <div class="original-doc-link">
+        <a href="{{ .Params.originalUrl }}" target="_blank" rel="noopener">Оригинал статьи на сайте go.dev</a>
+    </div>
+    {{ end }}
+
+
 
 </article>
 

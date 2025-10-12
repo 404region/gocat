@@ -1,6 +1,6 @@
 /* Стили для ссылок в основном контенте */
 .content a {
-    color: #022b60; /* Более темный синий при наведении */
+    color: #006c9c;
     text-decoration: none;
     border-bottom: 1px solid rgba(26, 107, 196, 0.2);
     transition: all 0.2s ease-in-out;
@@ -8,7 +8,7 @@
 }
 
 .content a:hover {
-    color: #0c5fba; /* Спокойный синий */
+    color: #288bb5; /* Спокойный синий */
     border-bottom-color: rgba(13, 77, 156, 0.4);
     text-decoration: underline;
 }
@@ -40,7 +40,7 @@
 .content h4 a,
 .content h5 a,
 .content h6 a {
-    color: #022b60;
+    color: #006c9c;
     text-decoration: none;
     border-bottom: 1px solid rgba(26, 107, 196, 0.2);
     transition: all 0.2s ease-in-out;
@@ -53,27 +53,27 @@
 .content h4 a:hover,
 .content h5 a:hover,
 .content h6 a:hover {
-    color: #0c5fba; /* Спокойный синий */
+    color: #30b2eb; /* Спокойный синий */
     border-bottom: 1px solid rgba(26, 107, 196, 0.3);
 }
 
 /* Ссылки в навигации (хлебные крошки, пагинация) */
 .content .breadcrumb a,
 .content .pagination a {
-    color: #5d6d7e; /* Серо-синий */
+    color: #006c9c; /* Серо-синий */
     border-bottom: 1px solid rgba(93, 109, 126, 0.2);
 }
 
 .content .breadcrumb a:hover,
 .content .pagination a:hover {
-    color: #1a6bc4;
+    color: #006c9c;
     border-bottom-color: rgba(26, 107, 196, 0.4);
 }
 
 /* Ссылки в блоке кода или pre */
 .content pre a,
 .content code a {
-    color: #e83e8c; /* Для контраста в моноширинном тексте */
+    color: #30b2eb; /* Для контраста в моноширинном тексте */
     border-bottom: none;
 }
 
@@ -155,12 +155,12 @@
 /* Темная тема (опционально) */
 @media (prefers-color-scheme: dark) {
     .content a {
-        color: #022b60; /* Более светлый синий для темной темы */
+        color: #006c9c; /* Более светлый синий для темной темы */
         border-bottom-color: rgba(100, 181, 246, 0.3);
     }
 
     .content a:hover {
-        color: #074980;
+        color: #20a9e3;
         border-bottom-color: rgba(144, 202, 249, 0.5);
     }
 }

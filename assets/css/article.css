@@ -1,3 +1,7 @@
+.nav-container {
+    margin: 24px 0 40px 0;
+}
+
 .article-date {
     display: flex;
     align-items: center;
@@ -6,7 +10,6 @@
     font-size: 0.88em;
     font-weight: 500;
     margin-bottom: 1.5rem;
-    padding: 0.4rem 0.8rem;
     background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
     border-radius: 8px;
 }
@@ -27,6 +30,13 @@
     position: relative;
     left: 19px;
     font-family: system-ui, -apple-system, sans-serif;
-    color: #3392aa; /*#2b6cb0;*/
-    font-weight: 600;
+    color: #82a5a4  /* a6b6b3 #d9aa77 #335959; #2b6cb0;*/
+}
+
+.original-doc-link a {
+    font-size: 0.9rem;
+    color: #28566a;
+}
+.original-doc-link a:hover {
+    color: #288bb5;
 }

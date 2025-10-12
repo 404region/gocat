@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go-Котяра - Русскоязычное сообщество Golang</title><link>/</link><description>Recent content on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Thu, 02 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>1. О Туре</title><link>/tour/01-welcome/</link><pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate><guid>/tour/01-welcome/</guid><description>&lt;p&gt;Добро пожаловать в тур по языку программирования Go.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go-Котяра - Русскоязычное сообщество Golang</title><link>/</link><description>Recent content on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>1. О Туре</title><link>/tour/01-welcome/</link><pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate><guid>/tour/01-welcome/</guid><description>&lt;p&gt;Добро пожаловать в тур по языку программирования Go.&lt;/p&gt;
 &lt;p&gt;Тур является интерактивным и разделен на разделы.&lt;/p&gt;
 &lt;p&gt;Нажмите кнопку &amp;ldquo;Запустить&amp;rdquo;, чтобы скомпилировать и запустить программу на удаленном сервере.&lt;br&gt;
 Результат отображается ниже кода.&lt;/p&gt;
@@ -200,7 +200,14 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>8. Функции (продолжение)</title><link>/tour/08-functions-continued/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/08-functions-continued/</guid><description>&lt;p&gt;Когда два или более последовательных именованных параметра функции имеют одинаковый тип, можно указать тип только для последнего из них.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>87. Каналы</title><link>/tour/87-channels/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/87-channels/</guid><description>&lt;p&gt;Каналы представляют собой типизированный проводник, через который можно отправлять и получать значения с помощью оператора канала &amp;lt;-.&lt;/p&gt;
+&lt;p&gt;ch &amp;lt;- v // Отправить v в канал ch.
+v := &amp;lt;-ch // Получить из ch и
+// присвоить значение v.
+(Данные流动ют в направлении стрелки.)&lt;/p&gt;
+&lt;p&gt;Как и отображения с срезы, каналы должны быть созданы перед использованием:&lt;/p&gt;
+&lt;p&gt;ch := make(chan int)
+По умолчанию отправка и получение блокируются до тех пор, пока другая сторона не будет готова. Это позволяет горутинам синхронизироваться без явных блокировок или переменных условий.&lt;/p&gt;</description></item><item><title>8. Функции (продолжение)</title><link>/tour/08-functions-continued/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/08-functions-continued/</guid><description>&lt;p&gt;Когда два или более последовательных именованных параметра функции имеют одинаковый тип, можно указать тип только для последнего из них.&lt;/p&gt;
 &lt;p&gt;В этом примере мы сократили&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -3750,7 +3757,20 @@ func main() {
 &lt;p&gt;и сделайте его ошибкой, добавив метод&lt;/p&gt;
 &lt;p&gt;func (e ErrNegativeSqrt) Error() string&lt;/p&gt;
 &lt;p&gt;чтобы вызов ErrNegativeSqrt(-2).Error() возвращал &amp;ldquo;cannot Sqrt negative number: -2&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;Примечание: Вызов fmt.Sprint(e) внутри метода Error приведет к бесконечному циклу. Вы можете избежать этого, преобразовав e сначала: fmt.Sprint(float64(e)). Почему?&lt;/p&gt;</description></item><item><title>80. Задание: Readers</title><link>/tour/80-exercise-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/80-exercise-readers/</guid><description>&lt;p&gt;Реализуйте тип Reader, который выдаёт бесконечный поток ASCII символа &amp;lsquo;A&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;Примечание: Вызов fmt.Sprint(e) внутри метода Error приведет к бесконечному циклу. Вы можете избежать этого, преобразовав e сначала: fmt.Sprint(float64(e)). Почему?&lt;/p&gt;</description></item><item><title>79. Ридеры (Readers)</title><link>/tour/79-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/79-readers/</guid><description>&lt;p&gt;Пакет io определяет интерфейс io.Reader, который представляет конечную точку для чтения потока данных.&lt;/p&gt;
+&lt;p&gt;Стандартная библиотека Go содержит множество реализаций этого интерфейса, включая файлы, сетевые соединения, компрессоры, шифраторы и другие.&lt;/p&gt;
+&lt;p&gt;Интерфейс io.Reader имеет метод Read:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;T&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;b&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="kt"&gt;byte&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;n&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;err&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;error&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Read заполняет предоставленный байтовый срез (b) данными и возвращает количество записанных байт (n) и значение ошибки (err).
+Он возвращает ошибку io.EOF, когда поток данных заканчивается.&lt;/p&gt;
+&lt;p&gt;Пример кода создает strings.Reader и потребляет его вывод по 8 байт за раз.&lt;/p&gt;</description></item><item><title>80. Задание: Readers</title><link>/tour/80-exercise-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/80-exercise-readers/</guid><description>&lt;p&gt;Реализуйте тип Reader, который выдаёт бесконечный поток ASCII символа &amp;lsquo;A&amp;rsquo;.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -4051,17 +4071,18 @@ func main() {
 &lt;p&gt;запускает новую горутину, выполняющую&lt;/p&gt;
 &lt;p&gt;f(x, y, z)&lt;/p&gt;
 &lt;p&gt;Вычисление f, x, y и z происходит в текущей горутине, а выполнение f — в новой горутине.&lt;/p&gt;
-&lt;p&gt;Горутины выполняются в одном адресном пространстве, поэтому доступ к общей памяти должен быть синхронизирован. Пакет sync предоставляет полезные примитивы, хотя они нечасто понадобятся вам в Go, поскольку существуют другие примитивы. (Смотрите следующий слайд.)&lt;/p&gt;</description></item><item><title>87. Каналы</title><link>/tour/87-channels/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/87-channels/</guid><description>&lt;p&gt;Каналы представляют собой типизированный проводник, через который можно отправлять и получать значения с помощью оператора канала &amp;lt;-.&lt;/p&gt;
-&lt;p&gt;ch &amp;lt;- v // Отправить v в канал ch.
-v := &amp;lt;-ch // Получить из ch и
-// присвоить значение v.
-(Данные流动ют в направлении стрелки.)&lt;/p&gt;
-&lt;p&gt;Как и отображения с срезы, каналы должны быть созданы перед использованием:&lt;/p&gt;
-&lt;p&gt;ch := make(chan int)
-По умолчанию отправка и получение блокируются до тех пор, пока другая сторона не будет готова. Это позволяет горутинам синхронизироваться без явных блокировок или переменных условий.&lt;/p&gt;</description></item><item><title>88. Продолжение перевода</title><link>/tour/88-to-be-continied/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/88-to-be-continied/</guid><description>&lt;p&gt;Go Котяра очень старается перевести весь 
-
-&lt;a href="https://go.dev/tour/welcome/1" target="_blank"&gt;Tour Of Go&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Переводу будут появлятся тут по мере готовности.&lt;/p&gt;</description></item><item><title>999.</title><link>/tour/79-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/79-readers/</guid><description>&lt;div class="go-playground" id="playground-example1"&gt;
+&lt;p&gt;Горутины выполняются в одном адресном пространстве, поэтому доступ к общей памяти должен быть синхронизирован. Пакет sync предоставляет полезные примитивы, хотя они нечасто понадобятся вам в Go, поскольку существуют другие примитивы. (Смотрите следующий слайд.)&lt;/p&gt;</description></item><item><title>88. Буферизованные каналы</title><link>/tour/88-buffered-channels/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/88-buffered-channels/</guid><description>&lt;p&gt;Каналы могут быть буферизованными. Передайте длину буфера в качестве второго аргумента функции make для инициализации буферизованного канала:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;ch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;make&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kd"&gt;chan&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Отправка в буферизованный канал блокируется только тогда, когда буфер полностью заполнен. Получение блокируется, когда буфер пуст.&lt;/p&gt;
+&lt;p&gt;Измените пример, чтобы переполнить буфер, и посмотрите, что произойдет.&lt;/p&gt;
+&lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
  &lt;div class="playground-actions"&gt;
@@ -4086,8 +4107,141 @@ placeholder="Введите ваш Go код здесь..."
 spellcheck="false"
 oninput="updateLineNumbers('example1')"
 onscroll="syncScroll('example1')"&gt;
+package main
 
+import (
+ &amp;#34;fmt&amp;#34;
+ &amp;#34;time&amp;#34;
+)
 
+/*
+func main() {
+ ch := make(chan int, 2)
+ ch &amp;lt;- 1
+ ch &amp;lt;- 2
+ fmt.Println(&amp;lt;-ch) // Освобождаем 1 слот
+ fmt.Println(&amp;lt;-ch) // Освобождаем 1 слот
+
+ ch &amp;lt;- 3 // Теперь можно отправить ещё
+	ch &amp;lt;- 4 
+	
+	 fmt.Println(&amp;lt;-ch) // Освобождаем 1 слот
+	 	 fmt.Println(&amp;lt;-ch) // Освобождаем 1 слот
+		 
+ 
+ // Попытка переполнения:
+ ch &amp;lt;- 4 // Блокировка - буфер снова заполнен
+ // ch &amp;lt;- 5 // Если раскомментировать - deadlock!
+	fmt.Println(&amp;lt;-ch)
+	fmt.Println(&amp;lt;-ch)
+}
+*/
+/*
+func main() {
+ ch := make(chan int)
+ // ch &amp;lt;- 42 // Отправка (блокируется, пока кто-то не прочитает)
+ fmt.Println(ch)
+ //val := &amp;lt;-ch // Получение (но выполнение сюда никогда не дойдет)
+ //fmt.Println(val)
+}*/
+
+func worker(ch chan int) {
+ val := &amp;lt;-ch
+ fmt.Println(val)
+}
+
+func worker2(ch chan int) {
+ val := &amp;lt;-ch
+ fmt.Println(val)
+}
+
+func main() {
+ ch := make(chan int)
+ go worker(ch)
+ ch &amp;lt;- 42
+ time.Sleep(time.Second)
+}
+
+&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="playground-output"&gt;
+ &lt;div class="output-header"&gt;
+ &lt;span&gt;Вывод:&lt;/span&gt;
+ &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
+ Очистить
+ &lt;/button&gt;
+ &lt;/div&gt;
+ &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>89. Range и Close</title><link>/tour/89-range-and-close/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/89-range-and-close/</guid><description>&lt;p&gt;Отправитель (sender) может закрыть канал, чтобы указать, что больше значений отправляться не будет. Получатели могут проверить, был ли канал закрыт, назначив второй параметр выражению приёма:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="nx"&gt;v&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ok&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;-&lt;/span&gt;&lt;span class="nx"&gt;ch&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;ok будет иметь значение false, если больше нет значений для получения и канал закрыт.&lt;/p&gt;
+&lt;p&gt;Цикл for i := range c постоянно получает значения из канала, пока он не будет закрыт.&lt;/p&gt;
+&lt;p&gt;Примечание: Закрывать канал должен только отправитель, но никогда получатель. Отправка в закрытый канал вызовет панику (panic).&lt;/p&gt;</description></item><item><title>90. Оператор Select</title><link>/tour/90-select/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/90-select/</guid><description>&lt;p&gt;Оператор select позволяет горутине ожидать выполнения нескольких операций связи.&lt;/p&gt;
+&lt;p&gt;Select блокируется, пока одна из его ветвей не сможет выполниться, после чего выполняет эту ветвь.&lt;/p&gt;
+&lt;p&gt;Если несколько ветвей готовы, он выбирает одну из них случайным образом.&lt;/p&gt;
+&lt;p&gt;В данном примере оператор select используется на строке 8.&lt;/p&gt;
+&lt;div class="go-playground" id="playground-example1"&gt;
+&lt;div class="playground-header"&gt;
+ &lt;h4&gt;Go Playground&lt;/h4&gt;
+ &lt;div class="playground-actions"&gt;
+ &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
+ ▶ Запустить
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
+ 🛠 Форматировать
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
+ ⟳ Сбросить
+ &lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="code-editor"&gt;
+ &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
+&lt;textarea
+ id="go-code-example1"
+class="go-code-textarea"
+placeholder="Введите ваш Go код здесь..."
+spellcheck="false"
+oninput="updateLineNumbers('example1')"
+onscroll="syncScroll('example1')"&gt;
+package main
+
+import &amp;#34;fmt&amp;#34;
+
+func fibonacci(c, quit chan int) {
+ x, y := 0, 1
+ for {
+ select {
+ case c &amp;lt;- x:
+ x, y = y, x&amp;#43;y
+ case &amp;lt;-quit:
+ fmt.Println(&amp;#34;quit&amp;#34;)
+ return
+ }
+ }
+}
+
+func main() {
+ c := make(chan int)
+ quit := make(chan int)
+ go func() {
+ for i := 0; i &amp;lt; 10; i&amp;#43;&amp;#43; {
+ fmt.Println(&amp;lt;-c)
+ }
+ quit &amp;lt;- 0
+ }()
+ fibonacci(c, quit)
+}
 
 &lt;/textarea&gt;
 &lt;/div&gt;

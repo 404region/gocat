@@ -2,7 +2,7 @@
 title: "87. Каналы"
 date: 2025-10-02
 categories: ["Tour of Go"]
-weight: 87
+weight: 8
 draft: false
 originalUrl: "https://go.dev/tour/concurrency/2"
 ---
