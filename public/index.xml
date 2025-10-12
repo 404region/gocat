@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go-Котяра - Русскоязычное сообщество Golang</title><link>//localhost:1313/</link><description>Recent content on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml"/><item><title>1. О Туре</title><link>//localhost:1313/tour/01-welcome/</link><pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate><guid>//localhost:1313/tour/01-welcome/</guid><description>&lt;p&gt;Добро пожаловать в тур по языку программирования Go.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Go-Котяра - Русскоязычное сообщество Golang</title><link>/</link><description>Recent content on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sun, 12 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>1. О Туре</title><link>/tour/01-welcome/</link><pubDate>Thu, 18 Sep 2025 20:55:17 +0300</pubDate><guid>/tour/01-welcome/</guid><description>&lt;p&gt;Добро пожаловать в тур по языку программирования Go.&lt;/p&gt;
 &lt;p&gt;Тур является интерактивным и разделен на разделы.&lt;/p&gt;
 &lt;p&gt;Нажмите кнопку &amp;ldquo;Запустить&amp;rdquo;, чтобы скомпилировать и запустить программу на удаленном сервере.&lt;br&gt;
 Результат отображается ниже кода.&lt;/p&gt;
@@ -6,7 +6,7 @@
 &lt;p&gt;На протяжении всего тура вы найдете серию слайдов и упражнений для выполнения.&lt;br&gt;
 Эти примеры программ демонстрируют различные аспекты Go.&lt;/p&gt;
 &lt;p&gt;Программы в туре предназначены для того, чтобы стать отправной точкой для ваших собственных экспериментов.&lt;br&gt;
-Вы в любой момент можете отредактировать программу и запустите ее снова.&lt;/p&gt;</description></item><item><title>2. Работа в автономном режиме</title><link>//localhost:1313/tour/02-go-offline/</link><pubDate>Fri, 19 Sep 2025 20:55:17 +0300</pubDate><guid>//localhost:1313/tour/02-go-offline/</guid><description>&lt;p&gt;Официальный Tour of Go также доступен в виде самостоятельной программы, которую можно использовать без доступа к Интернету. Он компилирует и запускает примеры кода на вашем локальном компьютере.&lt;/p&gt;
+Вы в любой момент можете отредактировать программу и запустите ее снова.&lt;/p&gt;</description></item><item><title>2. Работа в автономном режиме</title><link>/tour/02-go-offline/</link><pubDate>Fri, 19 Sep 2025 20:55:17 +0300</pubDate><guid>/tour/02-go-offline/</guid><description>&lt;p&gt;Официальный Tour of Go также доступен в виде самостоятельной программы, которую можно использовать без доступа к Интернету. Он компилирует и запускает примеры кода на вашем локальном компьютере.&lt;/p&gt;
 &lt;p&gt;Чтобы запустить тур локально, вам сначала потребуется установить Go, а затем выполнить команду в терминале вашей операционной системы (либо в терминале IDE):&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -16,7 +16,7 @@
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;install&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;golang&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;org&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;x&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;website&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nx"&gt;tour&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="nx"&gt;latest&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Это поместит бинарный файл tour в каталог bin вашего GOPATH. Когда вы запустите программу тура, она откроет веб-браузер с локальной версией тура.&lt;/p&gt;</description></item><item><title>3. О песочнице</title><link>//localhost:1313/tour/03-go-playground/</link><pubDate>Sat, 20 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/03-go-playground/</guid><description>&lt;p&gt;Данный тур построен на базе 
+&lt;/div&gt;&lt;p&gt;Это поместит бинарный файл tour в каталог bin вашего GOPATH. Когда вы запустите программу тура, она откроет веб-браузер с локальной версией тура.&lt;/p&gt;</description></item><item><title>3. О песочнице</title><link>/tour/03-go-playground/</link><pubDate>Sat, 20 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/03-go-playground/</guid><description>&lt;p&gt;Данный тур построен на базе 
 
 &lt;a href="https://go.dev/play/" title="go.dev/play" target="_blank"&gt;Go Playground&lt;/a&gt; — веб-сервиса, работающего на серверах 
 
@@ -25,7 +25,7 @@
 &lt;p&gt;Для программ, запускаемых в Playground, существуют ограничения:&lt;br&gt;
 В Playground время начинается с 2009-11-10 23:00:00 UTC (определение значимости этой даты остаётся упражнением для читателя). Это упрощает кеширование программ за счёт детерминированности вывода.
 Также действуют ограничения на время выполнения, использование ЦП и памяти, а программа не может обращаться к внешним сетевым узлам.
-В Playground используется последняя стабильная версия Go.&lt;/p&gt;</description></item><item><title>4. Пакеты</title><link>//localhost:1313/tour/04-package/</link><pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/04-package/</guid><description>&lt;p&gt;Каждая программа на Go состоит из пакетов.&lt;/p&gt;
+В Playground используется последняя стабильная версия Go.&lt;/p&gt;</description></item><item><title>4. Пакеты</title><link>/tour/04-package/</link><pubDate>Sun, 21 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/04-package/</guid><description>&lt;p&gt;Каждая программа на Go состоит из пакетов.&lt;/p&gt;
 &lt;p&gt;Выполнение программы начинается с пакета main.&lt;/p&gt;
 &lt;p&gt;Данная программа (смотрите в песочнице ниже) использует пакеты с путями импорта &amp;ldquo;fmt&amp;rdquo; и &amp;ldquo;math/rand&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Согласно соглашению, имя пакета совпадает с последним элементом пути импорта.&lt;br&gt;
@@ -78,7 +78,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>5. Импорт</title><link>//localhost:1313/tour/05-import/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/05-import/</guid><description>&lt;p&gt;Данный код группирует импорты в круглых скобках в виде блочного оператора импорта.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>5. Импорт</title><link>/tour/05-import/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/05-import/</guid><description>&lt;p&gt;Данный код группирует импорты в круглых скобках в виде блочного оператора импорта.&lt;/p&gt;
 &lt;p&gt;Также можно писать несколько отдельных операторов импорта, например:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -139,11 +139,11 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>6. Экспортируемые имена</title><link>//localhost:1313/tour/06-exported-names/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/06-exported-names/</guid><description>&lt;p&gt;В Go имя является экспортируемым, если оно начинается с заглавной буквы. Например, Pizza — экспортируемое имя, как и Pi, которое экспортируется из пакета math.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>6. Экспортируемые имена</title><link>/tour/06-exported-names/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/06-exported-names/</guid><description>&lt;p&gt;В Go имя является экспортируемым, если оно начинается с заглавной буквы. Например, Pizza — экспортируемое имя, как и Pi, которое экспортируется из пакета math.&lt;/p&gt;
 &lt;p&gt;Имена pizza и pi не начинаются с заглавной буквы, поэтому они не экспортируются.&lt;/p&gt;
 &lt;p&gt;При импорте пакета можно ссылаться только на его экспортируемые имена. Неэкспортируемые имена недоступны извне пакета.&lt;/p&gt;
 &lt;p&gt;Запустите код. Обратите внимание на сообщение об ошибке.&lt;/p&gt;
-&lt;p&gt;Чтобы исправить ошибку, переименуйте math.pi в math.Pi и попробуйте снова.&lt;/p&gt;</description></item><item><title>7. Функции</title><link>//localhost:1313/tour/07-functions/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/07-functions/</guid><description>&lt;p&gt;Функция может принимать ноль или более аргументов.&lt;/p&gt;
+&lt;p&gt;Чтобы исправить ошибку, переименуйте math.pi в math.Pi и попробуйте снова.&lt;/p&gt;</description></item><item><title>7. Функции</title><link>/tour/07-functions/</link><pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/07-functions/</guid><description>&lt;p&gt;Функция может принимать ноль или более аргументов.&lt;/p&gt;
 &lt;p&gt;В этом примере функция add принимает два параметра типа int.&lt;/p&gt;
 &lt;p&gt;Обратите внимание, что тип указывается после имени переменной.&lt;/p&gt;
 &lt;p&gt;(Чтобы подробнее узнать о том, почему типы записываются именно так, ознакомьтесь со статьей 
@@ -200,14 +200,14 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>87. Каналы</title><link>//localhost:1313/tour/87-channels/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/87-channels/</guid><description>&lt;p&gt;Каналы представляют собой типизированный проводник, через который можно отправлять и получать значения с помощью оператора канала &amp;lt;-.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>87. Каналы</title><link>/tour/87-channels/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/87-channels/</guid><description>&lt;p&gt;Каналы представляют собой типизированный проводник, через который можно отправлять и получать значения с помощью оператора канала &amp;lt;-.&lt;/p&gt;
 &lt;p&gt;ch &amp;lt;- v // Отправить v в канал ch.
 v := &amp;lt;-ch // Получить из ch и
 // присвоить значение v.
 (Данные流动ют в направлении стрелки.)&lt;/p&gt;
 &lt;p&gt;Как и отображения с срезы, каналы должны быть созданы перед использованием:&lt;/p&gt;
 &lt;p&gt;ch := make(chan int)
-По умолчанию отправка и получение блокируются до тех пор, пока другая сторона не будет готова. Это позволяет горутинам синхронизироваться без явных блокировок или переменных условий.&lt;/p&gt;</description></item><item><title>8. Функции (продолжение)</title><link>//localhost:1313/tour/08-functions-continued/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/08-functions-continued/</guid><description>&lt;p&gt;Когда два или более последовательных именованных параметра функции имеют одинаковый тип, можно указать тип только для последнего из них.&lt;/p&gt;
+По умолчанию отправка и получение блокируются до тех пор, пока другая сторона не будет готова. Это позволяет горутинам синхронизироваться без явных блокировок или переменных условий.&lt;/p&gt;</description></item><item><title>8. Функции (продолжение)</title><link>/tour/08-functions-continued/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/08-functions-continued/</guid><description>&lt;p&gt;Когда два или более последовательных именованных параметра функции имеют одинаковый тип, можно указать тип только для последнего из них.&lt;/p&gt;
 &lt;p&gt;В этом примере мы сократили&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -278,7 +278,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>9. Возвращение нескольких результатов</title><link>//localhost:1313/tour/09-multiple-results/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/09-multiple-results/</guid><description>&lt;p&gt;Функция может возвращать любое количество результатов.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>9. Возвращение нескольких результатов</title><link>/tour/09-multiple-results/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/09-multiple-results/</guid><description>&lt;p&gt;Функция может возвращать любое количество результатов.&lt;/p&gt;
 &lt;p&gt;Пример: Функция swap возвращает две строки.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -333,7 +333,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>10. Именованные возвращаемые значения</title><link>//localhost:1313/tour/10-named-return-values/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/10-named-return-values/</guid><description>&lt;p&gt;Возвращаемые значения в Go могут быть именованными. В таком случае они рассматриваются как переменные, объявленные в начале функции.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>10. Именованные возвращаемые значения</title><link>/tour/10-named-return-values/</link><pubDate>Tue, 23 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/10-named-return-values/</guid><description>&lt;p&gt;Возвращаемые значения в Go могут быть именованными. В таком случае они рассматриваются как переменные, объявленные в начале функции.&lt;/p&gt;
 &lt;p&gt;Эти имена следует использовать для описания смысла возвращаемых значений.&lt;/p&gt;
 &lt;p&gt;Оператор return без аргументов возвращает именованные возвращаемые значения. Это известно как &amp;ldquo;голый&amp;rdquo; возврат (naked return).&lt;/p&gt;
 &lt;p&gt;Голые возвраты следует использовать только в коротких функциях, как в приведенном здесь примере. В длинных функциях они могут ухудшать читаемость кода.&lt;/p&gt;
@@ -387,7 +387,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>11. Переменные</title><link>//localhost:1313/tour/11-variables/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/11-variables/</guid><description>&lt;p&gt;Оператор var объявляет список переменных; как и в списках аргументов функций, тип указывается последним.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>11. Переменные</title><link>/tour/11-variables/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/11-variables/</guid><description>&lt;p&gt;Оператор var объявляет список переменных; как и в списках аргументов функций, тип указывается последним.&lt;/p&gt;
 &lt;p&gt;Оператор var может использоваться на уровне пакета или функции. В этом примере мы видим оба варианта.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -438,7 +438,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>12. Переменные с инициализацией</title><link>//localhost:1313/tour/12-variables-with-initializers/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/12-variables-with-initializers/</guid><description>&lt;p&gt;Объявление var может включать инициализаторы — по одному для каждой переменной.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>12. Переменные с инициализацией</title><link>/tour/12-variables-with-initializers/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/12-variables-with-initializers/</guid><description>&lt;p&gt;Объявление var может включать инициализаторы — по одному для каждой переменной.&lt;/p&gt;
 &lt;p&gt;Если инициализатор присутствует, тип можно опустить; переменная примет тип инициализатора.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -489,7 +489,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>13. Краткие объявления переменных</title><link>//localhost:1313/tour/13-short-variable-declarations/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/13-short-variable-declarations/</guid><description>&lt;p&gt;Внутри функции краткая инструкция присваивания := может использоваться вместо объявления var с неявным типом.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>13. Краткие объявления переменных</title><link>/tour/13-short-variable-declarations/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/13-short-variable-declarations/</guid><description>&lt;p&gt;Внутри функции краткая инструкция присваивания := может использоваться вместо объявления var с неявным типом.&lt;/p&gt;
 &lt;p&gt;Вне функции каждое выражение начинается с ключевого слова (var, func и так далее), поэтому конструкция := недоступна.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -541,7 +541,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>14. Краткие объявления переменных</title><link>//localhost:1313/tour/14-basic-types/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/14-basic-types/</guid><description>&lt;p&gt;Базовые типы Go:&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>14. Краткие объявления переменных</title><link>/tour/14-basic-types/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/14-basic-types/</guid><description>&lt;p&gt;Базовые типы Go:&lt;/p&gt;
 &lt;p&gt;bool&lt;/p&gt;
 &lt;p&gt;string&lt;/p&gt;
 &lt;p&gt;int int8 int16 int32 int64
@@ -610,7 +610,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description></item><item><title>15. Значения по умолчанию</title><link>//localhost:1313/tour/15-zero-values/</link><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/15-zero-values/</guid><description>&lt;p&gt;Переменные, объявленные без явного начального значения, получают значение по умолчанию.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>15. Значения по умолчанию</title><link>/tour/15-zero-values/</link><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/15-zero-values/</guid><description>&lt;p&gt;Переменные, объявленные без явного начального значения, получают значение по умолчанию.&lt;/p&gt;
 &lt;p&gt;Значения по умолчанию:&lt;/p&gt;
 &lt;p&gt;0 для числовых типов,&lt;br&gt;
 false для логического типа и&lt;br&gt;
@@ -666,7 +666,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>16. Преобразования типов</title><link>//localhost:1313/tour/16-type-conversions/</link><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/16-type-conversions/</guid><description>&lt;p&gt;Выражение T(v) преобразует значение v к типу T.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>16. Преобразования типов</title><link>/tour/16-type-conversions/</link><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/16-type-conversions/</guid><description>&lt;p&gt;Выражение T(v) преобразует значение v к типу T.&lt;/p&gt;
 &lt;p&gt;Некоторые числовые преобразования:&lt;/p&gt;
 &lt;p&gt;var i int = 42
 var f float64 = float64(i)
@@ -729,14 +729,14 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description></item><item><title>17. Вывод типов</title><link>//localhost:1313/tour/17-type-inference/</link><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/17-type-inference/</guid><description>&lt;p&gt;При объявлении переменной без указания явного типа (с использованием синтаксиса := или var = выражение), тип переменной выводится из значения справа.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>17. Вывод типов</title><link>/tour/17-type-inference/</link><pubDate>Thu, 25 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/17-type-inference/</guid><description>&lt;p&gt;При объявлении переменной без указания явного типа (с использованием синтаксиса := или var = выражение), тип переменной выводится из значения справа.&lt;/p&gt;
 &lt;p&gt;Когда правая часть объявления имеет тип, новая переменная будет того же типа:&lt;/p&gt;
 &lt;p&gt;var i int
 j := i // j имеет тип int&lt;/p&gt;
 &lt;p&gt;Но когда правая часть содержит нетипизированную числовую константу, новая переменная может быть int, float64 или complex128 в зависимости от точности константы:&lt;/p&gt;
 &lt;p&gt;i := 42 // int&lt;br&gt;
 f := 3.142 // float64&lt;br&gt;
-g := 0.867 + 0.5i // complex128&lt;/p&gt;</description></item><item><title>18. Константы</title><link>//localhost:1313/tour/18-constants/</link><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/18-constants/</guid><description>&lt;p&gt;Константы объявляются как переменные, но с использованием ключевого слова const.&lt;/p&gt;
+g := 0.867 + 0.5i // complex128&lt;/p&gt;</description></item><item><title>18. Константы</title><link>/tour/18-constants/</link><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/18-constants/</guid><description>&lt;p&gt;Константы объявляются как переменные, но с использованием ключевого слова const.&lt;/p&gt;
 &lt;p&gt;Константы могут быть символьными, строковыми, логическими или числовыми значениями.&lt;/p&gt;
 &lt;p&gt;Константы нельзя объявлять с использованием синтаксиса :=.
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -792,7 +792,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description></item><item><title>19. Числовые константы</title><link>//localhost:1313/tour/19-numeric-constants/</link><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/19-numeric-constants/</guid><description>&lt;p&gt;Числовые константы являются высокоточными значениями.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>19. Числовые константы</title><link>/tour/19-numeric-constants/</link><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/19-numeric-constants/</guid><description>&lt;p&gt;Числовые константы являются высокоточными значениями.&lt;/p&gt;
 &lt;p&gt;Нетипизированная константа принимает тип, требуемый контекстом.&lt;/p&gt;
 &lt;p&gt;Попробуйте также вывести needInt(Big).&lt;/p&gt;
 &lt;p&gt;(Тип int может хранить максимум 64-битное целое число, а иногда и меньше.)&lt;/p&gt;
@@ -858,14 +858,14 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>20. Цикл for</title><link>//localhost:1313/tour/20-for/</link><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/20-for/</guid><description>&lt;p&gt;В Go есть только одна циклическая конструкция — цикл for.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>20. Цикл for</title><link>/tour/20-for/</link><pubDate>Fri, 26 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/20-for/</guid><description>&lt;p&gt;В Go есть только одна циклическая конструкция — цикл for.&lt;/p&gt;
 &lt;p&gt;Базовый цикл for состоит из трёх компонентов, разделённых точкой с запятой:&lt;/p&gt;
 &lt;p&gt;начальная инструкция: выполняется перед первой итерацией
 условное выражение: вычисляется перед каждой итерацией
 завершающая инструкция: выполняется в конце каждой итерации
 Начальная инструкция часто представляет собой краткое объявление переменной, а объявленные в ней переменные видны только в области видимости цикла for.&lt;/p&gt;
 &lt;p&gt;Цикл прекратит выполнение, когда логическое условие станет false.&lt;/p&gt;
-&lt;p&gt;Примечание: В отличие от других языков, таких как C, Java или JavaScript, в Go нет круглых скобок вокруг трёх компонентов оператора for, а фигурные скобки { } всегда обязательны.&lt;/p&gt;</description></item><item><title>21. Цикл for (продолжение)</title><link>//localhost:1313/tour/21-for-continued/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/21-for-continued/</guid><description>&lt;p&gt;Начальная и завершающая инструкции являются необязательными.&lt;/p&gt;
+&lt;p&gt;Примечание: В отличие от других языков, таких как C, Java или JavaScript, в Go нет круглых скобок вокруг трёх компонентов оператора for, а фигурные скобки { } всегда обязательны.&lt;/p&gt;</description></item><item><title>21. Цикл for (продолжение)</title><link>/tour/21-for-continued/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/21-for-continued/</guid><description>&lt;p&gt;Начальная и завершающая инструкции являются необязательными.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -916,7 +916,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>22. Цикл for заменяет while</title><link>//localhost:1313/tour/22-while/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/22-while/</guid><description>&lt;p&gt;В Go цикл for заменяет while.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>22. Цикл for заменяет while</title><link>/tour/22-while/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/22-while/</guid><description>&lt;p&gt;В Go цикл for заменяет while.&lt;/p&gt;
 &lt;p&gt;То, что в других языках делают через while, в Go пишут обычным for.&lt;/p&gt;
 &lt;p&gt;Для этого необходимо убрать начальную и завершающую инструкции, как в примере ниже.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -970,7 +970,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>23. Бесконечный цикл</title><link>//localhost:1313/tour/23-forever/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/23-forever/</guid><description>&lt;p&gt;Если опустить условие цикла, он будет выполняться вечно. Такая запись является весьма компактной.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>23. Бесконечный цикл</title><link>/tour/23-forever/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/23-forever/</guid><description>&lt;p&gt;Если опустить условие цикла, он будет выполняться вечно. Такая запись является весьма компактной.&lt;/p&gt;
 &lt;p&gt;Несмотря на то, что цикл позиционируется как бесконечный, реально бесконечным он не будет.&lt;/p&gt;
 &lt;p&gt;Через некоторое время цикл будет остановлен по таймауту с выводом: timeout running program (превышено время выполнения).
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -1019,7 +1019,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description></item><item><title>24. Условие if</title><link>//localhost:1313/tour/24-if/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/24-if/</guid><description>&lt;p&gt;Условный оператор if в Go похож на цикл for: выражение не нужно заключать в круглые скобки ( ), но фигурные скобки { } обязательны.&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>24. Условие if</title><link>/tour/24-if/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/24-if/</guid><description>&lt;p&gt;Условный оператор if в Go похож на цикл for: выражение не нужно заключать в круглые скобки ( ), но фигурные скобки { } обязательны.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -1077,7 +1077,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>25. Цикл if с краткой инструкцией</title><link>//localhost:1313/tour/25-if-short-statement/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/25-if-short-statement/</guid><description>&lt;p&gt;Как и for, оператор if может начинаться с краткой инструкции, которая выполняется до проверки условия.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>25. Цикл if с краткой инструкцией</title><link>/tour/25-if-short-statement/</link><pubDate>Sat, 27 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/25-if-short-statement/</guid><description>&lt;p&gt;Как и for, оператор if может начинаться с краткой инструкции, которая выполняется до проверки условия.&lt;/p&gt;
 &lt;p&gt;Переменные, объявленные в этой инструкции, доступны только до конца блока if.&lt;/p&gt;
 &lt;p&gt;(Попробуйте использовать v в последнем операторе return.)&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -1140,7 +1140,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>26. Условие if с else</title><link>//localhost:1313/tour/26-if-else/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/26-if-else/</guid><description>&lt;p&gt;Переменные, объявленные в краткой инструкции if, также доступны внутри всех блоков else.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>26. Условие if с else</title><link>/tour/26-if-else/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/26-if-else/</guid><description>&lt;p&gt;Переменные, объявленные в краткой инструкции if, также доступны внутри всех блоков else.&lt;/p&gt;
 &lt;p&gt;(Оба вызова pow возвращают свои результаты до того, как начинается вызов fmt.Println в функции main.)&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -1208,12 +1208,12 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>27. Упражнение: Циклы и функции</title><link>//localhost:1313/tour/27-exercise-loops-functions/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/27-exercise-loops-functions/</guid><description>&lt;p&gt;Чтобы попрактиковаться с функциями и циклами, давайте реализуем функцию вычисления квадратного корня: для заданного числа x нужно найти такое число z, при котором z² максимально близко к x.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>27. Упражнение: Циклы и функции</title><link>/tour/27-exercise-loops-functions/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/27-exercise-loops-functions/</guid><description>&lt;p&gt;Чтобы попрактиковаться с функциями и циклами, давайте реализуем функцию вычисления квадратного корня: для заданного числа x нужно найти такое число z, при котором z² максимально близко к x.&lt;/p&gt;
 &lt;p&gt;Обычно компьютеры вычисляют квадратный корень из x с помощью цикла. Начиная с некоторого начального приближения z, мы можем корректировать z в зависимости от того, насколько z² близко к x, получая более точное приближение:&lt;/p&gt;
 &lt;p&gt;z -= (z&lt;em&gt;z - x) / (2&lt;/em&gt;z)&lt;/p&gt;
-&lt;p&gt;Повторяя эту корректировку, мы получаем все более точное приближение, пока не достигнем ответа, максимально близкого к настоящему квадратному корню.&lt;/p&gt;</description></item><item><title>28. Оператор switch</title><link>//localhost:1313/tour/28-switch/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/28-switch/</guid><description>&lt;p&gt;Оператор switch — это более короткий способ записи последовательности операторов if-else. Он выполняет первый case, значение которого совпадает с условием.&lt;/p&gt;
+&lt;p&gt;Повторяя эту корректировку, мы получаем все более точное приближение, пока не достигнем ответа, максимально близкого к настоящему квадратному корню.&lt;/p&gt;</description></item><item><title>28. Оператор switch</title><link>/tour/28-switch/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/28-switch/</guid><description>&lt;p&gt;Оператор switch — это более короткий способ записи последовательности операторов if-else. Он выполняет первый case, значение которого совпадает с условием.&lt;/p&gt;
 &lt;p&gt;Switch в Go похож на аналогичные операторы в C, C++, Java, JavaScript и PHP, но с отличием: Go выполняет только выбранный case, а не все последующие. Фактически, инструкция break, которая требуется в конце каждого case в других языках, в Go добавляется автоматически.&lt;/p&gt;
-&lt;p&gt;Еще одно важное отличие: в Go значения в case не обязаны быть константами, а также не обязаны быть целыми числами.&lt;/p&gt;</description></item><item><title>29. Порядок выполнения switch</title><link>//localhost:1313/tour/29-switch-evaluation-order/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/29-switch-evaluation-order/</guid><description>&lt;p&gt;В операторе switch условия case проверяются сверху вниз, выполнение прекращается при первом совпадении.&lt;/p&gt;
+&lt;p&gt;Еще одно важное отличие: в Go значения в case не обязаны быть константами, а также не обязаны быть целыми числами.&lt;/p&gt;</description></item><item><title>29. Порядок выполнения switch</title><link>/tour/29-switch-evaluation-order/</link><pubDate>Sun, 28 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/29-switch-evaluation-order/</guid><description>&lt;p&gt;В операторе switch условия case проверяются сверху вниз, выполнение прекращается при первом совпадении.&lt;/p&gt;
 &lt;p&gt;Например:&lt;/p&gt;
 &lt;p&gt;switch i {
 case 0:
@@ -1282,7 +1282,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>30. Switch без условия</title><link>//localhost:1313/tour/30-switch-with-no-condition/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/30-switch-with-no-condition/</guid><description>&lt;p&gt;Switch без условия эквивалентен switch true.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>30. Switch без условия</title><link>/tour/30-switch-with-no-condition/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/30-switch-with-no-condition/</guid><description>&lt;p&gt;Switch без условия эквивалентен switch true.&lt;/p&gt;
 &lt;p&gt;Такая конструкция может быть удобным способом записи длинных цепочек if-then-else.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -1342,7 +1342,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>31. Defer</title><link>//localhost:1313/tour/31-defer/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/31-defer/</guid><description>&lt;p&gt;Оператор defer откладывает выполнение функции до момента выхода из окружающей функции.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>31. Defer</title><link>/tour/31-defer/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/31-defer/</guid><description>&lt;p&gt;Оператор defer откладывает выполнение функции до момента выхода из окружающей функции.&lt;/p&gt;
 &lt;p&gt;Аргументы отложенного вызова вычисляются немедленно, но сам вызов функции не происходит до возврата из окружающей функции.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -1393,7 +1393,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>32. Накопление отложенных вызовов</title><link>//localhost:1313/tour/32-stacking-defers/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/32-stacking-defers/</guid><description>&lt;p&gt;Отложенные вызовы функций помещаются в стек. При возврате из функции ее отложенные вызовы выполняются в порядке &amp;ldquo;последним пришел — первым ушел&amp;rdquo;.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>32. Накопление отложенных вызовов</title><link>/tour/32-stacking-defers/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/32-stacking-defers/</guid><description>&lt;p&gt;Отложенные вызовы функций помещаются в стек. При возврате из функции ее отложенные вызовы выполняются в порядке &amp;ldquo;последним пришел — первым ушел&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Чтобы узнать больше об операторах defer, прочитайте 
 
 &lt;a href="https://go.dev/blog/defer-panic-and-recover" target="_blank"&gt;этот пост в блоге&lt;/a&gt;.&lt;/p&gt;
@@ -1450,7 +1450,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>33. Указатели</title><link>//localhost:1313/tour/33-pointers/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/33-pointers/</guid><description>&lt;p&gt;В Go есть указатели. Указатель (Pointer) содержит адрес памяти значения.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>33. Указатели</title><link>/tour/33-pointers/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/33-pointers/</guid><description>&lt;p&gt;В Go есть указатели. Указатель (Pointer) содержит адрес памяти значения.&lt;/p&gt;
 &lt;p&gt;Тип *T является указателем на значение типа T. Его значение по умолчанию — nil.&lt;/p&gt;
 &lt;p&gt;var p *int&lt;/p&gt;
 &lt;p&gt;Оператор &amp;amp; возвращает указатель на свой операнд.&lt;/p&gt;
@@ -1459,7 +1459,7 @@ p = &amp;amp;i&lt;/p&gt;
 &lt;p&gt;Оператор * обращается к значению, на которое ссылается указатель.&lt;/p&gt;
 &lt;p&gt;fmt.Println(*p) // читаем значение i через указатель p
 *p = 21 // записываем значение i через указатель p&lt;/p&gt;
-&lt;p&gt;Эта операция называется &amp;ldquo;разыменованием&amp;rdquo; указателя.&lt;/p&gt;</description></item><item><title>34. Структуры</title><link>//localhost:1313/tour/34-structs/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/34-structs/</guid><description>&lt;p&gt;Структура — это коллекция полей.&lt;/p&gt;
+&lt;p&gt;Эта операция называется &amp;ldquo;разыменованием&amp;rdquo; указателя.&lt;/p&gt;</description></item><item><title>34. Структуры</title><link>/tour/34-structs/</link><pubDate>Mon, 29 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/34-structs/</guid><description>&lt;p&gt;Структура — это коллекция полей.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -1512,7 +1512,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>35. Поля структуры</title><link>//localhost:1313/tour/35-struct-fields/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/35-struct-fields/</guid><description>&lt;p&gt;Доступ к полям структуры осуществляется через точку.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>35. Поля структуры</title><link>/tour/35-struct-fields/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/35-struct-fields/</guid><description>&lt;p&gt;Доступ к полям структуры осуществляется через точку.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -1567,7 +1567,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>36. Указатели на структуры</title><link>//localhost:1313/tour/36-pointers-to-structs/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/36-pointers-to-structs/</guid><description>&lt;p&gt;Доступ к полям структуры можно получить через указатель на структуру.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>36. Указатели на структуры</title><link>/tour/36-pointers-to-structs/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/36-pointers-to-structs/</guid><description>&lt;p&gt;Доступ к полям структуры можно получить через указатель на структуру.&lt;/p&gt;
 &lt;p&gt;Чтобы получить доступ к полю X структуры через указатель p, можно написать (*p).X. Однако такая запись громоздка, поэтому язык позволяет использовать сокращенную запись p.X без явного разыменования.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -1624,7 +1624,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>37. Значения структуры</title><link>//localhost:1313/tour/37-struct-literals/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/37-struct-literals/</guid><description>&lt;p&gt;При инициализации структуры, можно задавать ее значения, например с помощью 
+&lt;/div&gt;</description></item><item><title>37. Значения структуры</title><link>/tour/37-struct-literals/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/37-struct-literals/</guid><description>&lt;p&gt;При инициализации структуры, можно задавать ее значения, например с помощью 
 
 &lt;a href="https://ru.wikipedia.org/wiki/%d0%9b%d0%b8%d1%82%d0%b5%d1%80%d0%b0%d0%bb_%28%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82%d0%b8%d0%ba%d0%b0%29" target="_blank"&gt;литералов&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Можно указать только часть полей, используя синтаксис Имя: значение.&lt;br&gt;
@@ -1688,7 +1688,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>38. Массивы</title><link>//localhost:1313/tour/38-arrays/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/38-arrays/</guid><description>&lt;p&gt;Тип &lt;code&gt;[n]T&lt;/code&gt; представляет собой массив из &lt;code&gt;n&lt;/code&gt; значений типа &lt;code&gt;T&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>38. Массивы</title><link>/tour/38-arrays/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/38-arrays/</guid><description>&lt;p&gt;Тип &lt;code&gt;[n]T&lt;/code&gt; представляет собой массив из &lt;code&gt;n&lt;/code&gt; значений типа &lt;code&gt;T&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Выражение&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -1755,7 +1755,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description></item><item><title>39. Слайсы</title><link>//localhost:1313/tour/39-slices/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/39-slices/</guid><description>&lt;p&gt;Массив имеет фиксированный размер. Слайс, в свою очередь, представляет собой динамически изменяемое гибкое представление элементов массива.&lt;br&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>39. Слайсы</title><link>/tour/39-slices/</link><pubDate>Tue, 30 Sep 2025 00:00:00 +0000</pubDate><guid>/tour/39-slices/</guid><description>&lt;p&gt;Массив имеет фиксированный размер. Слайс, в свою очередь, представляет собой динамически изменяемое гибкое представление элементов массива.&lt;br&gt;
 На практике слайсы встречаются гораздо чаще массивов.&lt;/p&gt;
 &lt;p&gt;Тип &lt;code&gt;[]T&lt;/code&gt; является слайсом с элементами типа &lt;code&gt;T&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Слайс формируется путем указания двух индексов - нижней и верхней границы, разделенных двоеточием:&lt;/p&gt;
@@ -1768,7 +1768,7 @@ func main() {
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Это задает полуоткрытый диапазон, который включает первый элемент, но исключает последний.&lt;/p&gt;
-&lt;p&gt;Следующее выражение создает слайс, включающий элементы с 1 по 3 массива &lt;code&gt;a&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>40. Слайсы являются ссылками на массивы</title><link>//localhost:1313/tour/40-slices-references-to-arrays/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/40-slices-references-to-arrays/</guid><description>&lt;p&gt;Слайс не хранит данные, а лишь ссылается на часть базового массива.&lt;br&gt;
+&lt;p&gt;Следующее выражение создает слайс, включающий элементы с 1 по 3 массива &lt;code&gt;a&lt;/code&gt;:&lt;/p&gt;</description></item><item><title>40. Слайсы являются ссылками на массивы</title><link>/tour/40-slices-references-to-arrays/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/40-slices-references-to-arrays/</guid><description>&lt;p&gt;Слайс не хранит данные, а лишь ссылается на часть базового массива.&lt;br&gt;
 Поэтому изменение элементов в сайлсе приводит к изменению соотвествующих элементов в массиве, от которого этот слайс образован.&lt;/p&gt;
 &lt;p&gt;Другие слайсы, основанные на том же массиве, увидят эти изменения.&lt;/p&gt;
 &lt;p&gt;В данном случае мы не меняем исходный массив names, а только слайс &lt;strong&gt;b&lt;/strong&gt;, но тем не менее все слайсы (и &lt;strong&gt;a&lt;/strong&gt; и &lt;strong&gt;b&lt;/strong&gt;) видят и работают с этими изменениями.&lt;/p&gt;
@@ -1832,7 +1832,7 @@ fmt.Println(names)
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>41. Литералы слайсов</title><link>//localhost:1313/tour/41-slice-literals/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/41-slice-literals/</guid><description>&lt;p&gt;
+&lt;/div&gt;</description></item><item><title>41. Литералы слайсов</title><link>/tour/41-slice-literals/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/41-slice-literals/</guid><description>&lt;p&gt;
 
 &lt;a href="https://ru.wikipedia.org/wiki/%d0%9b%d0%b8%d1%82%d0%b5%d1%80%d0%b0%d0%bb_%28%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82%d0%b8%d0%ba%d0%b0%29" target="_blank"&gt;Литерал&lt;/a&gt; слайса похож на литерал массива, но без указания длины.&lt;/p&gt;
 &lt;p&gt;Это литерал массива:&lt;/p&gt;
@@ -1903,7 +1903,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>42. Значения по умолчанию для слайсов</title><link>//localhost:1313/tour/42-slice-defaults/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/42-slice-defaults/</guid><description>&lt;p&gt;При создании среза можно опускать верхнюю или нижнюю границы, используя значения по умолчанию.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>42. Значения по умолчанию для слайсов</title><link>/tour/42-slice-defaults/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/42-slice-defaults/</guid><description>&lt;p&gt;При создании среза можно опускать верхнюю или нижнюю границы, используя значения по умолчанию.&lt;/p&gt;
 &lt;p&gt;По умолчанию нижняя граница равна 0, а верхняя — длине слайса.&lt;/p&gt;
 &lt;p&gt;Для массива&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
@@ -1985,11 +1985,11 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>43. Длина и вместимость слайса</title><link>//localhost:1313/tour/43-slice-length-capacity/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/43-slice-length-capacity/</guid><description>&lt;p&gt;У слайса есть как длина, так и вместимость.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>43. Длина и вместимость слайса</title><link>/tour/43-slice-length-capacity/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/43-slice-length-capacity/</guid><description>&lt;p&gt;У слайса есть как длина, так и вместимость.&lt;/p&gt;
 &lt;p&gt;Длина слайса - это количество элементов, которые он содержит.&lt;/p&gt;
 &lt;p&gt;Вместимость слайса - это количество элементов в базовом массиве, начиная с первого элемента в слайсе.&lt;/p&gt;
 &lt;p&gt;Длину и вместимость слайса s можно получить с помощью выражений len(s) и cap(s).&lt;/p&gt;
-&lt;p&gt;Вы можете увеличить длину слайса, повторно его слайся, при условии, что у него есть достаточная вместимость. Попробуйте изменить одну из операций со слайсом в примере программы, чтобы выйти за пределы его вместимости, и посмотрите, что произойдет.&lt;/p&gt;</description></item><item><title>44. Нулевые слайсы</title><link>//localhost:1313/tour/44-nil-slices/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/44-nil-slices/</guid><description>&lt;p&gt;Нулевым значением слайса является nil.&lt;/p&gt;
+&lt;p&gt;Вы можете увеличить длину слайса, повторно его слайся, при условии, что у него есть достаточная вместимость. Попробуйте изменить одну из операций со слайсом в примере программы, чтобы выйти за пределы его вместимости, и посмотрите, что произойдет.&lt;/p&gt;</description></item><item><title>44. Нулевые слайсы</title><link>/tour/44-nil-slices/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/44-nil-slices/</guid><description>&lt;p&gt;Нулевым значением слайса является nil.&lt;/p&gt;
 &lt;p&gt;Нулевой слайс имеет длину и вместимость 0 и не имеет базового массива.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -2042,7 +2042,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>45. Создание слайса с помощью make</title><link>//localhost:1313/tour/45-make-slice/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/45-make-slice/</guid><description>&lt;p&gt;Слайсы можно создавать с помощью встроенной функции make; это способ создания массивов динамического размера.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>45. Создание слайса с помощью make</title><link>/tour/45-make-slice/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/45-make-slice/</guid><description>&lt;p&gt;Слайсы можно создавать с помощью встроенной функции make; это способ создания массивов динамического размера.&lt;/p&gt;
 &lt;p&gt;Функция make выделяет обнуленный массив и возвращает слайс, который ссылается на этот массив:&lt;/p&gt;
 &lt;p&gt;a := make([]int, 5) // len(a)=5&lt;/p&gt;
 &lt;p&gt;Чтобы указать вместимость, передайте третий аргумент в make:&lt;/p&gt;
@@ -2111,7 +2111,7 @@ func printSlice(s string, x []int) {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>46. Слайсы слайсов</title><link>//localhost:1313/tour/46-slices-of-slices/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/46-slices-of-slices/</guid><description>&lt;p&gt;Слайсы могут содержать любой тип, включая другие слайсы.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>46. Слайсы слайсов</title><link>/tour/46-slices-of-slices/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/46-slices-of-slices/</guid><description>&lt;p&gt;Слайсы могут содержать любой тип, включая другие слайсы.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -2178,11 +2178,11 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>47. Добавление элементов в слайс</title><link>//localhost:1313/tour/47-appending-to-slice/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/47-appending-to-slice/</guid><description>&lt;p&gt;Часто возникает необходимость добавлять новые элементы в слайс, и Go предоставляет для этого встроенную функцию append. Документация встроенного пакета описывает append.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>47. Добавление элементов в слайс</title><link>/tour/47-appending-to-slice/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/47-appending-to-slice/</guid><description>&lt;p&gt;Часто возникает необходимость добавлять новые элементы в слайс, и Go предоставляет для этого встроенную функцию append. Документация встроенного пакета описывает append.&lt;/p&gt;
 &lt;p&gt;func append(s []T, vs &amp;hellip;T) []T
 Первый параметр s функции append - это слайс типа T, а остальные - значения T для добавления в слайс.&lt;/p&gt;
 &lt;p&gt;Результатом функции append является слайс, содержащий все элементы исходного слайса плюс предоставленные значения.&lt;/p&gt;
-&lt;p&gt;Если базовый массив s слишком мал для размещения всех заданных значений, будет выделен новый массив большего размера. Возвращаемый слайс будет указывать на вновь выделенный массив.&lt;/p&gt;</description></item><item><title>48. Итерация Range</title><link>//localhost:1313/tour/48-range/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/48-range/</guid><description>&lt;p&gt;Форма range в цикле for выполняет итерацию по слайсу или карте.&lt;/p&gt;
+&lt;p&gt;Если базовый массив s слишком мал для размещения всех заданных значений, будет выделен новый массив большего размера. Возвращаемый слайс будет указывать на вновь выделенный массив.&lt;/p&gt;</description></item><item><title>48. Итерация Range</title><link>/tour/48-range/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/48-range/</guid><description>&lt;p&gt;Форма range в цикле for выполняет итерацию по слайсу или карте.&lt;/p&gt;
 &lt;p&gt;При переборе слайса возвращаются два значения для каждой итерации. Первое - это индекс, а второе - копия элемента по этому индексу.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -2235,7 +2235,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>49. Range продолжение</title><link>//localhost:1313/tour/49-range-continued/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/49-range-continued/</guid><description>&lt;p&gt;Вы можете пропустить индекс или значение, присвоив их символу _.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>49. Range продолжение</title><link>/tour/49-range-continued/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/49-range-continued/</guid><description>&lt;p&gt;Вы можете пропустить индекс или значение, присвоив их символу _.&lt;/p&gt;
 &lt;p&gt;for i, _ := range pow
 for _, value := range pow&lt;/p&gt;
 &lt;p&gt;Если вам нужен только индекс, вы можете опустить вторую переменную.&lt;/p&gt;
@@ -2293,7 +2293,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>50. Упражнение: Слайсы</title><link>//localhost:1313/tour/50-exercise-slices/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/50-exercise-slices/</guid><description>&lt;p&gt;Реализуйте функцию Pic. Она должна возвращать слайс длины dy, каждый элемент которого является слайсом из dx 8-битных беззнаковых целых чисел. Когда вы запустите программу, она отобразит ваше изображение, интерпретируя целые числа как значения в градациях серого (или, скорее, синего).&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>50. Упражнение: Слайсы</title><link>/tour/50-exercise-slices/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/50-exercise-slices/</guid><description>&lt;p&gt;Реализуйте функцию Pic. Она должна возвращать слайс длины dy, каждый элемент которого является слайсом из dx 8-битных беззнаковых целых чисел. Когда вы запустите программу, она отобразит ваше изображение, интерпретируя целые числа как значения в градациях серого (или, скорее, синего).&lt;/p&gt;
 &lt;p&gt;Выбор изображения остается за вами. Интересные функции включают (x+y)/2, x*y и x^y.&lt;/p&gt;
 &lt;p&gt;(Вам нужно использовать цикл для выделения каждого []uint8 внутри [][]uint8.)&lt;/p&gt;
 &lt;p&gt;(Используйте uint8(intValue) для преобразования между типами.)&lt;/p&gt;
@@ -2347,7 +2347,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>51. Мапа (Map)</title><link>//localhost:1313/tour/51-map/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/51-map/</guid><description>&lt;p&gt;Мапа (Map) сопоставляет ключи со значениями.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>51. Мапа (Map)</title><link>/tour/51-map/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/51-map/</guid><description>&lt;p&gt;Мапа (Map) сопоставляет ключи со значениями.&lt;/p&gt;
 &lt;p&gt;Нулевым значением мапы является nil. Nil мапа не содержит ключей, и в нее нельзя добавить новые ключи.&lt;/p&gt;
 &lt;p&gt;Функция make возвращает мапу заданного типа, инициализированную и готовую к использованию.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -2407,7 +2407,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>52. Литералы мап</title><link>//localhost:1313/tour/52-map-literals/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/52-map-literals/</guid><description>&lt;p&gt;
+&lt;/div&gt;</description></item><item><title>52. Литералы мап</title><link>/tour/52-map-literals/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/52-map-literals/</guid><description>&lt;p&gt;
 
 &lt;a href="https://ru.wikipedia.org/wiki/%d0%9b%d0%b8%d1%82%d0%b5%d1%80%d0%b0%d0%bb_%28%d0%b8%d0%bd%d1%84%d0%be%d1%80%d0%bc%d0%b0%d1%82%d0%b8%d0%ba%d0%b0%29" target="_blank"&gt;Литералы&lt;/a&gt; мап похожи на литералы структур, но ключи являются обязательными.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -2470,7 +2470,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>53. Литералы мап, продолжение</title><link>//localhost:1313/tour/53-map-literals-continued/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/53-map-literals-continued/</guid><description>&lt;p&gt;Если вышестоящий тип является просто именем типа, вы можете опустить его в элементах литерала.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>53. Литералы мап, продолжение</title><link>/tour/53-map-literals-continued/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/53-map-literals-continued/</guid><description>&lt;p&gt;Если вышестоящий тип является просто именем типа, вы можете опустить его в элементах литерала.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -2527,7 +2527,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>54. Изменение мапы</title><link>//localhost:1313/tour/54-mutating-maps/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/54-mutating-maps/</guid><description>&lt;p&gt;Добавление или обновление элемента в мапе m:&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>54. Изменение мапы</title><link>/tour/54-mutating-maps/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/54-mutating-maps/</guid><description>&lt;p&gt;Добавление или обновление элемента в мапе m:&lt;/p&gt;
 &lt;p&gt;m[key] = elem&lt;/p&gt;
 &lt;p&gt;Получение элемента:&lt;/p&gt;
 &lt;p&gt;elem = m[key]&lt;/p&gt;
@@ -2537,7 +2537,7 @@ func main() {
 &lt;p&gt;elem, ok = m[key]&lt;/p&gt;
 &lt;p&gt;Если ключ присутствует в m, ok будет true. Если нет, ok будет false.&lt;/p&gt;
 &lt;p&gt;Если ключа нет в мапе, то elem будет нулевым значением для типа элемента мапы.&lt;/p&gt;
-&lt;p&gt;Примечание: Если elem или ok еще не объявлены, вы можете использовать краткую форму объявления:&lt;/p&gt;</description></item><item><title>55. Упражнение: Мапа</title><link>//localhost:1313/tour/55-exercise-maps/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/55-exercise-maps/</guid><description>&lt;p&gt;Реализуйте функцию WordCount. Она должна возвращать мапу с количеством вхождений каждого &amp;ldquo;слова&amp;rdquo; в строке s. Функция wc.Test запускает набор тестов для предоставленной функции и выводит успех или неудачу.&lt;/p&gt;
+&lt;p&gt;Примечание: Если elem или ok еще не объявлены, вы можете использовать краткую форму объявления:&lt;/p&gt;</description></item><item><title>55. Упражнение: Мапа</title><link>/tour/55-exercise-maps/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/55-exercise-maps/</guid><description>&lt;p&gt;Реализуйте функцию WordCount. Она должна возвращать мапу с количеством вхождений каждого &amp;ldquo;слова&amp;rdquo; в строке s. Функция wc.Test запускает набор тестов для предоставленной функции и выводит успех или неудачу.&lt;/p&gt;
 &lt;p&gt;Вам может пригодиться функция 
 
 &lt;a href="https://pkg.go.dev/strings#Fields" target="_blank"&gt;strings.Fields&lt;/a&gt;.&lt;/p&gt;
@@ -2594,7 +2594,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>56. Функции как значения</title><link>//localhost:1313/tour/56-function-values/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/56-function-values/</guid><description>&lt;p&gt;Функции тоже являются значениями. Их можно передавать так же, как и другие значения.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>56. Функции как значения</title><link>/tour/56-function-values/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/56-function-values/</guid><description>&lt;p&gt;Функции тоже являются значениями. Их можно передавать так же, как и другие значения.&lt;/p&gt;
 &lt;p&gt;Значения функций могут использоваться в качестве аргументов функций и возвращаемых значений.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -2654,7 +2654,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>57. Замыкания функций</title><link>//localhost:1313/tour/57-function-closures/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/57-function-closures/</guid><description>&lt;p&gt;Функции в Go могут быть замыканиями. Замыкание — это значение функции, которое ссылается на переменные извне своего тела. Функция может обращаться к этим переменным и присваивать им значения; в этом смысле функция «привязана» к переменным.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>57. Замыкания функций</title><link>/tour/57-function-closures/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/57-function-closures/</guid><description>&lt;p&gt;Функции в Go могут быть замыканиями. Замыкание — это значение функции, которое ссылается на переменные извне своего тела. Функция может обращаться к этим переменным и присваивать им значения; в этом смысле функция «привязана» к переменным.&lt;/p&gt;
 &lt;p&gt;Например, функция adder возвращает замыкание. Каждое замыкание привязано к своей собственной переменной sum.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -2715,7 +2715,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>58. Упражнение: Замыкание Фибоначчи</title><link>//localhost:1313/tour/58-exercise-fibonacci-closure/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/58-exercise-fibonacci-closure/</guid><description>&lt;p&gt;Давайте немного развлечемся с функциями.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>58. Упражнение: Замыкание Фибоначчи</title><link>/tour/58-exercise-fibonacci-closure/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/58-exercise-fibonacci-closure/</guid><description>&lt;p&gt;Давайте немного развлечемся с функциями.&lt;/p&gt;
 &lt;p&gt;Реализуйте функцию fibonacci, которая возвращает функцию (замыкание), возвращающую последовательные 
 
 &lt;a href="https://en.wikipedia.org/wiki/Fibonacci_sequence" target="_blank"&gt;числа Фибоначчи&lt;/a&gt; (0, 1, 1, 2, 3, 5, &amp;hellip;).&lt;/p&gt;
@@ -2774,7 +2774,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>59. Методы</title><link>//localhost:1313/tour/59-methods/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/59-methods/</guid><description>&lt;p&gt;В Go нет классов. Однако вы можете определять методы для типов.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>59. Методы</title><link>/tour/59-methods/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/59-methods/</guid><description>&lt;p&gt;В Go нет классов. Однако вы можете определять методы для типов.&lt;/p&gt;
 &lt;p&gt;Метод — это функция со специальным аргументом-получателем.&lt;/p&gt;
 &lt;p&gt;Получатель указывается в собственном списке аргументов между ключевым словом func и именем метода.&lt;/p&gt;
 &lt;p&gt;В этом примере метод Abs имеет получатель типа Vertex с именем v.&lt;/p&gt;
@@ -2837,7 +2837,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>60. Методы - это функции</title><link>//localhost:1313/tour/60-methods-are-functions/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/60-methods-are-functions/</guid><description>&lt;p&gt;Запомните: метод - это просто функция с аргументом-получателем.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>60. Методы - это функции</title><link>/tour/60-methods-are-functions/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/60-methods-are-functions/</guid><description>&lt;p&gt;Запомните: метод - это просто функция с аргументом-получателем.&lt;/p&gt;
 &lt;p&gt;Ниже пример функции Abs, написанной как обычная функция, без изменения функциональности.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -2898,7 +2898,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>61. Методы, продолжение</title><link>//localhost:1313/tour/61-methods-continued/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/61-methods-continued/</guid><description>&lt;p&gt;Вы также можете объявлять методы для неструктурных типов.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>61. Методы, продолжение</title><link>/tour/61-methods-continued/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/61-methods-continued/</guid><description>&lt;p&gt;Вы также можете объявлять методы для неструктурных типов.&lt;/p&gt;
 &lt;p&gt;В этом примере мы видим числовой тип MyFloat с методом Abs.&lt;/p&gt;
 &lt;p&gt;Вы можете объявить метод только с получателем, тип которого определен в том же пакете, что и метод. Вы не можете объявить метод с получателем, тип которого определен в другом пакете (включая встроенные типы, такие как int).&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -2961,11 +2961,11 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>62. Указатели в качестве получателей</title><link>//localhost:1313/tour/62-pointer-receivers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/62-pointer-receivers/</guid><description>&lt;p&gt;Вы можете объявлять методы с получателями-указателями.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>62. Указатели в качестве получателей</title><link>/tour/62-pointer-receivers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/62-pointer-receivers/</guid><description>&lt;p&gt;Вы можете объявлять методы с получателями-указателями.&lt;/p&gt;
 &lt;p&gt;Это означает, что тип получателя имеет синтаксис *T для некоторого типа T. (Также T сам не может быть указателем, например *int.)&lt;/p&gt;
 &lt;p&gt;Например, метод Scale здесь определен для *Vertex.&lt;/p&gt;
 &lt;p&gt;Методы с получателями-указателями могут изменять значение, на которое указывает получатель (как это делает Scale). Поскольку методы часто нуждаются в изменении своего получателя, получатели-указатели встречаются чаще, чем получатели по значению.&lt;/p&gt;
-&lt;p&gt;Попробуйте убрать * из объявления функции Scale на строке 16 и посмотрите, как изменится поведение программы.&lt;/p&gt;</description></item><item><title>63. Указатели и функции</title><link>//localhost:1313/tour/63-pointers-and-functions/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/63-pointers-and-functions/</guid><description>&lt;p&gt;Здесь мы видим методы Abs и Scale, переписанные как функции.&lt;/p&gt;
+&lt;p&gt;Попробуйте убрать * из объявления функции Scale на строке 16 и посмотрите, как изменится поведение программы.&lt;/p&gt;</description></item><item><title>63. Указатели и функции</title><link>/tour/63-pointers-and-functions/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/63-pointers-and-functions/</guid><description>&lt;p&gt;Здесь мы видим методы Abs и Scale, переписанные как функции.&lt;/p&gt;
 &lt;p&gt;Снова попробуйте убрать * со строки 16. Видите ли вы, почему поведение меняется? Что еще нужно было изменить для компиляции примера?&lt;/p&gt;
 &lt;p&gt;(Если вы не уверены, переходите на следующую страницу.)
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -3033,7 +3033,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;/p&gt;</description></item><item><title>64. Методы и косвенное обращение через указатели</title><link>//localhost:1313/tour/64-methods-pointer-indirection/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/64-methods-pointer-indirection/</guid><description>&lt;p&gt;Сравнивая две предыдущие программы, вы могли заметить, что функции с аргументом-указателем должны принимать указатель:&lt;/p&gt;
+&lt;/div&gt;&lt;/p&gt;</description></item><item><title>64. Методы и косвенное обращение через указатели</title><link>/tour/64-methods-pointer-indirection/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/64-methods-pointer-indirection/</guid><description>&lt;p&gt;Сравнивая две предыдущие программы, вы могли заметить, что функции с аргументом-указателем должны принимать указатель:&lt;/p&gt;
 &lt;p&gt;var v Vertex
 ScaleFunc(v, 5) // Ошибка компиляции!
 ScaleFunc(&amp;amp;v, 5) // OK&lt;/p&gt;
@@ -3042,7 +3042,7 @@ ScaleFunc(&amp;amp;v, 5) // OK&lt;/p&gt;
 v.Scale(5) // OK
 p := &amp;amp;v
 p.Scale(10) // OK&lt;/p&gt;
-&lt;p&gt;Для вызова v.Scale(5), даже though v является значением, а не указателем, метод с получателем-указателем вызывается автоматически. То есть, для удобства, Go интерпретирует выражение v.Scale(5) как (&amp;amp;v).Scale(5), поскольку метод Scale имеет получатель-указатель.&lt;/p&gt;</description></item><item><title>65. Методы и косвенное обращение через указатели (2)</title><link>//localhost:1313/tour/65-methods-pointer-indirection-2/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/65-methods-pointer-indirection-2/</guid><description>&lt;p&gt;Аналогичное происходит и в обратном направлении.&lt;/p&gt;
+&lt;p&gt;Для вызова v.Scale(5), даже though v является значением, а не указателем, метод с получателем-указателем вызывается автоматически. То есть, для удобства, Go интерпретирует выражение v.Scale(5) как (&amp;amp;v).Scale(5), поскольку метод Scale имеет получатель-указатель.&lt;/p&gt;</description></item><item><title>65. Методы и косвенное обращение через указатели (2)</title><link>/tour/65-methods-pointer-indirection-2/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/65-methods-pointer-indirection-2/</guid><description>&lt;p&gt;Аналогичное происходит и в обратном направлении.&lt;/p&gt;
 &lt;p&gt;Функции, которые принимают аргумент по значению, должны принимать значение конкретного типа:&lt;/p&gt;
 &lt;p&gt;var v Vertex
 fmt.Println(AbsFunc(v)) // OK
@@ -3121,11 +3121,11 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>66. Выбор получателя: значение или указатель</title><link>//localhost:1313/tour/66-choosing-value-pointer-receiver/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/66-choosing-value-pointer-receiver/</guid><description>&lt;p&gt;Есть две причины использовать получатель-указатель.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>66. Выбор получателя: значение или указатель</title><link>/tour/66-choosing-value-pointer-receiver/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/66-choosing-value-pointer-receiver/</guid><description>&lt;p&gt;Есть две причины использовать получатель-указатель.&lt;/p&gt;
 &lt;p&gt;Первая - чтобы метод мог изменять значение, на которое указывает его получатель.&lt;/p&gt;
 &lt;p&gt;Вторая - чтобы избежать копирования значения при каждом вызове метода. Это может быть более эффективно, если получатель является большой структурой, например.&lt;/p&gt;
 &lt;p&gt;В этом примере и Scale, и Abs являются методами с типом получателя *Vertex, даже though метод Abs не нуждается в изменении своего получателя.&lt;/p&gt;
-&lt;p&gt;Как правило, все методы для данного типа должны иметь либо получатели по значению, либо получатели-указатели, но не их смесь. (Мы увидим почему в следующих нескольких страницах.)&lt;/p&gt;</description></item><item><title>67. Интерфейсы</title><link>//localhost:1313/tour/67-interfaces/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/67-interfaces/</guid><description>&lt;p&gt;Тип интерфейса определяется как набор сигнатур методов.&lt;/p&gt;
+&lt;p&gt;Как правило, все методы для данного типа должны иметь либо получатели по значению, либо получатели-указатели, но не их смесь. (Мы увидим почему в следующих нескольких страницах.)&lt;/p&gt;</description></item><item><title>67. Интерфейсы</title><link>/tour/67-interfaces/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/67-interfaces/</guid><description>&lt;p&gt;Тип интерфейса определяется как набор сигнатур методов.&lt;/p&gt;
 &lt;p&gt;Значение типа интерфейса может содержать любое значение, которое реализует эти методы.&lt;/p&gt;
 &lt;p&gt;Примечание: В примере кода на строке 22 есть ошибка. Vertex (тип значения) не реализует Abser, потому что метод Abs определен только для *Vertex (тип указателя).&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -3210,7 +3210,7 @@ func (v *Vertex) Abs() float64 {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>68. Интерфейсы реализуются неявно</title><link>//localhost:1313/tour/68-interfaces-are-implemented-implicitly/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/68-interfaces-are-implemented-implicitly/</guid><description>&lt;p&gt;Тип реализует интерфейс путем реализации его методов. Нет явного объявления намерения, нет ключевого слова &amp;ldquo;implements&amp;rdquo;.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>68. Интерфейсы реализуются неявно</title><link>/tour/68-interfaces-are-implemented-implicitly/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/68-interfaces-are-implemented-implicitly/</guid><description>&lt;p&gt;Тип реализует интерфейс путем реализации его методов. Нет явного объявления намерения, нет ключевого слова &amp;ldquo;implements&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Неявные интерфейсы разделяют определение интерфейса от его реализации, которая может затем появиться в любом пакете без предварительной договоренности.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -3274,7 +3274,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>69. Значения интерфейсов</title><link>//localhost:1313/tour/69-interface-values/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/69-interface-values/</guid><description>&lt;p&gt;Внутренне значения интерфейсов можно рассматривать как кортеж из значения и конкретного типа:&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>69. Значения интерфейсов</title><link>/tour/69-interface-values/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/69-interface-values/</guid><description>&lt;p&gt;Внутренне значения интерфейсов можно рассматривать как кортеж из значения и конкретного типа:&lt;/p&gt;
 &lt;p&gt;(значение, тип)
 Значение интерфейса содержит значение определенного базового конкретного типа.&lt;/p&gt;
 &lt;p&gt;Вызов метода на значении интерфейса выполняет метод с тем же именем на его базовом типе.&lt;/p&gt;
@@ -3358,7 +3358,7 @@ func describe(i I) {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>70. Значения интерфейсов с nil базовыми значениями</title><link>//localhost:1313/tour/70-interface-values-with-nil-underlying/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/70-interface-values-with-nil-underlying/</guid><description>&lt;p&gt;Если конкретное значение внутри интерфейса само является nil, метод будет вызван с nil получателем.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>70. Значения интерфейсов с nil базовыми значениями</title><link>/tour/70-interface-values-with-nil-underlying/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/70-interface-values-with-nil-underlying/</guid><description>&lt;p&gt;Если конкретное значение внутри интерфейса само является nil, метод будет вызван с nil получателем.&lt;/p&gt;
 &lt;p&gt;В некоторых языках это вызвало бы исключение нулевого указателя, но в Go принято писать методы, которые корректно обрабатывают вызов с nil получателем (как метод M в этом примере).&lt;/p&gt;
 &lt;p&gt;Обратите внимание, что значение интерфейса, содержащее nil конкретное значение, само по себе не является nil.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -3437,7 +3437,7 @@ func describe(i I) {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>71. Nil значения интерфейсов</title><link>//localhost:1313/tour/71-nil-interface-values/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/71-nil-interface-values/</guid><description>&lt;p&gt;Nil значение интерфейса не содержит ни значения, ни конкретного типа.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>71. Nil значения интерфейсов</title><link>/tour/71-nil-interface-values/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/71-nil-interface-values/</guid><description>&lt;p&gt;Nil значение интерфейса не содержит ни значения, ни конкретного типа.&lt;/p&gt;
 &lt;p&gt;Вызов метода на nil интерфейсе вызывает ошибку времени выполнения, потому что в кортеже интерфейса нет типа, указывающего, какой конкретный метод вызывать.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -3496,7 +3496,7 @@ func describe(i I) {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>72. Пустой интерфейс</title><link>//localhost:1313/tour/72-empty-interface/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/72-empty-interface/</guid><description>&lt;p&gt;Тип интерфейса, который определяет нуль методов, известен как пустой интерфейс:&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>72. Пустой интерфейс</title><link>/tour/72-empty-interface/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/72-empty-interface/</guid><description>&lt;p&gt;Тип интерфейса, который определяет нуль методов, известен как пустой интерфейс:&lt;/p&gt;
 &lt;p&gt;interface{}&lt;/p&gt;
 &lt;p&gt;Пустой интерфейс может содержать значения любого типа. (Каждый тип реализует как минимум нуль методов.)&lt;/p&gt;
 &lt;p&gt;Пустые интерфейсы используются кодом, который обрабатывает значения неизвестного типа. Например, fmt.Print принимает любое количество аргументов типа interface{}.&lt;/p&gt;
@@ -3557,13 +3557,13 @@ func describe(i interface{}) {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>73. Утверждения типа</title><link>//localhost:1313/tour/73--type-assertions/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/73--type-assertions/</guid><description>&lt;p&gt;Утверждение типа предоставляет доступ к базовому конкретному значению значения интерфейса.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>73. Утверждения типа</title><link>/tour/73--type-assertions/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/73--type-assertions/</guid><description>&lt;p&gt;Утверждение типа предоставляет доступ к базовому конкретному значению значения интерфейса.&lt;/p&gt;
 &lt;p&gt;t := i.(T)&lt;/p&gt;
 &lt;p&gt;Это утверждение проверяет, что значение интерфейса i содержит конкретный тип T, и присваивает базовое значение T переменной t.&lt;/p&gt;
 &lt;p&gt;Если i не содержит T, утверждение вызовет панику.&lt;/p&gt;
 &lt;p&gt;Чтобы проверить, содержит ли значение интерфейса определенный тип, утверждение типа может возвращать два значения: базовое значение и логическое значение, которое сообщает, успешно ли выполнено утверждение.&lt;/p&gt;
 &lt;p&gt;t, ok := i.(T)&lt;/p&gt;
-&lt;p&gt;Если i содержит T, то t будет базовым значением, а ok будет true.&lt;/p&gt;</description></item><item><title>74. Переключатели типов</title><link>//localhost:1313/tour/74-type-switches/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/74-type-switches/</guid><description>&lt;p&gt;Переключатель типов - это конструкция, которая позволяет выполнять несколько утверждений типа последовательно.&lt;/p&gt;
+&lt;p&gt;Если i содержит T, то t будет базовым значением, а ok будет true.&lt;/p&gt;</description></item><item><title>74. Переключатели типов</title><link>/tour/74-type-switches/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/74-type-switches/</guid><description>&lt;p&gt;Переключатель типов - это конструкция, которая позволяет выполнять несколько утверждений типа последовательно.&lt;/p&gt;
 &lt;p&gt;Переключатель типов похож на обычный оператор switch, но case в переключателе типов указывают типы (не значения), и эти значения сравниваются с типом значения, содержащегося в данном значении интерфейса.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -3587,7 +3587,7 @@ func describe(i interface{}) {
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Объявление в переключателе типов имеет тот же синтаксис, что и утверждение типа i.(T), но конкретный тип T заменяется ключевым словом type.&lt;/p&gt;</description></item><item><title>75. Интерфейс Stringer</title><link>//localhost:1313/tour/75-stringers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/75-stringers/</guid><description>&lt;p&gt;Одним из самых распространенных интерфейсов является Stringer, определенный в пакете fmt.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Объявление в переключателе типов имеет тот же синтаксис, что и утверждение типа i.(T), но конкретный тип T заменяется ключевым словом type.&lt;/p&gt;</description></item><item><title>75. Интерфейс Stringer</title><link>/tour/75-stringers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/75-stringers/</guid><description>&lt;p&gt;Одним из самых распространенных интерфейсов является Stringer, определенный в пакете fmt.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -3657,7 +3657,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>76. Упражнение: Stringer</title><link>//localhost:1313/tour/76-exercise-stringers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/76-exercise-stringers/</guid><description>&lt;p&gt;Заставьте тип IPAddr реализовать fmt.Stringer, чтобы адрес выводился в виде точечной четверки.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>76. Упражнение: Stringer</title><link>/tour/76-exercise-stringers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/76-exercise-stringers/</guid><description>&lt;p&gt;Заставьте тип IPAddr реализовать fmt.Stringer, чтобы адрес выводился в виде точечной четверки.&lt;/p&gt;
 &lt;p&gt;Например, IPAddr{1, 2, 3, 4} должен выводиться как &amp;ldquo;1.2.3.4&amp;rdquo;.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
@@ -3716,7 +3716,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>77. Ошибки</title><link>//localhost:1313/tour/77-errors/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/77-errors/</guid><description>&lt;p&gt;Программы на Go выражают состояние ошибки с помощью значений error.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>77. Ошибки</title><link>/tour/77-errors/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/77-errors/</guid><description>&lt;p&gt;Программы на Go выражают состояние ошибки с помощью значений error.&lt;/p&gt;
 &lt;p&gt;Тип error - это встроенный интерфейс, похожий на fmt.Stringer:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -3750,14 +3750,14 @@ func main() {
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Converted integer:&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Nil ошибка означает успех; ненулевая ошибка означает неудачу.&lt;/p&gt;</description></item><item><title>78. Задание: Ошибки</title><link>//localhost:1313/tour/78-exercise-errors/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/78-exercise-errors/</guid><description>&lt;p&gt;Скопируйте вашу функцию Sqrt из предыдущего задания и измените ее так, чтобы она возвращала значение ошибки.&lt;/p&gt;
+&lt;/div&gt;&lt;p&gt;Nil ошибка означает успех; ненулевая ошибка означает неудачу.&lt;/p&gt;</description></item><item><title>78. Задание: Ошибки</title><link>/tour/78-exercise-errors/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/78-exercise-errors/</guid><description>&lt;p&gt;Скопируйте вашу функцию Sqrt из предыдущего задания и измените ее так, чтобы она возвращала значение ошибки.&lt;/p&gt;
 &lt;p&gt;Sqrt должна возвращать ненулевое значение ошибки, когда получает отрицательное число, так как она не поддерживает комплексные числа.&lt;/p&gt;
 &lt;p&gt;Создайте новый тип&lt;/p&gt;
 &lt;p&gt;type ErrNegativeSqrt float64&lt;/p&gt;
 &lt;p&gt;и сделайте его ошибкой, добавив метод&lt;/p&gt;
 &lt;p&gt;func (e ErrNegativeSqrt) Error() string&lt;/p&gt;
 &lt;p&gt;чтобы вызов ErrNegativeSqrt(-2).Error() возвращал &amp;ldquo;cannot Sqrt negative number: -2&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;Примечание: Вызов fmt.Sprint(e) внутри метода Error приведет к бесконечному циклу. Вы можете избежать этого, преобразовав e сначала: fmt.Sprint(float64(e)). Почему?&lt;/p&gt;</description></item><item><title>79. Ридеры (Readers)</title><link>//localhost:1313/tour/79-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/79-readers/</guid><description>&lt;p&gt;Пакет io определяет интерфейс io.Reader, который представляет конечную точку для чтения потока данных.&lt;/p&gt;
+&lt;p&gt;Примечание: Вызов fmt.Sprint(e) внутри метода Error приведет к бесконечному циклу. Вы можете избежать этого, преобразовав e сначала: fmt.Sprint(float64(e)). Почему?&lt;/p&gt;</description></item><item><title>79. Ридеры (Readers)</title><link>/tour/79-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/79-readers/</guid><description>&lt;p&gt;Пакет io определяет интерфейс io.Reader, который представляет конечную точку для чтения потока данных.&lt;/p&gt;
 &lt;p&gt;Стандартная библиотека Go содержит множество реализаций этого интерфейса, включая файлы, сетевые соединения, компрессоры, шифраторы и другие.&lt;/p&gt;
 &lt;p&gt;Интерфейс io.Reader имеет метод Read:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
@@ -3770,7 +3770,7 @@ func main() {
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;Read заполняет предоставленный байтовый срез (b) данными и возвращает количество записанных байт (n) и значение ошибки (err).
 Он возвращает ошибку io.EOF, когда поток данных заканчивается.&lt;/p&gt;
-&lt;p&gt;Пример кода создает strings.Reader и потребляет его вывод по 8 байт за раз.&lt;/p&gt;</description></item><item><title>80. Задание: Readers</title><link>//localhost:1313/tour/80-exercise-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/80-exercise-readers/</guid><description>&lt;p&gt;Реализуйте тип Reader, который выдаёт бесконечный поток ASCII символа &amp;lsquo;A&amp;rsquo;.&lt;/p&gt;
+&lt;p&gt;Пример кода создает strings.Reader и потребляет его вывод по 8 байт за раз.&lt;/p&gt;</description></item><item><title>80. Задание: Readers</title><link>/tour/80-exercise-readers/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/80-exercise-readers/</guid><description>&lt;p&gt;Реализуйте тип Reader, который выдаёт бесконечный поток ASCII символа &amp;lsquo;A&amp;rsquo;.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
 &lt;div class="playground-header"&gt;
  &lt;h4&gt;Go Playground&lt;/h4&gt;
@@ -3822,7 +3822,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>81. Задание: rot13Reader</title><link>//localhost:1313/tour/81-exercise-rot13reader/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/81-exercise-rot13reader/</guid><description>&lt;p&gt;Распространённым шаблоном является io.Reader, который оборачивает другой io.Reader, modificруя поток данных тем или иным способом.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>81. Задание: rot13Reader</title><link>/tour/81-exercise-rot13reader/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/81-exercise-rot13reader/</guid><description>&lt;p&gt;Распространённым шаблоном является io.Reader, который оборачивает другой io.Reader, modificруя поток данных тем или иным способом.&lt;/p&gt;
 &lt;p&gt;Например, функция gzip.NewReader принимает io.Reader (поток сжатых данных) и возвращает *gzip.Reader, который также реализует io.Reader (поток распакованных данных).&lt;/p&gt;
 &lt;p&gt;Реализуйте rot13Reader, который реализует io.Reader и читает из io.Reader, modificруя поток путём применения шифра подстановки rot13 ко всем буквенным символам.&lt;/p&gt;
 &lt;p&gt;Тип rot13Reader предоставлен вам. Сделайте его io.Reader, реализовав его метод Read.&lt;/p&gt;
@@ -3883,7 +3883,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>82. Интерфейс Image</title><link>//localhost:1313/tour/82-image/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/82-image/</guid><description>&lt;p&gt;
+&lt;/div&gt;</description></item><item><title>82. Интерфейс Image</title><link>/tour/82-image/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/82-image/</guid><description>&lt;p&gt;
 
 &lt;a href="https://pkg.go.dev/image#Image" target="_blank"&gt;Пакет image&lt;/a&gt; определяет интерфейс Image:&lt;/p&gt;
 &lt;p&gt;package image&lt;/p&gt;
@@ -3951,7 +3951,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>83. Упражнение: Изображения</title><link>//localhost:1313/tour/83-exercise-images/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/83-exercise-images/</guid><description>&lt;p&gt;Помните 
+&lt;/div&gt;</description></item><item><title>83. Упражнение: Изображения</title><link>/tour/83-exercise-images/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/83-exercise-images/</guid><description>&lt;p&gt;Помните 
 
 &lt;a href="https://go.dev/tour/moretypes/18" target="_blank"&gt;генератор изображений&lt;/a&gt;, который вы писали ранее? Давайте создадим еще один, но на этот раз он будет возвращать реализацию image.Image вместо среза данных.&lt;/p&gt;
 &lt;p&gt;Определите свой собственный тип Image, реализуйте 
@@ -4010,10 +4010,10 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>84. Параметры типа</title><link>//localhost:1313/tour/84-type-parameters/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/84-type-parameters/</guid><description>&lt;p&gt;Функции в Go могут быть написаны для работы с несколькими типами с использованием параметров типа. Параметры типа функции указываются в квадратных скобках перед аргументами функции.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>84. Параметры типа</title><link>/tour/84-type-parameters/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/84-type-parameters/</guid><description>&lt;p&gt;Функции в Go могут быть написаны для работы с несколькими типами с использованием параметров типа. Параметры типа функции указываются в квадратных скобках перед аргументами функции.&lt;/p&gt;
 &lt;p&gt;func Index[T comparable](s []T, x T) int&lt;/p&gt;
 &lt;p&gt;Это объявление означает, что s является срезом любого типа T, который удовлетворяет встроенному ограничению comparable. x также представляет значение того же типа.&lt;/p&gt;
-&lt;p&gt;comparable — это полезное ограничение, которое позволяет использовать операторы == и != со значениями типа. В этом примере мы используем его для сравнения значения со всеми элементами среза до тех пор, пока не будет найдено совпадение. Эта функция Index работает для любого типа, который поддерживает сравнение.&lt;/p&gt;</description></item><item><title>85. Универсальные типы (Дженерики)</title><link>//localhost:1313/tour/85-generic-types/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/85-generic-types/</guid><description>&lt;p&gt;Помимо универсальных функций, Go также поддерживает универсальные типы. Тип может быть параметризован с помощью параметра типа, что полезно для реализации универсальных структур данных.&lt;/p&gt;
+&lt;p&gt;comparable — это полезное ограничение, которое позволяет использовать операторы == и != со значениями типа. В этом примере мы используем его для сравнения значения со всеми элементами среза до тех пор, пока не будет найдено совпадение. Эта функция Index работает для любого типа, который поддерживает сравнение.&lt;/p&gt;</description></item><item><title>85. Универсальные типы (Дженерики)</title><link>/tour/85-generic-types/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/85-generic-types/</guid><description>&lt;p&gt;Помимо универсальных функций, Go также поддерживает универсальные типы. Тип может быть параметризован с помощью параметра типа, что полезно для реализации универсальных структур данных.&lt;/p&gt;
 &lt;p&gt;Этот пример демонстрирует простое объявление типа для односвязного списка, содержащего значения любого типа.&lt;/p&gt;
 &lt;p&gt;В качестве упражнения добавьте некоторый функционал в эту реализацию списка.&lt;/p&gt;
 &lt;div class="go-playground" id="playground-example1"&gt;
@@ -4066,12 +4066,12 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>86. Горутины</title><link>//localhost:1313/tour/86-goroutines/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/86-goroutines/</guid><description>&lt;p&gt;Горутина — это легковесный поток, управляемый средой выполнения Go.&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>86. Горутины</title><link>/tour/86-goroutines/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/86-goroutines/</guid><description>&lt;p&gt;Горутина — это легковесный поток, управляемый средой выполнения Go.&lt;/p&gt;
 &lt;p&gt;go f(x, y, z)&lt;/p&gt;
 &lt;p&gt;запускает новую горутину, выполняющую&lt;/p&gt;
 &lt;p&gt;f(x, y, z)&lt;/p&gt;
 &lt;p&gt;Вычисление f, x, y и z происходит в текущей горутине, а выполнение f — в новой горутине.&lt;/p&gt;
-&lt;p&gt;Горутины выполняются в одном адресном пространстве, поэтому доступ к общей памяти должен быть синхронизирован. Пакет sync предоставляет полезные примитивы, хотя они нечасто понадобятся вам в Go, поскольку существуют другие примитивы. (Смотрите следующий слайд.)&lt;/p&gt;</description></item><item><title>88. Буферизованные каналы</title><link>//localhost:1313/tour/88-buffered-channels/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/88-buffered-channels/</guid><description>&lt;p&gt;Каналы могут быть буферизованными. Передайте длину буфера в качестве второго аргумента функции make для инициализации буферизованного канала:&lt;/p&gt;
+&lt;p&gt;Горутины выполняются в одном адресном пространстве, поэтому доступ к общей памяти должен быть синхронизирован. Пакет sync предоставляет полезные примитивы, хотя они нечасто понадобятся вам в Go, поскольку существуют другие примитивы. (Смотрите следующий слайд.)&lt;/p&gt;</description></item><item><title>88. Буферизованные каналы</title><link>/tour/88-buffered-channels/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/88-buffered-channels/</guid><description>&lt;p&gt;Каналы могут быть буферизованными. Передайте длину буфера в качестве второго аргумента функции make для инициализации буферизованного канала:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -4174,7 +4174,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>89. Range и Close</title><link>//localhost:1313/tour/89-range-and-close/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/89-range-and-close/</guid><description>&lt;p&gt;Отправитель (sender) может закрыть канал, чтобы указать, что больше значений отправляться не будет. Получатели могут проверить, был ли канал закрыт, назначив второй параметр выражению приёма:&lt;/p&gt;
+&lt;/div&gt;</description></item><item><title>89. Range и Close</title><link>/tour/89-range-and-close/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/89-range-and-close/</guid><description>&lt;p&gt;Отправитель (sender) может закрыть канал, чтобы указать, что больше значений отправляться не будет. Получатели могут проверить, был ли канал закрыт, назначив второй параметр выражению приёма:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -4185,7 +4185,7 @@ func main() {
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;ok будет иметь значение false, если больше нет значений для получения и канал закрыт.&lt;/p&gt;
 &lt;p&gt;Цикл for i := range c постоянно получает значения из канала, пока он не будет закрыт.&lt;/p&gt;
-&lt;p&gt;Примечание: Закрывать канал должен только отправитель, но никогда получатель. Отправка в закрытый канал вызовет панику (panic).&lt;/p&gt;</description></item><item><title>90. Оператор Select</title><link>//localhost:1313/tour/90-select/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/90-select/</guid><description>&lt;p&gt;Оператор select позволяет горутине ожидать выполнения нескольких операций связи.&lt;/p&gt;
+&lt;p&gt;Примечание: Закрывать канал должен только отправитель, но никогда получатель. Отправка в закрытый канал вызовет панику (panic).&lt;/p&gt;</description></item><item><title>90. Оператор Select</title><link>/tour/90-select/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/90-select/</guid><description>&lt;p&gt;Оператор select позволяет горутине ожидать выполнения нескольких операций связи.&lt;/p&gt;
 &lt;p&gt;Select блокируется, пока одна из его ветвей не сможет выполниться, после чего выполняет эту ветвь.&lt;/p&gt;
 &lt;p&gt;Если несколько ветвей готовы, он выбирает одну из них случайным образом.&lt;/p&gt;
 &lt;p&gt;В данном примере оператор select используется на строке 8.&lt;/p&gt;
@@ -4255,194 +4255,7 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>91. Default в операторе select</title><link>//localhost:1313/tour/91-default-selection/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/91-default-selection/</guid><description>&lt;p&gt;Default в операторе select выполняется, если никакой другой case не готов к выполнению.&lt;/p&gt;
-&lt;p&gt;Используйте default для попытки отправки или получения без блокировки:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;select&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;-&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// используем i&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// получение из c вызвало бы блокировку&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;div class="go-playground" id="playground-example1"&gt;
-&lt;div class="playground-header"&gt;
- &lt;h4&gt;Go Playground&lt;/h4&gt;
- &lt;div class="playground-actions"&gt;
- &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
- ▶ Запустить
- &lt;/button&gt;
- &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
- 🛠 Форматировать
- &lt;/button&gt;
- &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
- ⟳ Сбросить
- &lt;/button&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="code-editor"&gt;
- &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
-&lt;textarea
- id="go-code-example1"
-class="go-code-textarea"
-placeholder="Введите ваш Go код здесь..."
-spellcheck="false"
-oninput="updateLineNumbers('example1')"
-onscroll="syncScroll('example1')"&gt;
-
-package main
-
-import (
- &amp;#34;fmt&amp;#34;
- &amp;#34;time&amp;#34;
-)
-
-func main() {
- start := time.Now()
- tick := time.Tick(100 * time.Millisecond)
- boom := time.After(500 * time.Millisecond)
- elapsed := func() time.Duration {
- return time.Since(start).Round(time.Millisecond)
- }
- for {
- select {
- case &amp;lt;-tick:
- fmt.Printf(&amp;#34;[%6s] tick.\n&amp;#34;, elapsed())
- case &amp;lt;-boom:
- fmt.Printf(&amp;#34;[%6s] BOOM!\n&amp;#34;, elapsed())
- return
- default:
- fmt.Printf(&amp;#34;[%6s] .\n&amp;#34;, elapsed())
- time.Sleep(50 * time.Millisecond)
- }
- }
-}
-&lt;/textarea&gt;
-&lt;/div&gt;
-
-&lt;div class="playground-output"&gt;
- &lt;div class="output-header"&gt;
- &lt;span&gt;Вывод:&lt;/span&gt;
- &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
- Очистить
- &lt;/button&gt;
- &lt;/div&gt;
- &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>92. Упражнение: Эквивалентные бинарные деревья</title><link>//localhost:1313/tour/92-exercise-equivalent-binary-trees/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/92-exercise-equivalent-binary-trees/</guid><description>&lt;p&gt;Может существовать множество различных бинарных деревьев с одинаковой последовательностью значений. Например, вот два бинарных дерева, содержащих последовательность 1, 1, 2, 3, 5, 8, 13.&lt;/p&gt;
-&lt;p&gt;&lt;img src="../images/92-tree.png" alt="Два бинарных дерева с одинаковыми значениями"&gt;&lt;/p&gt;
-&lt;p&gt;Функция для проверки того, хранят ли два бинарных дерева одинаковую последовательность, является довольно сложной в большинстве языков. Мы используем конкурентность Go и каналы для написания простого решения.&lt;/p&gt;
-&lt;p&gt;В этом примере используется пакет tree, который определяет тип:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Tree&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;struct&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Left&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;Tree&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Value&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Right&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;Tree&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Продолжение описания на следующей странице.&lt;/p&gt;</description></item><item><title>777. Завершение курса</title><link>//localhost:1313/tour/777-/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/777-/</guid><description>&lt;p&gt;Go-Котяра поздравляет тебя с завершением курса Tour Of Go!&lt;/p&gt;
-&lt;p&gt;Это неоспоримое достижение и важная веха в твоем развитии.&lt;/p&gt;
-&lt;div class="go-playground" id="playground-example1"&gt;
-&lt;div class="playground-header"&gt;
- &lt;h4&gt;Go Playground&lt;/h4&gt;
- &lt;div class="playground-actions"&gt;
- &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
- ▶ Запустить
- &lt;/button&gt;
- &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
- 🛠 Форматировать
- &lt;/button&gt;
- &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
- ⟳ Сбросить
- &lt;/button&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="code-editor"&gt;
- &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
-&lt;textarea
- id="go-code-example1"
-class="go-code-textarea"
-placeholder="Введите ваш Go код здесь..."
-spellcheck="false"
-oninput="updateLineNumbers('example1')"
-onscroll="syncScroll('example1')"&gt;
-
-
-
-&lt;/textarea&gt;
-&lt;/div&gt;
-
-&lt;div class="playground-output"&gt;
- &lt;div class="output-header"&gt;
- &lt;span&gt;Вывод:&lt;/span&gt;
- &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
- Очистить
- &lt;/button&gt;
- &lt;/div&gt;
- &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>999.</title><link>//localhost:1313/tour/999-/</link><pubDate>Thu, 02 Oct 2025 00:00:00 +0000</pubDate><guid>//localhost:1313/tour/999-/</guid><description>&lt;div class="go-playground" id="playground-example1"&gt;
-&lt;div class="playground-header"&gt;
- &lt;h4&gt;Go Playground&lt;/h4&gt;
- &lt;div class="playground-actions"&gt;
- &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
- ▶ Запустить
- &lt;/button&gt;
- &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
- 🛠 Форматировать
- &lt;/button&gt;
- &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
- ⟳ Сбросить
- &lt;/button&gt;
- &lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class="code-editor"&gt;
- &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
-&lt;textarea
- id="go-code-example1"
-class="go-code-textarea"
-placeholder="Введите ваш Go код здесь..."
-spellcheck="false"
-oninput="updateLineNumbers('example1')"
-onscroll="syncScroll('example1')"&gt;
-
-
-
-&lt;/textarea&gt;
-&lt;/div&gt;
-
-&lt;div class="playground-output"&gt;
- &lt;div class="output-header"&gt;
- &lt;span&gt;Вывод:&lt;/span&gt;
- &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
- Очистить
- &lt;/button&gt;
- &lt;/div&gt;
- &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Struct 2</title><link>//localhost:1313/posts/struct_1/</link><pubDate>Tue, 16 Sep 2025 20:41:59 +0300</pubDate><guid>//localhost:1313/posts/struct_1/</guid><description>&lt;h1 id="структуры-в-go---часть-первая"&gt;
+&lt;/div&gt;</description></item><item><title>Struct 2</title><link>/posts/struct_1/</link><pubDate>Tue, 16 Sep 2025 20:41:59 +0300</pubDate><guid>/posts/struct_1/</guid><description>&lt;h1 id="структуры-в-go---часть-первая"&gt;
 Структуры в GO - часть первая
 &lt;/h1&gt;&lt;p&gt;Эта статья является первой вводной статьей про стуктуры и освещает все базовые вещи, а также затренет ООП и тоткак оно реализовано в Golang.&lt;/p&gt;
 &lt;h2 id="погнали"&gt;
@@ -4468,48 +4281,4 @@ onscroll="syncScroll('example1')"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Example</title><link>//localhost:1313/posts/example/</link><pubDate>Tue, 16 Sep 2025 09:40:53 +0300</pubDate><guid>//localhost:1313/posts/example/</guid><description>&lt;h1 id="это-заголовок-первого-уровня-h1"&gt;
-Это заголовок первого уровня (H1)
-&lt;/h1&gt;&lt;p&gt;Вступление к моей замечательной статье. &lt;strong&gt;Этот текст будет жирным&lt;/strong&gt;.&lt;/p&gt;
-&lt;h2 id="подзаголовок-h2"&gt;
-Подзаголовок (H2)
-&lt;/h2&gt;&lt;p&gt;А вот это уже абзац обычного текста. Hugo невероятно быстрый!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Пункт списка 1&lt;/li&gt;
-&lt;li&gt;Пункт списка 2&lt;/li&gt;
-&lt;li&gt;Пункт списка 3&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Вот пример 
-
-&lt;a href="https://gohugo.io" target="_blank"&gt;ссылки на сайт Hugo&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;&lt;img src="./images/my-image.jpg" alt="Это описание картинки"&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
-&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
-&lt;/span&gt;&lt;span class="lnt"&gt;2
-&lt;/span&gt;&lt;span class="lnt"&gt;3
-&lt;/span&gt;&lt;span class="lnt"&gt;4
-&lt;/span&gt;&lt;span class="lnt"&gt;5
-&lt;/span&gt;&lt;span class="lnt"&gt;6
-&lt;/span&gt;&lt;span class="lnt"&gt;7
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
-&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kn"&gt;package&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;&amp;#34;fmt&amp;#34;&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="kd"&gt;func&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;fmt&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;Println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#34;Hello, Go Котяра!&amp;#34;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-&lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;content/
-└── tour/
-├── 1-welcome/
-│ └── index.ru.md
-├── 2-basics/
-│ └── index.ru.md
-├── 3-flowcontrol/
-│ └── index.ru.md
-└── _index.ru.md &amp;lt;&amp;ndash; Главная страница раздела &amp;ldquo;Tour&amp;rdquo;&lt;/p&gt;</description></item><item><title>Moya Pervaya Statya</title><link>//localhost:1313/posts/moya-pervaya-statya/</link><pubDate>Sun, 14 Sep 2025 05:34:05 +0300</pubDate><guid>//localhost:1313/posts/moya-pervaya-statya/</guid><description>&lt;p&gt;Test&lt;/p&gt;
-&lt;p&gt;test&lt;/p&gt;</description></item><item><title>Tour of Go</title><link>//localhost:1313/categories/tour-of-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>//localhost:1313/categories/tour-of-go/</guid><description/></item></channel></rss>
+&lt;/div&gt;</description></item><item><title>Tour of Go</title><link>/categories/tour-of-go/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>/categories/tour-of-go/</guid><description/></item></channel></rss>

@@ -236,3 +236,127 @@ color: white;
         font-size: 0.9em;
     }
 }
+
+/* Telegram виджет в сайдбаре */
+.telegram-widget {
+    background: linear-gradient(135deg, #0088cc 0%, #00aced 100%);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    color: white;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+    border: 1px solid #0077b5;
+    position: relative;
+    overflow: hidden;
+}
+
+.telegram-widget::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.telegram-widget::after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -30%;
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.telegram-widget h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.telegram-widget p {
+    margin: 0 0 1.25rem 0;
+    font-size: 0.9rem;
+    opacity: 0.9;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+}
+
+/* Кнопка Telegram */
+.tg-btn {
+    display: inline-block;
+    background: white;
+    color: #0088cc !important;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    border: none;
+}
+
+.tg-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: #f8f9fa;
+    color: #0077b5 !important;
+}
+
+.tg-btn:active {
+    transform: translateY(0);
+}
+
+
+/* Иконка Telegram */
+.telegram-widget h3::before {
+    /*content: "✈️";*/
+    margin-right: 0.5rem;
+    font-size: 1.2em;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .telegram-widget {
+        padding: 1.25rem;
+        margin: 0.75rem 0;
+    }
+
+    .telegram-widget h3 {
+        font-size: 1rem;
+    }
+
+    .tg-btn {
+        padding: 0.6rem 1.25rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* Темная тема */
+@media (prefers-color-scheme: dark) {
+    .telegram-widget {
+        background: linear-gradient(190deg,#1f6f87 0%,#1b232f 100%);
+        box-shadow: 0 4px 12px rgba(0, 119, 181, 0.4);
+    }
+
+    .tg-btn {
+        background: #ffffff;
+        color: #0088cc !important;
+    }
+
+    .tg-btn:hover {
+        background: #f0f0f0;
+    }
+}
