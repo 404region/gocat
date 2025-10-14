@@ -1,0 +1,55 @@
+<!doctype html><html lang=ru><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>94. Мьютекс</title><link rel=preload href=//localhost:1313/css/bundle.min.9f31ab3051ce6ec3cb783c63ef06b66ddefaa1e55f17eb4c0da5e6722652a845.css as=style><link rel=stylesheet href=//localhost:1313/css/bundle.min.9f31ab3051ce6ec3cb783c63ef06b66ddefaa1e55f17eb4c0da5e6722652a845.css><link rel=icon type=image/png href=//localhost:1313/images/icon-cat-bant.png sizes=32x32><style>.site-header{background-image:url(//localhost:1313/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"><div class=telegram-widget><h3>Мы в telegram</h3><p>Присоединяйтесь к нашему сообществу!</p><a href=https://t.me/gocat_dev class=tg-btn target=_blank>Подписаться на @gocat_dev</a></div></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../tour/ class=breadcrumb-item>Описание раздела Tour of Go</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">94. Мьютекс</span></nav><article class=lesson><header class=lesson-header><h1>94. Мьютекс</h1></header><div class=lesson-content><p>Мы видели, что каналы отлично подходят для общения между горутинами.</p><p>Но что, если нам не нужно общение? Что, если мы просто хотим убедиться, что только одна горутина может обращаться к переменной в данный момент времени, чтобы избежать конфликтов?</p><p>Эта концепция называется взаимным исключением (mutual exclusion), а традиционное название для структуры данных, которая его обеспечивает, — мьютекс.</p><p>Стандартная библиотека Go предоставляет взаимное исключение с помощью sync.Mutex и двух его методов:</p><p>Lock<br>Unlock</p><p>Мы можем определить блок кода, который должен выполняться в режиме взаимного исключения, окружив его вызовами Lock и Unlock, как показано в методе Inc.</p><p>Мы также можем использовать defer, чтобы гарантировать разблокировку мьютекса, как в методе Value.</p><div class=go-playground id=playground-example1><div class=playground-header><h4>Go Playground</h4><div class=playground-actions><button class=playground-btn onclick='runGoCode("example1")'>
+▶ Запустить
+</button>
+<button class=playground-btn onclick='formatGoCode("example1")'>
+🛠 Форматировать
+</button>
+<button class=playground-btn onclick='resetGoCode("example1")'>
+⟳ Сбросить</button></div></div><div class=code-editor><div class=line-numbers id=line-numbers-example1></div><textarea id=go-code-example1 class=go-code-textarea placeholder="Введите ваш Go код здесь..." spellcheck=false oninput='updateLineNumbers("example1")' onscroll='syncScroll("example1")'>
+package main
+
+import (
+    &#34;fmt&#34;
+    &#34;sync&#34;
+    &#34;time&#34;
+)
+
+// SafeCounter is safe to use concurrently.
+type SafeCounter struct {
+    mu sync.Mutex
+    v  map[string]int
+}
+
+// Inc increments the counter for the given key.
+func (c *SafeCounter) Inc(key string) {
+    c.mu.Lock()
+    // Lock so only one goroutine at a time can access the map c.v.
+    c.v[key]&#43;&#43;
+    c.mu.Unlock()
+}
+
+// Value returns the current value of the counter for the given key.
+func (c *SafeCounter) Value(key string) int {
+    c.mu.Lock()
+    // Lock so only one goroutine at a time can access the map c.v.
+    defer c.mu.Unlock()
+    return c.v[key]
+}
+
+func main() {
+    c := SafeCounter{v: make(map[string]int)}
+    for i := 0; i &lt; 1000; i&#43;&#43; {
+        go c.Inc(&#34;somekey&#34;)
+    }
+
+	time.Sleep(time.Second)
+	fmt.Println(c.Value(&#34;somekey&#34;))
+}
+
+</textarea></div><div class=playground-output><div class=output-header><span>Вывод:</span>
+<button class=clear-btn onclick='clearOutput("example1")'>
+Очистить</button></div><pre id=output-example1 class=output-content></pre></div></div></div><div class=lesson-meta><p class=article-date><time>12.10.2025</time></p></div><nav class=lesson-navigation><div class=nav-container>📖 <a href=../../tour/777-/ class="nav-btn prev">777. Завершение курса →</a></div></nav><div class=original-doc-link><a href=https://go.dev/tour/concurrency/9 target=_blank rel=noopener>Оригинал статьи на сайте go.dev</a></div></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=//localhost:1313/js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

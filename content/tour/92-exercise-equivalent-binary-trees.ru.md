@@ -1,10 +1,10 @@
 ---
 title: "92. Упражнение: Эквивалентные бинарные деревья"
-date: 2025-10-13
+date: 2025-10-12
 categories: ["Tour of Go"]
 description: "Изучите основы синтаксиса Go с практическими примерами"
 tags: ["горутины", "каналы", "go синтаксис", "golang основы"]
-keywords: "golang, go, управдения на golang, обучение go, tour of go"
+keywords: "golang, go, упражнения на golang, обучение go, tour of go"
 author: "GoCat Team"
 weight: 92
 draft: false

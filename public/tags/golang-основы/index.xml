@@ -182,4 +182,112 @@ func main() {
  &lt;/div&gt;
  &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item></channel></rss>
+&lt;/div&gt;</description></item><item><title>91. Default в операторе select</title><link>/tour/91-default-selection/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/91-default-selection/</guid><description>&lt;p&gt;Default в операторе select выполняется, если никакой другой case не готов к выполнению.&lt;/p&gt;
+&lt;p&gt;Используйте default для попытки отправки или получения без блокировки:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;select&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;:=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;-&lt;/span&gt;&lt;span class="nx"&gt;c&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// используем i&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;// получение из c вызвало бы блокировку&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="go-playground" id="playground-example1"&gt;
+&lt;div class="playground-header"&gt;
+ &lt;h4&gt;Go Playground&lt;/h4&gt;
+ &lt;div class="playground-actions"&gt;
+ &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
+ ▶ Запустить
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
+ 🛠 Форматировать
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
+ ⟳ Сбросить
+ &lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="code-editor"&gt;
+ &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
+&lt;textarea
+ id="go-code-example1"
+class="go-code-textarea"
+placeholder="Введите ваш Go код здесь..."
+spellcheck="false"
+oninput="updateLineNumbers('example1')"
+onscroll="syncScroll('example1')"&gt;
+
+package main
+
+import (
+ &amp;#34;fmt&amp;#34;
+ &amp;#34;time&amp;#34;
+)
+
+func main() {
+ start := time.Now()
+ tick := time.Tick(100 * time.Millisecond)
+ boom := time.After(500 * time.Millisecond)
+ elapsed := func() time.Duration {
+ return time.Since(start).Round(time.Millisecond)
+ }
+ for {
+ select {
+ case &amp;lt;-tick:
+ fmt.Printf(&amp;#34;[%6s] tick.\n&amp;#34;, elapsed())
+ case &amp;lt;-boom:
+ fmt.Printf(&amp;#34;[%6s] BOOM!\n&amp;#34;, elapsed())
+ return
+ default:
+ fmt.Printf(&amp;#34;[%6s] .\n&amp;#34;, elapsed())
+ time.Sleep(50 * time.Millisecond)
+ }
+ }
+}
+&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="playground-output"&gt;
+ &lt;div class="output-header"&gt;
+ &lt;span&gt;Вывод:&lt;/span&gt;
+ &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
+ Очистить
+ &lt;/button&gt;
+ &lt;/div&gt;
+ &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>92. Упражнение: Эквивалентные бинарные деревья</title><link>/tour/92-exercise-equivalent-binary-trees/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/92-exercise-equivalent-binary-trees/</guid><description>&lt;p&gt;Может существовать множество различных бинарных деревьев с одинаковой последовательностью значений. Например, вот два бинарных дерева, содержащих последовательность 1, 1, 2, 3, 5, 8, 13.&lt;/p&gt;
+&lt;p&gt;&lt;img src="../images/92-tree.png" alt="Два бинарных дерева с одинаковыми значениями"&gt;&lt;/p&gt;
+&lt;p&gt;Функция для проверки того, хранят ли два бинарных дерева одинаковую последовательность, является довольно сложной в большинстве языков. Мы используем конкурентность Go и каналы для написания простого решения.&lt;/p&gt;
+&lt;p&gt;В этом примере используется пакет tree, который определяет тип:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;type&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Tree&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kd"&gt;struct&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Left&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;Tree&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Value&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;Right&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nx"&gt;Tree&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Продолжение описания на следующей странице.&lt;/p&gt;</description></item><item><title>93. Продолжение перевода</title><link>/tour/93-to-be-continied/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/93-to-be-continied/</guid><description>&lt;p&gt;Go Котяра очень старается перевести весь 
+
+&lt;a href="https://go.dev/tour/welcome/1" target="_blank"&gt;Tour Of Go&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Переводу будут появлятся тут по мере готовности.&lt;/p&gt;</description></item></channel></rss>
