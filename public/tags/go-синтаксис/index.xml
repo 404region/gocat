@@ -184,4 +184,161 @@ func main() {
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="w"&gt;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;p&gt;Продолжение описания на следующей странице.&lt;/p&gt;</description></item></channel></rss>
+&lt;/div&gt;&lt;p&gt;Продолжение описания на следующей странице.&lt;/p&gt;</description></item><item><title>93. Упражнение: Эквивалентные бинарные деревья - продолжение</title><link>/tour/93-exercise-equivalent-binary-trees-2/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/93-exercise-equivalent-binary-trees-2/</guid><description>&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Реализуйте функцию Walk.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Протестируйте функцию Walk.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Функция tree.New(k) создает бинарное дерево со случайной структурой (но всегда отсортированное), содержащее значения k, 2k, 3k, &amp;hellip;, 10k.&lt;/p&gt;
+&lt;p&gt;Создайте новый канал ch и запустите обходчик:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;Walk&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;tree&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;New&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nx"&gt;ch&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;Затем прочтите и выведите 10 значений из канала. Это должны быть числа 1, 2, 3, &amp;hellip;, 10.&lt;/p&gt;
+&lt;ol start="3"&gt;
+&lt;li&gt;
+&lt;p&gt;Реализуйте функцию Same, используя Walk, чтобы определить, содержат ли t1 и t2 одинаковые значения.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Протестируйте функцию Same.&lt;/p&gt;</description></item><item><title>94. Мьютекс</title><link>/tour/94-mutex/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/94-mutex/</guid><description>&lt;p&gt;Мы видели, что каналы отлично подходят для общения между горутинами.&lt;/p&gt;
+&lt;p&gt;Но что, если нам не нужно общение? Что, если мы просто хотим убедиться, что только одна горутина может обращаться к переменной в данный момент времени, чтобы избежать конфликтов?&lt;/p&gt;
+&lt;p&gt;Эта концепция называется взаимным исключением (mutual exclusion), а традиционное название для структуры данных, которая его обеспечивает, — мьютекс.&lt;/p&gt;
+&lt;p&gt;Стандартная библиотека Go предоставляет взаимное исключение с помощью sync.Mutex и двух его методов:&lt;/p&gt;
+&lt;p&gt;Lock&lt;br&gt;
+Unlock&lt;/p&gt;</description></item><item><title>95. Упражнение: Веб-краулер (Web Crawler)</title><link>/tour/95-exercise-web-crawler/</link><pubDate>Sun, 12 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/95-exercise-web-crawler/</guid><description>&lt;p&gt;В этом упражнении вы будете использовать средства конкурентности Go для распараллеливания веб-краулера.&lt;/p&gt;
+&lt;p&gt;Измените функцию Crawl, чтобы она загружала URL-адреса параллельно, не загружая один и тот же URL-адрес дважды.&lt;/p&gt;
+&lt;p&gt;Подсказка: вы можете хранить кэш уже загруженных URL-адресов в карте (map), но карты сами по себе не безопасны для конкурентного использования!&lt;/p&gt;
+&lt;div class="go-playground" id="playground-example1"&gt;
+&lt;div class="playground-header"&gt;
+ &lt;h4&gt;Go Playground&lt;/h4&gt;
+ &lt;div class="playground-actions"&gt;
+ &lt;button class="playground-btn" onclick="runGoCode('example1')"&gt;
+ ▶ Запустить
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="formatGoCode('example1')"&gt;
+ 🛠 Форматировать
+ &lt;/button&gt;
+ &lt;button class="playground-btn" onclick="resetGoCode('example1')"&gt;
+ ⟳ Сбросить
+ &lt;/button&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="code-editor"&gt;
+ &lt;div class="line-numbers" id="line-numbers-example1"&gt;&lt;/div&gt;
+&lt;textarea
+ id="go-code-example1"
+class="go-code-textarea"
+placeholder="Введите ваш Go код здесь..."
+spellcheck="false"
+oninput="updateLineNumbers('example1')"
+onscroll="syncScroll('example1')"&gt;
+
+package main
+
+import (
+ &amp;#34;fmt&amp;#34;
+)
+
+type Fetcher interface {
+ // Fetch returns the body of URL and
+ // a slice of URLs found on that page.
+ Fetch(url string) (body string, urls []string, err error)
+}
+
+// Crawl uses fetcher to recursively crawl
+// pages starting with url, to a maximum of depth.
+func Crawl(url string, depth int, fetcher Fetcher) {
+ // TODO: Fetch URLs in parallel.
+ // TODO: Don&amp;#39;t fetch the same URL twice.
+ // This implementation doesn&amp;#39;t do either:
+ if depth &amp;lt;= 0 {
+ return
+ }
+ body, urls, err := fetcher.Fetch(url)
+ if err != nil {
+ fmt.Println(err)
+ return
+ }
+ fmt.Printf(&amp;#34;found: %s %q\n&amp;#34;, url, body)
+ for _, u := range urls {
+ Crawl(u, depth-1, fetcher)
+ }
+ return
+}
+
+func main() {
+ Crawl(&amp;#34;https://golang.org/&amp;#34;, 4, fetcher)
+}
+
+// fakeFetcher is Fetcher that returns canned results.
+type fakeFetcher map[string]*fakeResult
+
+type fakeResult struct {
+ body string
+ urls []string
+}
+
+func (f fakeFetcher) Fetch(url string) (string, []string, error) {
+ if res, ok := f[url]; ok {
+ return res.body, res.urls, nil
+ }
+ return &amp;#34;&amp;#34;, nil, fmt.Errorf(&amp;#34;not found: %s&amp;#34;, url)
+}
+
+// fetcher is a populated fakeFetcher.
+var fetcher = fakeFetcher{
+ &amp;#34;https://golang.org/&amp;#34;: &amp;amp;fakeResult{
+ &amp;#34;The Go Programming Language&amp;#34;,
+ []string{
+ &amp;#34;https://golang.org/pkg/&amp;#34;,
+ &amp;#34;https://golang.org/cmd/&amp;#34;,
+ },
+ },
+ &amp;#34;https://golang.org/pkg/&amp;#34;: &amp;amp;fakeResult{
+ &amp;#34;Packages&amp;#34;,
+ []string{
+ &amp;#34;https://golang.org/&amp;#34;,
+ &amp;#34;https://golang.org/cmd/&amp;#34;,
+ &amp;#34;https://golang.org/pkg/fmt/&amp;#34;,
+ &amp;#34;https://golang.org/pkg/os/&amp;#34;,
+ },
+ },
+ &amp;#34;https://golang.org/pkg/fmt/&amp;#34;: &amp;amp;fakeResult{
+ &amp;#34;Package fmt&amp;#34;,
+ []string{
+ &amp;#34;https://golang.org/&amp;#34;,
+ &amp;#34;https://golang.org/pkg/&amp;#34;,
+ },
+ },
+ &amp;#34;https://golang.org/pkg/os/&amp;#34;: &amp;amp;fakeResult{
+ &amp;#34;Package os&amp;#34;,
+ []string{
+ &amp;#34;https://golang.org/&amp;#34;,
+ &amp;#34;https://golang.org/pkg/&amp;#34;,
+ },
+ },
+}
+
+
+&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;div class="playground-output"&gt;
+ &lt;div class="output-header"&gt;
+ &lt;span&gt;Вывод:&lt;/span&gt;
+ &lt;button class="clear-btn" onclick="clearOutput('example1')"&gt;
+ Очистить
+ &lt;/button&gt;
+ &lt;/div&gt;
+ &lt;pre id="output-example1" class="output-content"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

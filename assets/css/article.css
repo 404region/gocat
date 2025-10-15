@@ -10,7 +10,7 @@
     font-size: 0.88em;
     font-weight: 500;
     margin-bottom: 1.5rem;
-    background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+    /*background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);*/
     border-radius: 8px;
 }
 
@@ -39,4 +39,63 @@
 }
 .original-doc-link a:hover {
     color: #288bb5;
+}
+
+.lesson-content ul{
+    list-style: none;
+    padding-left: 0;
+    margin: 1.5rem 0;
+}
+
+.lesson-content ul li {
+    padding: 0.5rem 0;
+    border-left: 3px solid #00ADD8;
+    padding-left: 1rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.lesson-content ul li:hover {
+    background-color: #f8f9fa;
+    transform: translateX(5px);
+}
+
+.congratulations-go {
+    /*background: #00ADD8; #f106f5 */
+    background: #2e6a79;
+    color: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    border-left: 6px solid #05313c; /*#007D9C;*/
+    margin: 2rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.congratulations-go::before {
+    content: "";
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    width: 80px;
+    height: 80px;
+    background-image: url('/images/icon-cat-bant-left.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.congratulations-go h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    padding-right: 80px;
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
+
+.congratulations-go p {
+font-size: 1.3rem;
+line-height: 1.6;
+max-width: 80%;
 }
