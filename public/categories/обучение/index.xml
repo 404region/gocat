@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Обучение on Go-Котяра - Русскоязычное сообщество Golang</title><link>/categories/%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/</link><description>Recent content in Обучение on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Tue, 14 Oct 2025 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%D0%BE%D0%B1%D1%83%D1%87%D0%B5%D0%BD%D0%B8%D0%B5/index.xml" rel="self" type="application/rss+xml"/><item><title>96. Завершение Tour of Go: что изучать дальше для Go-разработчика</title><link>/tour/96-end/</link><pubDate>Tue, 14 Oct 2025 00:00:00 +0000</pubDate><guid>/tour/96-end/</guid><description>&lt;div class="congratulations-go"&gt;
+ &lt;h2&gt;Go-Котяра искренне поздравляет тебя с завершением курса A Tour of Go!&lt;/h2&gt;
+ &lt;p&gt;Это серьёзное достижение и важная веха в твоём развитии.&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3 id="что-делать-дальше"&gt;
+Что делать дальше?
+&lt;/h3&gt;&lt;p&gt;Вы можете начать с 
+
+&lt;a href="https://go.dev/doc/install" target="_blank"&gt;установки Go&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;После установки, 
+
+&lt;a href="https://go.dev/doc/" target="_blank"&gt;документация Go&lt;/a&gt; — отличное место для продолжения. Она содержит справочные материалы, руководства, видео и многое другое.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Чтобы научиться организовывать и работать с кодом на Go, прочитайте 
+
+&lt;a href="https://go.dev/doc/code" target="_blank"&gt;«Как писать код на Go»&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Если вам нужна помощь со стандартной библиотекой, см. 
+
+&lt;a href="https://pkg.go.dev/std" target="_blank"&gt;справочник по пакетам&lt;/a&gt;. Для помощи с самим языком возможно, вас удивит, но 
+
+&lt;a href="https://go.dev/ref/spec" target="_blank"&gt;спецификация языка&lt;/a&gt; довольно удобочитаема.&lt;/li&gt;
+&lt;li&gt;Чтобы глубже изучить модель конкурентности Go, посмотрите 
+
+&lt;a href="https://www.youtube.com/watch?v=f6kdp27TYZs" target="_blank"&gt;«Паттерны конкурентности в Go - видео»&lt;/a&gt; (
+
+&lt;a href="https://go.dev/talks/2012/concurrency.slide#1" target="_blank"&gt;слайды&lt;/a&gt;) и 
+
+&lt;a href="https://www.youtube.com/watch?v=QDDwwePbDtw" target="_blank"&gt;«Продвинутые паттерны конкурентности в Go - видео»&lt;/a&gt; (
+
+&lt;a href="https://go.dev/talks/2013/advconc.slide#1" target="_blank"&gt;слайды&lt;/a&gt; ), а также изучите код-вок 
+
+&lt;a href="https://go.dev/doc/codewalk/sharemem/" target="_blank"&gt;«Разделяемая память через общение»&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Чтобы начать писать веб-приложения, посмотрите 
+
+&lt;a href="https://vimeo.com/53221558" target="_blank"&gt;«Простая среда программирования - видео»&lt;/a&gt; (
+
+&lt;a href="https://go.dev/talks/2012/simple.slide#1" target="_blank"&gt;слайды&lt;/a&gt;) и прочитайте руководство 
+
+&lt;a href="https://go.dev/doc/articles/wiki/" target="_blank"&gt;«Написание веб-приложений»&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Практический разбор 
+
+&lt;a href="https://go.dev/doc/codewalk/functions/" target="_blank"&gt;«Функции как объекты первого класса в Go»&lt;/a&gt; предлагает интересный взгляд на функциональные типы в Go.&lt;/li&gt;
+&lt;li&gt;В 
+
+&lt;a href="https://go.dev/blog/" target="_blank"&gt;Go Blog&lt;/a&gt; есть обширный архив полезных статей о Go.&lt;/li&gt;
+&lt;li&gt;Посетите 
+
+&lt;a href="https://go.dev/" target="_blank"&gt;домашнюю страницу Go&lt;/a&gt; для получения дополнительной информации.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;P.S.: Эти материалы на английском, но Го-Котяра очень старается переводить полезные материалы по Golang.&lt;br&gt;
+Если вы хотите, чтобы Котяра перевёл какой-то материал — напишите в наш телеграм-канал 
+
+&lt;a href="t.me/gocat_dev_fun"&gt;t.me/gocat_dev_fun&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>
