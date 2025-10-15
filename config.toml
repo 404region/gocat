@@ -1,0 +1,12 @@
+[params]
+  description = "Документация по Golang на русском языке - Tour of Go, руководства, примеры"
+
+# Для sitemap
+[services]
+  [services.googleAnalytics]
+    ID = "your-id"
+
+# Enable sitemap
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5

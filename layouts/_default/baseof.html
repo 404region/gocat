@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Ключевые мета-теги для SEO -->
+  <title>{{ if .IsHome }}Go-Котяра - Документация по Golang на русском языке{{ else }}{{ .Title }} | Go-Котяра{{ end }}</title>
+  <meta name="description" content="Полная документация по Golang на русском языке. Tour of Go, руководства, примеры кода и переводы официальной документации.">
+  <meta name="keywords" content="golang, го, go язык программирования, документация go, golang русский, tour of go, go программирование, обучение go, go примеры">
+
+  <!-- Open Graph для социальных сетей -->
+  <meta property="og:title" content="Go-Котяра - Документация по Golang на русском">
+  <meta property="og:description" content="Полная документация и переводы материалов по Golang на русском языке">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{ .Site.BaseURL }}">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}">
+
   <title>{{ .Title }} </title>
   {{ $styles := slice }}
   {{ $styles = $styles | append (resources.Get "css/custom.css") }}
