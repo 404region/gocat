@@ -50,6 +50,7 @@
       "chroma",
       "clear-btn",
       "code-editor",
+      "congratulations-go",
       "content",
       "current",
       "description",
@@ -105,7 +106,8 @@
       "output-example1",
       "playground-example1",
       "погнали",
-      "структуры-в-go---часть-первая"
+      "структуры-в-go---часть-первая",
+      "что-делать-дальше"
     ]
   }
 }
