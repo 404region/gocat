@@ -10,7 +10,11 @@
     </div>
 
     <div class="lessons-list">
+        {{ if .Params.show_translations_header }}
         <h2>Переводы</h2>
+        {{ else }}
+        <h2>Статьи</h2>
+        {{ end }}
         <div class="lessons-grid">
             {{ range .Pages.ByWeight }}
             <article class="lesson-card">

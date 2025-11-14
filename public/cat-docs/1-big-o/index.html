@@ -1,0 +1,633 @@
+<!doctype html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Big O Нотация: Полное руководство по сложности алгоритмов с примерами на Golang | Go-Котяра</title><meta name=description content="Полная документация по Golang на русском языке. Tour of Go, руководства, примеры кода и переводы официальной документации."><meta name=keywords content="golang,го,go язык программирования,документация go,golang русский,tour of go,go программирование,обучение go,go примеры"><meta property="og:title" content="Go-Котяра - Документация по Golang на русском"><meta property="og:description" content="Полная документация и переводы материалов по Golang на русском языке"><meta property="og:type" content="website"><meta property="og:url" content="/"><link rel=canonical href=../../cat-docs/1-big-o/><title>Big O Нотация: Полное руководство по сложности алгоритмов с примерами на Golang</title><link rel=preload href=../../css/bundle.min.ae3118e31179d0f22e4dec13bfdfd6dcce59b64dafdd2dd8c961a55d9c423e19.css as=style><link rel=stylesheet href=../../css/bundle.min.ae3118e31179d0f22e4dec13bfdfd6dcce59b64dafdd2dd8c961a55d9c423e19.css><link rel=icon type=image/png href=../../images/icon-cat-bant-right.png sizes=32x32><style>.site-header{background-image:url(/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"><div class=telegram-widget><h3>Мы в telegram</h3><p>Присоединяйтесь к нашему сообществу!</p><a href=https://t.me/gocat_dev class=tg-btn target=_blank>Подписаться на @gocat_dev</a></div></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../cat-docs/ class=breadcrumb-item>Описание раздела Статьи Котяры</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">Big O Нотация: Полное руководство по сложности алгоритмов с примерами на Golang</span></nav><article class=lesson><header class=lesson-header><h1>Big O Нотация: Полное руководство по сложности алгоритмов с примерами на Golang</h1></header><div class=lesson-content><h2 id=что-такое-big-o-нотация-и-зачем-она-нужна>Что такое Big O нотация и зачем она нужна</h2><p>Big O нотация — это математическая концепция, которая описывает скорость роста времени выполнения или потребления памяти алгоритма относительно размера входных данных (n).</p><p>Говоря простыми словами, она отвечает на вопрос: &ldquo;Насколько медленнее будет работать моя программа, если я, например, увеличу объем данных в 10 раз?&rdquo;.</p><p>Сразу приведу сводные таблицы, так как это именно та информация, к которой возвращаются чаще всего.</p><h2 id=сводная-таблица-сложностей-алгоритмов>Сводная таблица сложностей алгоритмов</h2><table><thead><tr><th>Сложность</th><th>Название</th><th>Примеры в Go</th><th>n=10</th><th>n=1000</th><th>Примечания</th></tr></thead><tbody><tr><td><strong>O(1)</strong></td><td>Константная</td><td><code>arr[i]</code>, <code>len(arr)</code>, доступ к map</td><td>1</td><td>1</td><td>Идеальная производительность</td></tr><tr><td><strong>O(log n)</strong></td><td>Логарифмическая</td><td>Бинарный поиск</td><td>~3</td><td>~10</td><td>Очень эффективно</td></tr><tr><td><strong>O(n)</strong></td><td>Линейная</td><td>Линейный поиск, обход массива</td><td>10</td><td>1000</td><td>Хорошо масштабируется</td></tr><tr><td><strong>O(n log n)</strong></td><td>Линейно-логарифмическая</td><td>MergeSort, QuickSort</td><td>~33</td><td>~10,000</td><td>Эффективные сортировки</td></tr><tr><td><strong>O(n²)</strong></td><td>Квадратичная</td><td>Вложенные циклы, BubbleSort</td><td>100</td><td>1,000,000</td><td>Заметно замедляется</td></tr><tr><td><strong>O(2ⁿ)</strong></td><td>Экспоненциальная</td><td>Наивный Фибоначчий</td><td>1024</td><td>1.07×10³⁰¹</td><td>Неприемлемо для больших n</td></tr><tr><td><strong>O(n!)</strong></td><td>Факториальная</td><td>Задача коммивояжера</td><td>3,628,800</td><td>4.02×10²⁵⁶⁷</td><td>Катастрофически медленно</td></tr></tbody></table><h2 id=сложности-для-структур-данных-go>Сложности для структур данных Go</h2><table><thead><tr><th>Структура</th><th>Доступ</th><th>Поиск</th><th>Вставка</th><th>Удаление</th><th>Примечания</th></tr></thead><tbody><tr><td><strong>Массив/Слайс</strong></td><td>O(1)</td><td>O(n)</td><td>O(n)</td><td>O(n)</td><td>Быстрый доступ, медленные модификации</td></tr><tr><td><strong>Map</strong></td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>O(1)</td><td>Хеш-таблица, O(n) в худшем случае</td></tr><tr><td><strong>Связный Список</strong></td><td>O(n)</td><td>O(n)</td><td>O(1)</td><td>O(1)</td><td>Быстрые вставки/удаления если есть указатель на элемент</td></tr><tr><td><strong>Куча</strong></td><td>O(1)</td><td>O(n)</td><td>O(log n)</td><td>O(log n)</td><td>Эффективна для приоритетных очередей</td></tr></tbody></table><h2 id=основные-сложности-от-лучшей-к-худшей>Основные сложности (от лучшей к худшей):</h2><h3 id=1-o1---константная-сложность-скорость-не-зависит-от-размера-входных-данных>1) O(1) - Константная сложность: Скорость не зависит от размера входных данных.</h3><p>Например, взятие элемента по индексу в массиве / слайсе.
+Механизм доступа не требует поиска или итерации по элементам, поэтому время выполнения постоянно для любого корректного индекса.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>getElement</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>index</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>return</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>index</span><span class=p>]</span><span class=w> </span><span class=c1>// Всегда O(1) независимо от индекса</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>В Go массивы и срезы обеспечивают прямой доступ по индексу за O(1), поскольку они представляют собой непрерывные блоки памяти, где адрес любого элемента вычисляется по формуле: базовый адрес + индекс × размер элемента. Это фундаментальное свойство индексируемых коллекций.</p><p>Проверка границ (Bounds Checking) также осуществляется за константное время:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>safeAccess</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>index</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>(</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=kt>bool</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>index</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=mi>0</span><span class=w> </span><span class=o>||</span><span class=w> </span><span class=nx>index</span><span class=w> </span><span class=o>&gt;=</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=kc>false</span><span class=w> </span><span class=c1>// Проверка выполняется за O(1)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>index</span><span class=p>],</span><span class=w> </span><span class=kc>true</span><span class=w> </span><span class=c1>// Сам доступ тоже O(1)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Также в среднем случае для Map получение элемента по ключу составляет O(1) - т.е. константная сложность, но в худшем случае O(n) - или линейная сложность.<br>О мапе подробнее еще поговорим ниже, когда будем смотреть линейную сложность.</p><p>P.S. В современных реализациях Go (с версии 1.15+) сложность операций с map в худшем случае стремится к O(log n) благодаря использованию сбалансированных деревьев для bucket&rsquo;ов с большим количеством коллизий, а не к O(n).</p><h3 id=2-olog-n---логарифмическая-сложность-растет-очень-медленно-характерна-для-алгоритмов-которые-делят-задачу-пополам-на-каждом-шаге-бинарный-поиск>2) O(log n) - Логарифмическая сложность: Растет очень медленно. Характерна для алгоритмов, которые делят задачу пополам на каждом шаге (бинарный поиск).</h3><p>Логарифмическая сложность означает, что время выполнения алгоритма растет пропорционально логарифму от размера входных данных.</p><p>Математическая основа:</p><ul><li>log₂(1,000) ≈ 10 (вместо 1,000 операций нужно ~10)</li><li>log₂(1,000,000) ≈ 20 (вместо 1,000,000 операций нужно ~20)</li><li>log₂(1,000,000,000) ≈ 30 (вместо миллиарда операций нужно ~30)</li></ul><p>Ключевые характеристики:</p><ul><li>Деление задачи пополам на каждом шаге</li><li>Очень медленный рост - почти как константа</li><li>Основание логарифма не важно в Big O (отбрасывается)</li></ul><p>Пример: Бинарный поиск (классический)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// O(log n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>binarySearch</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=nx>target</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>left</span><span class=p>,</span><span class=w> </span><span class=nx>right</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>left</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=nx>right</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>mid</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>left</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=p>(</span><span class=nx>right</span><span class=o>-</span><span class=nx>left</span><span class=p>)</span><span class=o>/</span><span class=mi>2</span><span class=w> </span><span class=c1>// Предотвращает переполнение</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>mid</span><span class=p>]</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nx>target</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>return</span><span class=w> </span><span class=nx>mid</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>mid</span><span class=p>]</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>target</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>left</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>mid</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=c1>// Ищем в правой половине</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>right</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>mid</span><span class=w> </span><span class=o>-</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=c1>// Ищем в левой половине</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=o>-</span><span class=mi>1</span><span class=w> </span><span class=c1>// Элемент не найден</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Анализ работы:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>arr</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>,</span><span class=w> </span><span class=mi>5</span><span class=p>,</span><span class=w> </span><span class=mi>7</span><span class=p>,</span><span class=w> </span><span class=mi>9</span><span class=p>,</span><span class=w> </span><span class=mi>11</span><span class=p>,</span><span class=w> </span><span class=mi>13</span><span class=p>,</span><span class=w> </span><span class=mi>15</span><span class=p>,</span><span class=w> </span><span class=mi>17</span><span class=p>,</span><span class=w> </span><span class=mi>19</span><span class=p>}</span><span class=w> </span><span class=c1>// 10 элементов</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Поиск числа 7:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Шаг 1: [1,3,5,7,9,11,13,15,17,19] → mid=4 (value=9) → 7 &lt; 9 → ищем слева</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Шаг 2: [1,3,5,7] → mid=2 (value=5) → 7 &gt; 5 → ищем справа  </span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Шаг 3: [7] → нашли! Всего 3 шага вместо 10</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=3-on---линейная-сложность-время-выполнения-прямо-пропорционально-размеру-входных-данных>3) O(n) - Линейная сложность: Время выполнения прямо пропорционально размеру входных данных.</h3><p>Проще говоря:<br>Если у вас n элементов для обработки, и алгоритму нужно сделать порядка n операций, то его сложность — O(n).</p><ul><li>Часто O(n) ассоциируется с одним проходом по данным (один цикл). Это верно для многих случаев, но ключевой момент не в количестве проходов, а в пропорциональности.</li><li>Алгоритм может иметь сложность O(n), даже если он делает 2, 3 или 10 проходов по данным. Константные множители в нотации Big O отбрасываются как несущественные.</li></ul><p>Пример 1. Простой цикл:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>processSlice</span><span class=p>(</span><span class=nx>items</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// O(n) - один проход по всем элементам</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>items</span><span class=p>);</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Обрабатываем элемент %d: %d\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>items</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>data</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>,</span><span class=w> </span><span class=mi>4</span><span class=p>,</span><span class=w> </span><span class=mi>5</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>processSlice</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Пример 2. Несколько независимых циклов:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>processMultipleLoops</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// O(n + n) = O(2n) = O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Константы отбрасываются в нотации Big O</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Первый цикл O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>sum</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>num</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>arr</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>sum</span><span class=w> </span><span class=o>+=</span><span class=w> </span><span class=nx>num</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Второй цикл O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>num</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>arr</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Элемент: %d\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>num</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Сумма: %d\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>sum</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>data</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>1</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>,</span><span class=w> </span><span class=mi>4</span><span class=p>,</span><span class=w> </span><span class=mi>5</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>processMultipleLoops</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Пример 3. Map
+Теперь, как и обещал, рассмотрим случаи с мапой, при плохой хеш функции.<br>Для демонстрации используем структуру в качестве ключа мапы.
+Для структур Go использует хеш-функцию, которая:</p><ul><li>Рекурсивно вычисляет хеши для всех полей</li><li>Комбинирует их для получения финального хеша</li><li>Для строковых полей использует эффективный алгоритм (обычно xxHash или подобный)</li></ul><p>Однако, что будет, если в каждой структуре которая будет попадать в мапу в качестве ключа, будет указано только одно поле и значения поля будут совпадать?</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>worstCaseScenario</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Ключи с плохой хеш-функцией</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>type</span><span class=w> </span><span class=nx>BadKey</span><span class=w> </span><span class=kd>struct</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=nx>data</span><span class=w> </span><span class=kt>string</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>m</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=nx>BadKey</span><span class=p>]</span><span class=kt>int</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Создаем коллизии</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=mi>10000</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>		</span><span class=c1>// key := GoodKey{id: i, data: &#34;same_hash&#34;} // Разные id = разные хеши</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>key</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>BadKey</span><span class=p>{</span><span class=nx>data</span><span class=p>:</span><span class=w> </span><span class=s>&#34;same_hash&#34;</span><span class=p>}</span><span class=w> </span><span class=c1>// Одинаковое свойство = одинаковые хеши</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>m</span><span class=p>[</span><span class=nx>key</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=c1>// Все попадают в один bucket</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Поиск становится O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>value</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>m</span><span class=p>[</span><span class=nx>BadKey</span><span class=p>{</span><span class=nx>data</span><span class=p>:</span><span class=w> </span><span class=s>&#34;same_hash&#34;</span><span class=p>}]</span><span class=w> </span><span class=c1>// O(n)!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>P.S. На самом деле это сильно упрощенный пример чисто для понимания проблемы. В реальности Go автоматически генерирует хорошую хеш-функцию для структур, и даже с одинаковыми значениями полей хеши будут разными (если только вы специально не переопределите хеш-функцию).
+P.P.S. В современных реализациях Go (с версии 1.15+) сложность операций с map в худшем случае стремится к O(log n) благодаря использованию сбалансированных деревьев для bucket&rsquo;ов с большим количеством коллизий, а не к O(n).</p><h3 id=4-on-log-n---линейно-логарифмическая-часто-встречается-в-эффективных-алгоритмах-сортировки-quicksort-mergesort>4) O(n log n) - Линейно-логарифмическая: Часто встречается в эффективных алгоритмах сортировки (QuickSort, MergeSort).</h3><p>O(n log n) — это сложность, которая растет пропорционально произведению размера входных данных (n) на логарифм от этого размера. Это значительно лучше, чем O(n²), но хуже, чем O(n).</p><p>n — количество элементов<br>log n — обычно логарифм по основанию 2, что соответствует количеству раз, которое массив можно делить пополам</p><p>Пример 1: Собственная реализация MergeSort</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span><span class=lnt>47
+</span><span class=lnt>48
+</span><span class=lnt>49
+</span><span class=lnt>50
+</span><span class=lnt>51
+</span><span class=lnt>52
+</span><span class=lnt>53
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// MergeSort - основная функция сортировки слиянием</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>MergeSort</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Базовый случай: массивы из 0 или 1 элемента уже отсортированы</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=nx>arr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// ДЕЛЕНИЕ (log n раз)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Делим массив пополам - это происходит примерно log₂n раз</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>mid</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=w> </span><span class=o>/</span><span class=w> </span><span class=mi>2</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>left</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nf>MergeSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>[:</span><span class=nx>mid</span><span class=p>])</span><span class=w>   </span><span class=c1>// O(n log n) - рекурсивный вызов</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>right</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nf>MergeSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>mid</span><span class=p>:])</span><span class=w>  </span><span class=c1>// O(n log n) - рекурсивный вызов</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// СЛИЯНИЕ (O(n) на каждом уровне рекурсии)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nf>merge</span><span class=p>(</span><span class=nx>left</span><span class=p>,</span><span class=w> </span><span class=nx>right</span><span class=p>)</span><span class=w>      </span><span class=c1>// O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// merge - функция слияния двух отсортированных массивов</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>merge</span><span class=p>(</span><span class=nx>left</span><span class=p>,</span><span class=w> </span><span class=nx>right</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>result</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>([]</span><span class=kt>int</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>left</span><span class=p>)</span><span class=o>+</span><span class=nb>len</span><span class=p>(</span><span class=nx>right</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>0</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Сравниваем элементы из двух массивов и добавляем меньший</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>left</span><span class=p>)</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>right</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>left</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=nx>right</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>left</span><span class=p>[</span><span class=nx>i</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>i</span><span class=o>++</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>right</span><span class=p>[</span><span class=nx>j</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>j</span><span class=o>++</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Добавляем оставшиеся элементы (если есть)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>left</span><span class=p>[</span><span class=nx>i</span><span class=p>:]</span><span class=o>...</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>result</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nb>append</span><span class=p>(</span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>right</span><span class=p>[</span><span class=nx>j</span><span class=p>:]</span><span class=o>...</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>result</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>arr</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>38</span><span class=p>,</span><span class=w> </span><span class=mi>27</span><span class=p>,</span><span class=w> </span><span class=mi>43</span><span class=p>,</span><span class=w> </span><span class=mi>3</span><span class=p>,</span><span class=w> </span><span class=mi>9</span><span class=p>,</span><span class=w> </span><span class=mi>82</span><span class=p>,</span><span class=w> </span><span class=mi>10</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Исходный массив:&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>arr</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>sorted</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nf>MergeSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;Отсортированный массив:&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>sorted</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Разбор сложности MergeSort:
+Делим массив пополам на каждом уровне рекурсии → log₂n уровней<br>На каждом уровне выполняем слияние всех элементов → O(n) операций<br>Итоговая сложность: O(n) × O(log n) = O(n log n)</p><p>Пример 2: QuickSort (также O(n log n) в среднем случае)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span><span class=lnt>35
+</span><span class=lnt>36
+</span><span class=lnt>37
+</span><span class=lnt>38
+</span><span class=lnt>39
+</span><span class=lnt>40
+</span><span class=lnt>41
+</span><span class=lnt>42
+</span><span class=lnt>43
+</span><span class=lnt>44
+</span><span class=lnt>45
+</span><span class=lnt>46
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;math/rand&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// QuickSort - быстрая сортировка</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>QuickSort</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=mi>2</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=nx>arr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>left</span><span class=p>,</span><span class=w> </span><span class=nx>right</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Выбираем опорный элемент (pivot)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>pivot</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>rand</span><span class=p>.</span><span class=nf>Intn</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Перемещаем pivot в конец</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>arr</span><span class=p>[</span><span class=nx>pivot</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>right</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>right</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>pivot</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Разделение: элементы меньше pivot слева, больше - справа</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>arr</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>if</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>right</span><span class=p>]</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>arr</span><span class=p>[</span><span class=nx>left</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>left</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>left</span><span class=o>++</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Возвращаем pivot на правильную позицию</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>arr</span><span class=p>[</span><span class=nx>left</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>right</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>right</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>left</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Рекурсивно сортируем левую и правую части</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>QuickSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>[:</span><span class=nx>left</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>QuickSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>left</span><span class=o>+</span><span class=mi>1</span><span class=p>:])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>arr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>arr</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>10</span><span class=p>,</span><span class=w> </span><span class=mi>80</span><span class=p>,</span><span class=w> </span><span class=mi>30</span><span class=p>,</span><span class=w> </span><span class=mi>90</span><span class=p>,</span><span class=w> </span><span class=mi>40</span><span class=p>,</span><span class=w> </span><span class=mi>50</span><span class=p>,</span><span class=w> </span><span class=mi>70</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;До QuickSort:&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>arr</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nf>QuickSort</span><span class=p>(</span><span class=nx>arr</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;После QuickSort:&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>arr</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Уточнение: QuickSort имеет:<br>O(n log n) в среднем случае<br>O(n²) в худшем случае (когда pivot всегда выбирается неудачно, например Pivot всегда минимальный или максимальный элемент, данные отсортированы неверно, все элементы одинаковые)<br>O(log n) дополнительной памяти в лучшем случае, O(n) допольнительной памяти в худшем</p><p>P.S. Данная выше реализация quick sort может занимать больше памяти, так как создает новые слайсы, а не меняет индексы в текущем, что может увеличить потребление памяти, однако такой пример проще для понимая.</p><p>Пример 3. Встроенная сортировка Go</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// Типичный случай использования в Go</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>type</span><span class=w> </span><span class=nx>Person</span><span class=w> </span><span class=kd>struct</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>Name</span><span class=w> </span><span class=kt>string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>Age</span><span class=w>  </span><span class=kt>int</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>type</span><span class=w> </span><span class=nx>ByAge</span><span class=w> </span><span class=p>[]</span><span class=nx>Person</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>a</span><span class=w> </span><span class=nx>ByAge</span><span class=p>)</span><span class=w> </span><span class=nf>Len</span><span class=p>()</span><span class=w> </span><span class=kt>int</span><span class=w>           </span><span class=p>{</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>a</span><span class=p>)</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>a</span><span class=w> </span><span class=nx>ByAge</span><span class=p>)</span><span class=w> </span><span class=nf>Swap</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w>      </span><span class=p>{</span><span class=w> </span><span class=nx>a</span><span class=p>[</span><span class=nx>i</span><span class=p>],</span><span class=w> </span><span class=nx>a</span><span class=p>[</span><span class=nx>j</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>a</span><span class=p>[</span><span class=nx>j</span><span class=p>],</span><span class=w> </span><span class=nx>a</span><span class=p>[</span><span class=nx>i</span><span class=p>]</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>a</span><span class=w> </span><span class=nx>ByAge</span><span class=p>)</span><span class=w> </span><span class=nf>Less</span><span class=p>(</span><span class=nx>i</span><span class=p>,</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>bool</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=k>return</span><span class=w> </span><span class=nx>a</span><span class=p>[</span><span class=nx>i</span><span class=p>].</span><span class=nx>Age</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>a</span><span class=p>[</span><span class=nx>j</span><span class=p>].</span><span class=nx>Age</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>people</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=nx>Person</span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>{</span><span class=s>&#34;Alice&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>25</span><span class=p>},</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>{</span><span class=s>&#34;Bob&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>30</span><span class=p>},</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>{</span><span class=s>&#34;Charlie&#34;</span><span class=p>,</span><span class=w> </span><span class=mi>20</span><span class=p>},</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Сортировка с O(n log n) сложностью</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>sort</span><span class=p>.</span><span class=nf>Sort</span><span class=p>(</span><span class=nf>ByAge</span><span class=p>(</span><span class=nx>people</span><span class=p>))</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>people</span><span class=p>)</span><span class=w> </span><span class=c1>// [{Charlie 20} {Alice 25} {Bob 30}]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=5-on---квадратичная-время-растет-пропорционально-квадрату-размера-данных-характерна-для-вложенных-циклов>5) O(n²) - Квадратичная: Время растет пропорционально квадрату размера данных. Характерна для вложенных циклов.</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>findPairs</span><span class=p>(</span><span class=nx>arr</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>);</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>for</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=mi>1</span><span class=p>;</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nb>len</span><span class=p>(</span><span class=nx>arr</span><span class=p>);</span><span class=w> </span><span class=nx>j</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=c1>// Для каждого i проходим почти весь массив j</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>arr</span><span class=p>[</span><span class=nx>i</span><span class=p>],</span><span class=w> </span><span class=nx>arr</span><span class=p>[</span><span class=nx>j</span><span class=p>])</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p><strong>6) O(2ⁿ) - Экспоненциальная:</strong> Чрезвычайно медленно даже для небольших <code>n</code> (например, наивное вычисление чисел Фибоначчи).
+Ключевая характеристика O(2ⁿ):</p><ul><li>Рост: Время выполнения удваивается с каждым увеличением n на 1.</li><li>Практичность: Алгоритмы с такой сложностью становятся непригодными уже при относительно небольших значениях n (часто > 40).</li><li>Причина: Обычно возникает в алгоритмах, которые на каждом шаге рекурсивно вызывают себя два или более раз.</li></ul><p>Пример 1: Наивное вычисление чисел Фибоначчи<br>Это канонический пример алгоритма с O(2ⁿ). Давайте реализуем его и поймем, почему он так неэффективен.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;time&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// FibonacciNaive - наивная рекурсивная реализация с сложностью O(2ⁿ)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>FibonacciNaive</span><span class=p>(</span><span class=nx>n</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Базовые случаи</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>n</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=nx>n</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// Рекурсивные вызовы: ДВА вызова на каждом шаге!</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nf>FibonacciNaive</span><span class=p>(</span><span class=nx>n</span><span class=o>-</span><span class=mi>1</span><span class=p>)</span><span class=w> </span><span class=o>+</span><span class=w> </span><span class=nf>FibonacciNaive</span><span class=p>(</span><span class=nx>n</span><span class=o>-</span><span class=mi>2</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>values</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=p>[]</span><span class=kt>int</span><span class=p>{</span><span class=mi>5</span><span class=p>,</span><span class=w> </span><span class=mi>10</span><span class=p>,</span><span class=w> </span><span class=mi>20</span><span class=p>,</span><span class=w> </span><span class=mi>30</span><span class=p>,</span><span class=w> </span><span class=mi>40</span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>values</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>start</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>result</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nf>FibonacciNaive</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>duration</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Since</span><span class=p>(</span><span class=nx>start</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;F(%d) = %d. Time: %v\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>n</span><span class=p>,</span><span class=w> </span><span class=nx>result</span><span class=p>,</span><span class=w> </span><span class=nx>duration</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Пояснение и визуализация для n = 5. Дерево вызовов будет выглядеть так:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>                     F(5)
+</span></span><span class=line><span class=cl>                   /      \
+</span></span><span class=line><span class=cl>               F(4)        F(3)
+</span></span><span class=line><span class=cl>              /    \       /   \
+</span></span><span class=line><span class=cl>          F(3)     F(2)  F(2)  F(1)
+</span></span><span class=line><span class=cl>         /   \     /  \   /  \
+</span></span><span class=line><span class=cl>      F(2)  F(1) F(1)F(0)F(1)F(0)
+</span></span><span class=line><span class=cl>      /  \
+</span></span><span class=line><span class=cl>    F(1) F(0)
+</span></span></code></pre></td></tr></table></div></div><p>Почему это O(2ⁿ)?</p><p>На каждом уровне мы делаем примерно вдвое больше вызовов, чем на предыдущем.
+Глубина дерева ~ n.
+Общее количество узлов (вызовов) растет экспоненциально, примерно как 2ⁿ.
+Многие значения вычисляются многократно (например, F(2) вычисляется 3 раза, F(3) — 2 раза). Это ужасная избыточность!
+Результаты выполнения (зависят от мощности компьютера):</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>F(5) = 5. Time: 1.055µs
+</span></span><span class=line><span class=cl>F(10) = 55. Time: 8.277µs
+</span></span><span class=line><span class=cl>F(20) = 6765. Time: 2.728275ms   &lt;- Уже заметно
+</span></span><span class=line><span class=cl>F(30) = 832040. Time: 334.0032ms &lt;- Задержка явно ощутима
+</span></span><span class=line><span class=cl>F(40) = 102334155. Time: 38.591s  &lt;- Неприемлемо долго!
+</span></span></code></pre></td></tr></table></div></div><ul><li>O(2ⁿ) — это &ldquo;красная зона&rdquo; сложности алгоритмов. Такие алгоритмы работают приемлемо только при очень маленьких n.</li></ul><p>Всегда ищите возможности оптимизации через:</p><ul><li>Мемоизацию (кэширование результатов)</li><li>Динамическое программирование</li><li>Итеративные подходы</li><li>Эвристики для сокращения перебора</li></ul><p>В продакшн-коде алгоритмы с O(2ⁿ) следует использовать крайне осторожно и только когда нет лучших альтернатив!</p><p>Давайте посмотрим пример эффективной реализаций чисел Фибоначчи.<br>Итеративная реализация (Самая эффективная)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kn>package</span><span class=w> </span><span class=nx>main</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>import</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;fmt&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=s>&#34;time&#34;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// FibonacciIterative - итеративная реализация O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>FibonacciIterative</span><span class=p>(</span><span class=nx>n</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=kt>int</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>n</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>return</span><span class=w> </span><span class=nx>n</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>,</span><span class=w> </span><span class=mi>1</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>2</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>&lt;=</span><span class=w> </span><span class=nx>n</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>a</span><span class=p>,</span><span class=w> </span><span class=nx>b</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>b</span><span class=p>,</span><span class=w> </span><span class=nx>a</span><span class=o>+</span><span class=nx>b</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>b</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>n</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>50</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>start</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>result</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nf>FibonacciIterative</span><span class=p>(</span><span class=nx>n</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>duration</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Since</span><span class=p>(</span><span class=nx>start</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;F(%d) = %d\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>n</span><span class=p>,</span><span class=w> </span><span class=nx>result</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Printf</span><span class=p>(</span><span class=s>&#34;Время выполнения: %v\n&#34;</span><span class=p>,</span><span class=w> </span><span class=nx>duration</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Почему это вычисление лучше:</p><ul><li>Сложность O(n) - линейное время</li><li>Память O(1) - константная память (всего 3 переменные)</li><li>Нет рекурсии - нет переполнения стека</li><li>Простота - легко читать и понимать</li></ul><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-text data-lang=text><span class=line><span class=cl>// Результат:
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>F(50) = 12586269025
+</span></span><span class=line><span class=cl>Время выполнения: 190ns  &lt;- Наносекунды!
+</span></span></code></pre></td></tr></table></div></div><p>Отличная идея! Итог поможет закрепить материал и улучшить поведенческие метрики. Вот SEO-оптимизированное заключение:</p><h2 id=итог-big-o-нотация-в-golang---ключевые-выводы>Итог: Big O Нотация в Golang - Ключевые выводы</h2><p>Big O нотация — это не просто академическое понятие, а <strong>практический инструмент</strong> для каждого Go-разработчика.</p><p>Давайте закрепим главные моменты:</p><h3 id=основные-сложности-от-лучшей-к-худшей-1>Основные сложности от лучшей к худшей:</h3><table><thead><tr><th>Сложность</th><th>Практическое применение</th><th>Когда использовать</th></tr></thead><tbody><tr><td><strong>O(1)</strong></td><td>Доступ к элементам массива, работа с map</td><td>Всегда предпочтительнее</td></tr><tr><td><strong>O(log n)</strong></td><td>Бинарный поиск, деревья</td><td>Для больших отсортированных данных</td></tr><tr><td><strong>O(n)</strong></td><td>Линейный поиск, фильтрация</td><td>Когда нужен полный обход данных</td></tr><tr><td><strong>O(n log n)</strong></td><td>Сортировки (MergeSort, QuickSort)</td><td>Стандарт для упорядочивания данных</td></tr><tr><td><strong>O(n²)</strong></td><td>Вложенные циклы, простые сортировки</td><td>Избегать для больших данных</td></tr><tr><td><strong>O(2ⁿ)</strong></td><td>Рекурсивные задачи (Фибоначчи)</td><td>Только для очень малых n</td></tr></tbody></table><h3 id=главные-принципы-для-go-разработчиков>Главные принципы для Go-разработчиков:</h3><h4 id=1-выбирайте-правильные-структуры-данных>1. <strong>Выбирайте правильные структуры данных</strong></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// Вместо O(n) поиска в slice</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>for</span><span class=w> </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>v</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>slice</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=k>if</span><span class=w> </span><span class=nx>v</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=nx>target</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=o>...</span><span class=w> </span><span class=p>}</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Используйте O(1) поиск в map</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>if</span><span class=w> </span><span class=nx>value</span><span class=p>,</span><span class=w> </span><span class=nx>exists</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=kd>map</span><span class=p>[</span><span class=nx>target</span><span class=p>];</span><span class=w> </span><span class=nx>exists</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=o>...</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h4 id=2-избегайте-ненужной-вложенности>2. <strong>Избегайте ненужной вложенности</strong></h4><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// Плохо: O(n²)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>n</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>j</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>n</span><span class=p>;</span><span class=w> </span><span class=nx>j</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=o>...</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Лучше: O(n log n) + O(n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nx>sort</span><span class=p>.</span><span class=nf>Ints</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w> </span><span class=c1>// O(n log n)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// ... линейная обработка</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h4 id=3-помните-о-компромиссах>3. <strong>Помните о компромиссах</strong></h4><ul><li><strong>Память vs Время</strong>: Кэширование ускоряет, но требует памяти</li><li><strong>Читаемость vs Производительность</strong>: Иногда O(n) понятнее чем O(log n)</li><li><strong>Разработка vs Оптимизация</strong>: Сначала работающий код, потом оптимизация</li></ul><h3 id=практические-рекомендации-для-go>Практические рекомендации для Go:</h3><h4 id=что-использовать>Что использовать:</h4><ul><li><strong>Map</strong> для быстрого поиска (O(1) в среднем)</li><li><strong>Slice</strong> для последовательного доступа (O(1) по индексу)</li><li><strong>Sort package</strong> для эффективной сортировки (O(n log n))</li><li><strong>Binary search</strong> для поиска в отсортированных данных</li></ul><h4 id=что-избегать>Что избегать:</h4><ul><li><strong>Вложенных циклов</strong> без необходимости</li><li><strong>Рекурсии</strong> без мемоизации для повторяющихся вычислений</li><li><strong>Повторных операций</strong> с одними данными</li></ul><h3 id=ключевой-вывод>Ключевой вывод:</h3><p>Пишите код, который масштабируется!</p><p>Производительность, которая кажется достаточной для 100 элементов, может стать катастрофой для 100,000. Big O нотация дает вам математическую основу для предсказания поведения алгоритма при росте данных.</p><hr><p><em>Статья подготовлена GoCat Team - учим Go сложно, но понятно! 🐱</em></p></div><div class=lesson-meta><p class=article-date><time>14.11.2025</time></p></div><nav class=lesson-navigation><div class=nav-container><span class="nav-btn next disabled">Завершение →</span></div></nav></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=../../js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

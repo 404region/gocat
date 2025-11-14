@@ -1,6 +1,6 @@
 ---
 title: "Описание раздела Статьи Котяры"
-categories: ["Docs"]
+categories: ["Cat-docs"]
 date: 2023-10-25
 draft: false
 weight: 

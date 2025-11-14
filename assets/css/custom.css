@@ -35,6 +35,11 @@ body {
 .content h2 .anchor {
     display: none;
 }
+
+.lesson-content h3 + h4 {
+    margin-top: 1.8rem;
+}
+
 .content p {
     display: block;
     margin-block-start: 1em;
@@ -43,6 +48,11 @@ body {
     margin-inline-end: 0px;
     unicode-bidi: isolate;
     line-height: 1.4;
+}
+
+.content ol {
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .site-wrapper {
@@ -360,3 +370,110 @@ color: white;
         background: #f0f0f0;
     }
 }
+
+/* table begin */
+/* Стили для таблицы сложностей алгоритмов в сероголубых тонах */
+.lesson-content > table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.95em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f8fafc;
+}
+
+/* Заголовок таблицы */
+.lesson-content > table thead {
+    background: linear-gradient(135deg, #6b8cae 0%, #4a6fa5 100%);
+    color: white;
+}
+
+.lesson-content > table th {
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.95em;
+    border-bottom: 2px solid #4a6fa5;
+}
+
+/* Ячейки таблицы */
+.lesson-content > table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e1e5e9;
+    background-color: white;
+}
+
+/* Чередование строк для лучшей читаемости */
+.lesson-content > table tbody tr:nth-child(even) {
+    background-color: #f0f4f8;
+}
+
+.lesson-content > table tbody tr:nth-child(odd) {
+    background-color: #f8fafc;
+}
+
+/* Эффект при наведении */
+.lesson-content > table tbody tr:hover {
+    background-color: #e3eaf3;
+    transition: background-color 0.2s ease;
+}
+
+/* Стили для сложностей O(1) и O(log n) - хорошие */
+.lesson-content > table tbody tr:first-child,
+.lesson-content > table tbody tr:nth-child(2) {
+    border-left: 3px solid #4CAF50;
+}
+
+/* Стили для O(n) и O(n log n) - средние */
+.lesson-content > table tbody tr:nth-child(3),
+.lesson-content > table tbody tr:nth-child(4) {
+    border-left: 3px solid #FF9800;
+}
+
+/* Стили для O(n²), O(2ⁿ), O(n!) - плохие */
+.lesson-content > table tbody tr:nth-child(5),
+.lesson-content > table tbody tr:nth-child(6),
+.lesson-content > table tbody tr:nth-child(7) {
+    border-left: 3px solid #F44336;
+}
+
+/* Выделение жирного текста в таблице */
+.lesson-content > table strong {
+    color: #2c5282;
+    font-weight: 700;
+}
+
+/* Мобильная адаптация таблицы */
+@media (max-width: 768px) {
+    .lesson-content > table {
+        font-size: 0.85em;
+    }
+
+    .lesson-content > table th,
+    .lesson-content > table td {
+        padding: 8px 10px;
+    }
+
+    /* Делаем таблицу прокручиваемой на маленьких экранах */
+    .lesson-content > table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .lesson-content > table {
+        font-size: 0.8em;
+    }
+
+    .lesson-content > table th,
+    .lesson-content > table td {
+        padding: 6px 8px;
+    }
+}
+
+/* table end */

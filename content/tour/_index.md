@@ -1,9 +1,10 @@
 ---
-title: "Описание раздела Tour of Go"
+title: "Описание раздела Tour of Go на русском языке"
 categories: ["Tour of Go"]
 date: 2023-10-25
 draft: false
-weight: 
+weight: 0
+show_translations_header: true
 ---
 Это неофициальный литературный перевод руководства [«Tour of Go» с официального сайта Golang](https://go.dev/tour/welcome/1).
 
