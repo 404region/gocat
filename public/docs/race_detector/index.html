@@ -1,0 +1,367 @@
+<!doctype html><html lang=ru><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Детектор гонок данных (Data Race Detector) | Go-Котяра</title><meta name=description content="Полная документация по Golang на русском языке. Tour of Go, руководства, примеры кода и переводы официальной документации."><meta name=keywords content="golang,го,go язык программирования,документация go,golang русский,tour of go,go программирование,обучение go,go примеры"><meta property="og:title" content="Go-Котяра - Документация по Golang на русском"><meta property="og:description" content="Полная документация и переводы материалов по Golang на русском языке"><meta property="og:type" content="website"><meta property="og:url" content="/"><link rel=canonical href=../../docs/race_detector/><title>Детектор гонок данных (Data Race Detector)</title><link rel=preload href=../../css/bundle.min.ae3118e31179d0f22e4dec13bfdfd6dcce59b64dafdd2dd8c961a55d9c423e19.css as=style><link rel=stylesheet href=../../css/bundle.min.ae3118e31179d0f22e4dec13bfdfd6dcce59b64dafdd2dd8c961a55d9c423e19.css><link rel=icon type=image/png href=../../images/icon-cat-bant-right.png sizes=32x32><style>.site-header{background-image:url(/images/header-image.47babd5258d184f688fa360cc0cdb99121f050b226f9e840f64e1581e9b37a66.webp)}</style></head><body><div class=site-wrapper><header class=site-header><div class=header-content><h1 class=site-title>Go-Котяра</h1><p class=site-description>Русскоязычное сообщество Golang</p></div></header><nav class=main-nav><ul><li><a href=../../>Главная</a></li><li><a href=../../tour>A Tour of Go</a></li><li><a href=../../docs>Документация</a></li><li><a href=../../cat-docs>Статьи Котяры</a></li></ul></nav><main class=main-container><aside class=sidebar><div class="widget categories"><div class=telegram-widget><h3>Мы в telegram</h3><p>Присоединяйтесь к нашему сообществу!</p><a href=https://t.me/gocat_dev class=tg-btn target=_blank>Подписаться на @gocat_dev</a></div></div></aside><div class=content><nav class=breadcrumb aria-label="Хлебные крошки"><a href=../../ class=breadcrumb-item>Главная</a>
+<span class=breadcrumb-separator>→</span>
+<a href=../../docs/ class=breadcrumb-item>Описание раздела Документация</a>
+<span class=breadcrumb-separator>→</span>
+<span class="breadcrumb-item current">Детектор гонок данных (Data Race Detector)</span></nav><article class=lesson><header class=lesson-header><h1>Детектор гонок данных (Data Race Detector)</h1></header><div class=lesson-content><h2 id=введение>Введение</h2><p>Гонки данных (data races) являются одним из самых распространенных и сложных для отладки типов ошибок в параллельных системах. Гонка данных возникает, когда две горутины обращаются к одной и той же переменной одновременно, и по крайней мере одно из обращений является записью. Подробности см. в
+<a href=https://golang.org/ref/mem target=_blank>Модель памяти Go</a>.</p><p>Вот пример гонки данных, которая может приводить к сбоям и повреждению памяти:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>c</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kt>bool</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>m</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=kt>string</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>m</span><span class=p>[</span><span class=s>&#34;1&#34;</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=s>&#34;a&#34;</span><span class=w> </span><span class=c1>// Первое конфликтующее обращение</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>c</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>m</span><span class=p>[</span><span class=s>&#34;2&#34;</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=s>&#34;b&#34;</span><span class=w> </span><span class=c1>// Второе конфликтующее обращение</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=o>&lt;-</span><span class=nx>c</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>k</span><span class=p>,</span><span class=w> </span><span class=nx>v</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=k>range</span><span class=w> </span><span class=nx>m</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>k</span><span class=p>,</span><span class=w> </span><span class=nx>v</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=использование>Использование</h2><p>Для диагностики таких ошибок Go включает встроенный детектор гонок данных. Чтобы использовать его, добавьте флаг <code>-race</code> к команде go:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ go <span class=nb>test</span> -race mypkg    <span class=c1># для тестирования пакета</span>
+</span></span><span class=line><span class=cl>$ go run -race mysrc.go  <span class=c1># для запуска исходного файла</span>
+</span></span><span class=line><span class=cl>$ go build -race mycmd   <span class=c1># для сборки команды</span>
+</span></span><span class=line><span class=cl>$ go install -race mypkg <span class=c1># для установки пакета</span>
+</span></span></code></pre></td></tr></table></div></div><h2 id=формат-отчета>Формат отчета</h2><p>Когда детектор гонок обнаруживает гонку данных в программе, он выводит отчет. Отчет содержит стектрейсы стека для конфликтующих обращений, а также стеки создания задействованных горутин. Вот пример:</p><pre tabindex=0><code>WARNING: DATA RACE
+Read by goroutine 185:
+  net.(*pollServer).AddFD()
+      src/net/fd_unix.go:89 +0x398
+  net.(*pollServer).WaitWrite()
+      src/net/fd_unix.go:247 +0x45
+  net.(*netFD).Write()
+      src/net/fd_unix.go:540 +0x4d4
+  net.(*conn).Write()
+      src/net/net.go:129 +0x101
+  net.func·060()
+      src/net/timeout_test.go:603 +0xaf
+
+Previous write by goroutine 184:
+  net.setWriteDeadline()
+      src/net/sockopt_posix.go:135 +0xdf
+  net.setDeadline()
+      src/net/sockopt_posix.go:144 +0x9c
+  net.(*conn).SetDeadline()
+      src/net/net.go:161 +0xe3
+  net.func·061()
+      src/net/timeout_test.go:616 +0x3ed
+
+Goroutine 185 (running) created at:
+  net.func·061()
+      src/net/timeout_test.go:609 +0x288
+
+Goroutine 184 (running) created at:
+  net.TestProlongTimeout()
+      src/net/timeout_test.go:618 +0x298
+  testing.tRunner()
+      src/testing/testing.go:301 +0xe8
+</code></pre><h2 id=опции>Опции</h2><p>Переменная окружения <code>GORACE</code> устанавливает опции детектора гонок. Формат:</p><pre tabindex=0><code>GORACE=&#34;option1=val1 option2=val2&#34;
+</code></pre><p>Доступные опции:</p><ul><li><code>log_path</code> (по умолчанию stderr - стандартный поток ошибок): Детектор гонок записывает отчет в файл с именем <code>log_path.pid</code>. Специальные имена <code>stdout</code> и <code>stderr</code> приводят к записи отчетов в стандартный вывод и стандартный вывод ошибок соответственно.</li><li><code>exitcode</code> (по умолчанию 66): Код завершения при выходе после обнаруженной гонки.</li><li><code>strip_path_prefix</code> (по умолчанию &ldquo;&rdquo;): Удаляет этот префикс из всех reported file paths, чтобы сделать отчеты более краткими.</li><li><code>history_size</code> (по умолчанию 1): История обращений к памяти для каждой горутины составляет 32K * 2**history_size элементов. Увеличение этого значения позволяет избежать ошибки &ldquo;failed to restore the stack&rdquo; в отчетах ценой увеличения использования памяти.</li><li><code>halt_on_error</code> (по умолчанию 0): Определяет, должна ли программа завершать работу после сообщения о первой гонке данных.</li><li><code>atexit_sleep_ms</code> (по умолчанию 1000): Количество миллисекунд для ожидания в основной горутине перед выходом.</li></ul><p>Пример:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>$ <span class=nv>GORACE</span><span class=o>=</span><span class=s2>&#34;log_path=/tmp/race/report strip_path_prefix=/my/go/sources/&#34;</span> go <span class=nb>test</span> -race
+</span></span></code></pre></td></tr></table></div></div><h2 id=исключение-тестов>Исключение тестов</h2><p>При сборке с флагом <code>-race</code> команда go определяет дополнительный тег сборки <code>race</code>. Вы можете использовать этот тег для исключения некоторого кода и тестов при запуске детектора гонок. Некоторые примеры:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// +build !race</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kn>package</span><span class=w> </span><span class=nx>foo</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Тест содержит гонку данных. См. issue 123.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>TestFoo</span><span class=p>(</span><span class=nx>t</span><span class=w> </span><span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// ...</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Тест не проходит под детектором гонок из-за таймаутов.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>TestBar</span><span class=p>(</span><span class=nx>t</span><span class=w> </span><span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// ...</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Тест выполняется слишком долго под детектором гонок.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>TestBaz</span><span class=p>(</span><span class=nx>t</span><span class=w> </span><span class=o>*</span><span class=nx>testing</span><span class=p>.</span><span class=nx>T</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=c1>// ...</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=как-использовать>Как использовать</h2><p>Для начала запустите ваши тесты с использованием детектора гонок (<code>go test -race</code>). Детектор гонок находит только гонки, происходящие во время выполнения, поэтому он не может найти гонки в путях выполнения кода, которые не выполняются. Если ваши тесты имеют неполное покрытие, вы можете найти больше гонок, запустив бинарный файл, собранный с <code>-race</code>, под реалистичной рабочей нагрузкой.</p><h2 id=типичные-гонки-данных>Типичные гонки данных</h2><p>Вот некоторые типичные гонки данных. Все они могут быть обнаружены детектором гонок.</p><h3 id=гонка-на-счетчике-цикла>Гонка на счетчике цикла</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>wg</span><span class=w> </span><span class=nx>sync</span><span class=p>.</span><span class=nx>WaitGroup</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>wg</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=kt>int</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=mi>5</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>i</span><span class=p>)</span><span class=w> </span><span class=c1>// Не тот &#39;i&#39;, который вы ищете.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>wg</span><span class=p>.</span><span class=nf>Done</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>wg</span><span class=p>.</span><span class=nf>Wait</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Переменная <code>i</code> в литерале функции - это та же самая переменная, которая используется циклом, поэтому чтение в горутине конфликтует с инкрементом цикла. (Эта программа обычно выводит <code>55555</code>, а не <code>01234</code>). Программу можно исправить, создав копию переменной:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>func</span><span class=w> </span><span class=nf>main</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>wg</span><span class=w> </span><span class=nx>sync</span><span class=p>.</span><span class=nx>WaitGroup</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>wg</span><span class=p>.</span><span class=nf>Add</span><span class=p>(</span><span class=mi>5</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=kd>var</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=kt>int</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>for</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=mi>0</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=mi>5</span><span class=p>;</span><span class=w> </span><span class=nx>i</span><span class=o>++</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>(</span><span class=nx>j</span><span class=w> </span><span class=kt>int</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=nx>j</span><span class=p>)</span><span class=w> </span><span class=c1>// Хорошо. Чтение локальной копии счетчика цикла.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>wg</span><span class=p>.</span><span class=nf>Done</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}(</span><span class=nx>i</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>wg</span><span class=p>.</span><span class=nf>Wait</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=неявно-общая-переменная>Неявно общая переменная</h3><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=c1>// ParallelWrite записывает данные в file1 и file2, возвращает ошибки.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>ParallelWrite</span><span class=p>(</span><span class=nx>data</span><span class=w> </span><span class=p>[]</span><span class=kt>byte</span><span class=p>)</span><span class=w> </span><span class=kd>chan</span><span class=w> </span><span class=kt>error</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>res</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kt>error</span><span class=p>,</span><span class=w> </span><span class=mi>2</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>f1</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>os</span><span class=p>.</span><span class=nf>Create</span><span class=p>(</span><span class=s>&#34;file1&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=kc>nil</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>res</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nx>err</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=c1>// Этот err общий с основной горутиной,</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=c1>// поэтому запись конфликтует с записью ниже.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>f1</span><span class=p>.</span><span class=nf>Write</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>res</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nx>err</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>f1</span><span class=p>.</span><span class=nf>Close</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>f2</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>os</span><span class=p>.</span><span class=nf>Create</span><span class=p>(</span><span class=s>&#34;file2&#34;</span><span class=p>)</span><span class=w> </span><span class=c1>// Вторая конфликтующая запись в err.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>!=</span><span class=w> </span><span class=kc>nil</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nx>res</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nx>err</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>f2</span><span class=p>.</span><span class=nf>Write</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>res</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=nx>err</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>f2</span><span class=p>.</span><span class=nf>Close</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>res</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Исправление заключается в использовании новых переменных в горутинах (обратите внимание на использование <code>:=</code>):</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=w>            </span><span class=o>...</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>f1</span><span class=p>.</span><span class=nf>Write</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=o>...</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>_</span><span class=p>,</span><span class=w> </span><span class=nx>err</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nx>f2</span><span class=p>.</span><span class=nf>Write</span><span class=p>(</span><span class=nx>data</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=o>...</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=незащищенная-глобальная-переменная>Незащищенная глобальная переменная</h3><p>Если следующий код вызывается из нескольких горутин, это приводит к гонкам на карте service. Параллельные чтения и записи одной и той же карты небезопасны:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span><span class=w> </span><span class=nx>service</span><span class=w> </span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=nx>net</span><span class=p>.</span><span class=nx>Addr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>RegisterService</span><span class=p>(</span><span class=nx>name</span><span class=w> </span><span class=kt>string</span><span class=p>,</span><span class=w> </span><span class=nx>addr</span><span class=w> </span><span class=nx>net</span><span class=p>.</span><span class=nx>Addr</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>service</span><span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>addr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>LookupService</span><span class=p>(</span><span class=nx>name</span><span class=w> </span><span class=kt>string</span><span class=p>)</span><span class=w> </span><span class=nx>net</span><span class=p>.</span><span class=nx>Addr</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>service</span><span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Чтобы сделать код безопасным, защитите обращения мьютексом:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>var</span><span class=w> </span><span class=p>(</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>service</span><span class=w>   </span><span class=kd>map</span><span class=p>[</span><span class=kt>string</span><span class=p>]</span><span class=nx>net</span><span class=p>.</span><span class=nx>Addr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>serviceMu</span><span class=w> </span><span class=nx>sync</span><span class=p>.</span><span class=nx>Mutex</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>RegisterService</span><span class=p>(</span><span class=nx>name</span><span class=w> </span><span class=kt>string</span><span class=p>,</span><span class=w> </span><span class=nx>addr</span><span class=w> </span><span class=nx>net</span><span class=p>.</span><span class=nx>Addr</span><span class=p>)</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>serviceMu</span><span class=p>.</span><span class=nf>Lock</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>defer</span><span class=w> </span><span class=nx>serviceMu</span><span class=p>.</span><span class=nf>Unlock</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>service</span><span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>addr</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=nf>LookupService</span><span class=p>(</span><span class=nx>name</span><span class=w> </span><span class=kt>string</span><span class=p>)</span><span class=w> </span><span class=nx>net</span><span class=p>.</span><span class=nx>Addr</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>serviceMu</span><span class=p>.</span><span class=nf>Lock</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>defer</span><span class=w> </span><span class=nx>serviceMu</span><span class=p>.</span><span class=nf>Unlock</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>return</span><span class=w> </span><span class=nx>service</span><span class=p>[</span><span class=nx>name</span><span class=p>]</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=незащищенная-переменная-примитивного-типа>Незащищенная переменная примитивного типа</h3><p>Гонки данных могут происходить и на переменных примитивных типов (<code>bool</code>, <code>int</code>, <code>int64</code> и т.д.), как в этом примере:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span><span class=w> </span><span class=nx>Watchdog</span><span class=w> </span><span class=kd>struct</span><span class=p>{</span><span class=w> </span><span class=nx>last</span><span class=w> </span><span class=kt>int64</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>w</span><span class=w> </span><span class=o>*</span><span class=nx>Watchdog</span><span class=p>)</span><span class=w> </span><span class=nf>KeepAlive</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>w</span><span class=p>.</span><span class=nx>last</span><span class=w> </span><span class=p>=</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>UnixNano</span><span class=p>()</span><span class=w> </span><span class=c1>// Первое конфликтующее обращение.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>w</span><span class=w> </span><span class=o>*</span><span class=nx>Watchdog</span><span class=p>)</span><span class=w> </span><span class=nf>Start</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>for</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=c1>// Второе конфликтующее обращение.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>if</span><span class=w> </span><span class=nx>w</span><span class=p>.</span><span class=nx>last</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>Add</span><span class=p>(</span><span class=o>-</span><span class=mi>10</span><span class=o>*</span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>).</span><span class=nf>UnixNano</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;No keepalives for 10 seconds. Dying.&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nx>os</span><span class=p>.</span><span class=nf>Exit</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Даже такие &ldquo;невинные&rdquo; гонки данных могут приводить к сложным для отладки проблемам, вызванным неатомарностью обращений к памяти, interference с оптимизациями компилятора или проблемами переупорядочения при обращении к памяти процессора.</p><p>Типичное исправление для этой гонки - использование канала или мьютекса. Чтобы сохранить поведение без блокировок, можно также использовать пакет <code>sync/atomic</code>.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=kd>type</span><span class=w> </span><span class=nx>Watchdog</span><span class=w> </span><span class=kd>struct</span><span class=p>{</span><span class=w> </span><span class=nx>last</span><span class=w> </span><span class=kt>int64</span><span class=w> </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>w</span><span class=w> </span><span class=o>*</span><span class=nx>Watchdog</span><span class=p>)</span><span class=w> </span><span class=nf>KeepAlive</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nx>atomic</span><span class=p>.</span><span class=nf>StoreInt64</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>w</span><span class=p>.</span><span class=nx>last</span><span class=p>,</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>UnixNano</span><span class=p>())</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=kd>func</span><span class=w> </span><span class=p>(</span><span class=nx>w</span><span class=w> </span><span class=o>*</span><span class=nx>Watchdog</span><span class=p>)</span><span class=w> </span><span class=nf>Start</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=k>for</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=nx>time</span><span class=p>.</span><span class=nf>Sleep</span><span class=p>(</span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=k>if</span><span class=w> </span><span class=nx>atomic</span><span class=p>.</span><span class=nf>LoadInt64</span><span class=p>(</span><span class=o>&amp;</span><span class=nx>w</span><span class=p>.</span><span class=nx>last</span><span class=p>)</span><span class=w> </span><span class=p>&lt;</span><span class=w> </span><span class=nx>time</span><span class=p>.</span><span class=nf>Now</span><span class=p>().</span><span class=nf>Add</span><span class=p>(</span><span class=o>-</span><span class=mi>10</span><span class=o>*</span><span class=nx>time</span><span class=p>.</span><span class=nx>Second</span><span class=p>).</span><span class=nf>UnixNano</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nx>fmt</span><span class=p>.</span><span class=nf>Println</span><span class=p>(</span><span class=s>&#34;No keepalives for 10 seconds. Dying.&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>                </span><span class=nx>os</span><span class=p>.</span><span class=nf>Exit</span><span class=p>(</span><span class=mi>1</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>            </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=p>}</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h3 id=несинхронизированные-операции-отправки-и-закрытия>Несинхронизированные операции отправки и закрытия</h3><p>Как показывает этот пример, несинхронизированные операции отправки и закрытия на одном и том же канале также могут быть состоянием гонки:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>c</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kd>struct</span><span class=p>{})</span><span class=w> </span><span class=c1>// или буферизированный канал</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// Детектор гонок не может вывести отношение happens before</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// для следующих операций отправки и закрытия. Эти две операции</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=c1>// несинхронизированы и происходят параллельно.</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=nx>c</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kd>struct</span><span class=p>{}{}</span><span class=w> </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nb>close</span><span class=p>(</span><span class=nx>c</span><span class=p>)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><p>Согласно модели памяти Go, отправка в канал происходит до завершения соответствующего приема из этого канала. Чтобы синхронизировать операции отправки и закрытия, используйте операцию приема, которая гарантирует, что отправка завершена до закрытия:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-go data-lang=go><span class=line><span class=cl><span class=nx>c</span><span class=w> </span><span class=o>:=</span><span class=w> </span><span class=nb>make</span><span class=p>(</span><span class=kd>chan</span><span class=w> </span><span class=kd>struct</span><span class=p>{})</span><span class=w> </span><span class=c1>// или буферизированный канал</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=k>go</span><span class=w> </span><span class=kd>func</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w> </span><span class=nx>c</span><span class=w> </span><span class=o>&lt;-</span><span class=w> </span><span class=kd>struct</span><span class=p>{}{}</span><span class=w> </span><span class=p>}()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=o>&lt;-</span><span class=nx>c</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nb>close</span><span class=p>(</span><span class=nx>c</span><span class=p>)</span><span class=w>
+</span></span></span></code></pre></td></tr></table></div></div><h2 id=требования>Требования</h2><p>Детектор гонок требует, чтобы cgo был включен, а в системах, отличных от Darwin, требуется установленный компилятор C. Детектор гонок поддерживает linux/amd64, linux/ppc64le, linux/arm64, linux/s390x, linux/loong64, freebsd/amd64, netbsd/amd64, darwin/amd64, darwin/arm64 и windows/amd64.</p><p>В Windows среда выполнения детектора гонок чувствительна к версии установленного компилятора C; начиная с Go 1.21, сборка программы с <code>-race</code> требует компилятор C, включающий версию 8 или выше библиотек времени выполнения mingw-w64. Вы можете проверить свой компилятор C, вызвав его с аргументами <code>--print-file-name libsynchronization.a</code>. Более новый совместимый компилятор C выведет полный путь к этой библиотеке, тогда как старые компиляторы C просто повторят аргумент.</p><h2 id=накладные-расходы-времени-выполнения>Накладные расходы времени выполнения</h2><p>Стоимость обнаружения гонок варьируется в зависимости от программы, но для типичной программы использование памяти может увеличиться в 5-10 раз, а время выполнения - в 2-20 раз.</p><p>Детектор гонок в настоящее время выделяет дополнительные 8 байт на каждый оператор <code>defer</code> и <code>recover</code>. Эти дополнительные выделения не освобождаются до выхода горутины. Это означает, что если у вас есть долго работающая горутина, которая периодически вызывает <code>defer</code> и <code>recover</code>, использование памяти программой может расти неограниченно. Эти выделения памяти не будут отображаться в выводе <code>runtime.ReadMemStats</code> или <code>runtime/pprof</code>.</p><pre tabindex=0><code></code></pre></div><div class=lesson-meta><p class=article-date><time>30.11.2025</time></p></div><nav class=lesson-navigation><div class=nav-container>📖 <a href=../../docs/blog-maps/ class="nav-btn prev">Работа с map в Go →</a></div></nav><div class=original-doc-link><a href=https://go.dev/doc/articles/race_detector target=_blank rel=noopener>Оригинал статьи на сайте go.dev</a></div></article></div></main><footer class=footer><p>© 2025 Go-Котяра</p></footer></div><script src=../../js/go-playground.min.ba9ba48e8bbe056aa2187849e18077201280e49fb76376d968a29e81e1d9e203.js defer></script></body></html>

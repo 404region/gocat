@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Хэш-Таблица on Go-Котяра - Русскоязычное сообщество Golang</title><link>/tags/%D1%85%D1%8D%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0/</link><description>Recent content in Хэш-Таблица on Go-Котяра - Русскоязычное сообщество Golang</description><generator>Hugo</generator><language>ru-ru</language><lastBuildDate>Sun, 30 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/%D1%85%D1%8D%D1%88-%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D0%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Работа с map в Go</title><link>/docs/blog-maps/</link><pubDate>Sun, 30 Nov 2025 00:00:00 +0000</pubDate><guid>/docs/blog-maps/</guid><description>&lt;p&gt;Эндрю Герранд&lt;br&gt;
+6 февраля 2013&lt;/p&gt;
+&lt;h3 id="введение"&gt;
+Введение
+&lt;/h3&gt;&lt;p&gt;Одной из наиболее полезных структур данных в информатике является &lt;strong&gt;хэш-таблица&lt;/strong&gt;. Существует множество реализаций хэш-таблиц с различными свойствами, но в целом они обеспечивают быстрый поиск, добавление и удаление элементов. В Go предоставляется встроенный тип &lt;code&gt;map&lt;/code&gt;, который реализует хэш-таблицу.&lt;/p&gt;
+&lt;h3 id="объявление-и-инициализация"&gt;
+Объявление и инициализация
+&lt;/h3&gt;&lt;p&gt;Тип map в Go выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="kd"&gt;map&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;KeyType&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="nx"&gt;ValueType&lt;/span&gt;&lt;span class="w"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;где &lt;code&gt;KeyType&lt;/code&gt; может быть любым &lt;strong&gt;сравниваемым&lt;/strong&gt; типом (об этом позже), а &lt;code&gt;ValueType&lt;/code&gt; — любым типом, включая другой map!&lt;/p&gt;</description></item></channel></rss>
